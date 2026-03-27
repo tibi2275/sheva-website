@@ -1,26 +1,427 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+:focus-visible {
+    outline: 2px solid rgb(94, 180, 174);
+    outline-offset: 2px;
+}
+
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Mobile menu toggle */
+#mobile-menu.open {
+    display: block;
+}
+
+/* ── SHEVA brand colors ─────────────────────────────────────── */
+.sheva-header {
+    background: linear-gradient(
+        135deg,
+        rgb(94, 180, 174) 0%,
+        rgb(69, 144, 150) 100%
+    );
+}
+
+.sheva-btn-primary {
+    background: #ff6b35;
+}
+.sheva-btn-primary:hover {
+    background: #f7931e;
+}
+
+.sheva-btn-teal {
+    background: rgb(94, 180, 174);
+}
+.sheva-btn-teal:hover {
+    background: rgb(69, 144, 150);
+}
+
+/* Instagram embed sizing fix */
+.instagram-media {
+    min-width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Bottom nav safe area on iPhone */
+.safe-area-pb {
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Padding bottom on mobile to avoid content hidden behind bottom nav */
+@media (max-width: 1023px) {
+    main {
+        padding-bottom: 4rem;
+    }
+}
+
+/* Desktop/mobile visibility helpers */
+.desktop-nav {
+    display: none !important;
+}
+.mobile-only {
+    display: block;
+}
+@media (min-width: 1024px) {
+    .desktop-nav {
+        display: flex !important;
+    }
+    .mobile-only {
+        display: none !important;
+    }
+    .lg\:hidden {
+        display: none !important;
+    }
+}
+
+/* Preview grid — bento layout */
+.preview-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+.preview-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+    text-decoration: none;
+    display: block;
+    transition:
+        box-shadow 0.2s,
+        transform 0.2s;
+}
+.preview-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+@media (min-width: 640px) {
+    .preview-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (min-width: 1024px) {
+    .preview-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+/* News grid */
+.news-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+.news-article-card:hover .news-article-img {
+    transform: scale(1.04);
+}
+@media (min-width: 640px) {
+    .news-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (min-width: 1024px) {
+    .news-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+/* ── Centre page ── */
+.stats-grid-centre {
+    grid-template-columns: repeat(2, 1fr) !important;
+}
+@media (min-width: 640px) {
+    .stats-grid-centre {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+}
+.centre-two-col {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+@media (min-width: 768px) {
+    .centre-two-col {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+.org-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+@media (min-width: 640px) {
+    .org-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+.installations-grid-new {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+@media (min-width: 640px) {
+    .installations-grid-new {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (min-width: 1024px) {
+    .installations-grid-new {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+.team-grid-new {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+@media (min-width: 640px) {
+    .team-grid-new {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (min-width: 1024px) {
+    .team-grid-new {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+.ca-grid-new {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+@media (min-width: 640px) {
+    .ca-grid-new {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (min-width: 1024px) {
+    .ca-grid-new {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+.footer-grid {
+    grid-template-columns: 1fr;
+}
+@media (min-width: 640px) {
+    .footer-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ── Activités page ── */
+.courses-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+@media (min-width: 768px) {
+    .courses-grid-2 {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+.courses-grid-3 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+@media (min-width: 640px) {
+    .courses-grid-3 {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (min-width: 1024px) {
+    .courses-grid-3 {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+.competition-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+@media (min-width: 640px) {
+    .competition-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (min-width: 1024px) {
+    .competition-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+.galops-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+@media (min-width: 640px) {
+    .galops-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (min-width: 1024px) {
+    .galops-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+.stages-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 0;
+}
+@media (min-width: 640px) {
+    .stages-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (min-width: 1024px) {
+    .stages-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+.equicoaching-banner {
+    grid-template-columns: 1fr !important;
+}
+@media (min-width: 768px) {
+    .equicoaching-banner {
+        grid-template-columns: 300px 1fr !important;
+    }
+}
+
+/* ── Planning page ── */
+.planning-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+@media (min-width: 640px) {
+    .planning-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (min-width: 1024px) {
+    .planning-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+.planning-cal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+@media (max-width: 639px) {
+    .planning-cal-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.planning-notes-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+@media (min-width: 640px) {
+    .planning-notes-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+.tarifs-points-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+@media (min-width: 640px) {
+    .tarifs-points-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (min-width: 1024px) {
+    .tarifs-points-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+.forfaits-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+}
+@media (min-width: 480px) {
+    .forfaits-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (min-width: 900px) {
+    .forfaits-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+.cotis-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+@media (min-width: 480px) {
+    .cotis-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+.annulation-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+@media (max-width: 639px) {
+    .annulation-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Drawer / simulateur animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+@keyframes slideInRight {
+    from { transform: translateX(100%); }
+    to   { transform: translateX(0); }
+}
+
+/* ── Horse card hover effect ── */
+.horse-card-wrap {
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+    cursor: default;
+}
+.horse-card-wrap:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.13) !important;
+}
+.horse-card-wrap .horse-bio-overlay {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+.horse-card-wrap:hover .horse-bio-overlay {
+    opacity: 1;
+    pointer-events: auto;
 }
