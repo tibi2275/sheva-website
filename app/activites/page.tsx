@@ -1,5 +1,4 @@
 import { Nav } from "@/components/Nav";
-import { Footer } from "@/components/Footer";
 import { PhotoGallery } from "@/components/PhotoGallery";
 import Link from "next/link";
 import Image from "next/image";
@@ -70,6 +69,7 @@ function Tag({ children }: { children: React.ReactNode }) {
         </span>
     );
 }
+
 
 
 function CourseCard({
@@ -1811,7 +1811,6 @@ export default function ActivitesPage() {
                     </div>
                 </section>
             </main>
-            <Footer />
         </>
     );
 }
