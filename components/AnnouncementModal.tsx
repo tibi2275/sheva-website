@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -30,17 +30,56 @@ export type Announcement = {
     image?: string;
     label?: string;
     title: string;
-    body: string;
+    body: React.ReactNode;
     ctas?: CtaItem[];
 };
 
 // ★ MODIFIEZ ICI pour changer l'annonce
 export const currentAnnouncement: Announcement = {
-    id: "inscriptions-2026-2027-v11",
+    id: "inscriptions-2026-2027-v13",
     emoji: "🌸",
     label: "Inscriptions",
     title: "Les inscriptions pour la prochaine saison arrivent à grand pas !",
-    body: "Les inscriptions arrivent à grand pas ! Si vous souhaitez nous rejoindre, les inscriptions aux séances d'essais ouvriront le 11 mai 2026. Une réunion d'information est prévue le 6 mai à 20h. Si vous êtes déjà cavalier, rendez vous sur votre espace en ligne à partir du 11 mai 2026.",
+    body: (
+        <>
+            <span>
+                Les inscriptions arrivent très prochaienement ! Si vous
+                souhaitez nous rejoindre, quelques dates à retenir :
+            </span>
+            <br />
+            <span>
+                🗓️ <strong>6 mai à 20h </strong> — Réunion d&apos;information
+            </span>
+            <br />
+            <span>
+                ✨ <strong>11 mai 2026 </strong> — Ouverture des inscriptions
+                aux séances d&apos;essai
+            </span>
+            <br />
+
+            <span>
+                📌 <strong>26 mai </strong> — Ouverture aux nouveaux adhérents
+            </span>
+            <br />
+            <br />
+            <span>
+                Si nous avons l'honneur de déjà vous compter parmi nos
+                adhérents, à vos agendas :
+            </span>
+
+            <span>
+                <br />
+                🔑 <strong>A partir du 11 mai 2026 </strong> — début des
+                inscriptions
+            </span>
+            <br />
+            <br />
+            <span style={{ fontSize: "0.9em", color: "#6b7280" }}>
+                Retrouvez toutes les infos sur les pages{" "}
+                <em>Infos Pratiques</em> et <em>Planning &amp; Tarifs</em>.
+            </span>
+        </>
+    ),
     ctas: [
         {
             label: "Plus d'infos",

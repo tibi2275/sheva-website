@@ -30,7 +30,7 @@ export function ScrollToTop() {
                 aria-label="Retour en haut"
                 style={{
                     position: "fixed",
-                    bottom: 24,
+                    bottom: 80,
                     right: 20,
                     zIndex: 200,
                     width: 40,

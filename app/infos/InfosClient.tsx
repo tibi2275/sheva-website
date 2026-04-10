@@ -6,10 +6,67 @@ import Image from "next/image";
 import { assetPath } from "@/lib/assetPath";
 import { useState } from "react";
 import { Footer } from "@/components/Footer";
+import { TrouverReprise } from "@/components/TrouverReprise";
+import { Simulateur } from "@/components/Simulateur";
 
 // ─── BRAND ────────────────────────────────────────────────────────────────────
 const teal = "rgb(94,180,174)";
 const tealDark = "rgb(69,144,150)";
+
+// ─── NIVEAU TOOLS (boutons FAQ) ───────────────────────────────────────────────
+function NiveauTools() {
+    const [finderOpen, setFinderOpen] = useState(false);
+    const [simOpen, setSimOpen] = useState(false);
+    return (
+        <>
+            <div
+                style={{
+                    display: "flex",
+                    gap: 10,
+                    flexWrap: "wrap",
+                    marginTop: 14,
+                }}
+            >
+                <button
+                    onClick={() => setFinderOpen(true)}
+                    style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: 7,
+                        padding: "9px 18px",
+                        borderRadius: 50,
+                        border: "none",
+                        background: `linear-gradient(135deg, #ff6b35, #e85d20)`,
+                        color: "white",
+                        fontWeight: 700,
+                        fontSize: 13,
+                        cursor: "pointer",
+                        boxShadow: "0 3px 12px rgba(255,107,53,0.3)",
+                    }}
+                >
+                    🔍 Trouver ma reprise
+                </button>
+                {/*<button
+                    onClick={() => setSimOpen(true)}
+                    style={{
+                        display: "inline-flex", alignItems: "center", gap: 7,
+                        padding: "9px 18px", borderRadius: 50, border: "none",
+                        background: `linear-gradient(135deg, ${teal}, ${tealDark})`,
+                        color: "white", fontWeight: 700, fontSize: 13,
+                        cursor: "pointer", boxShadow: "0 3px 12px rgba(94,180,174,0.3)",
+                    }}
+                >
+                    🧮 Simuler mon tarif
+                </button>*/}
+            </div>
+            <TrouverReprise
+                isOpen={finderOpen}
+                onClose={() => setFinderOpen(false)}
+            />
+            <Simulateur isOpen={simOpen} onClose={() => setSimOpen(false)} />
+        </>
+    );
+}
 
 // ─── FAQ DATA ─────────────────────────────────────────────────────────────────
 const FAQ_SECTIONS = [
@@ -41,11 +98,14 @@ const FAQ_SECTIONS = [
                         </a>
                         <br />
                         <a
-                            href={assetPath("/PDF_docs/fiche_niveau_cheval.pdf")}
+                            href={assetPath(
+                                "/PDF_docs/fiche_niveau_cheval.pdf",
+                            )}
                             className="faq-link"
                         >
                             📄 Fiche de niveau Cheval
                         </a>
+                        <NiveauTools />
                     </>
                 ),
             },
@@ -753,7 +813,7 @@ export default function InfosClient() {
                             cursor: "pointer",
                         }}
                     >
-                        📄 Notices PDF
+                        📄 Notices
                     </button>
                 </div>
             </section>
@@ -1104,7 +1164,9 @@ export default function InfosClient() {
                                     }}
                                 >
                                     <Image
-                                        src={assetPath("/images/acces-sheva.avif")}
+                                        src={assetPath(
+                                            "/images/acces-sheva.avif",
+                                        )}
                                         alt="Accès et parking SHEVA"
                                         fill
                                         style={{ objectFit: "cover" }}
@@ -1154,7 +1216,9 @@ export default function InfosClient() {
                         </p>
                         <div style={{ textAlign: "center", marginBottom: 36 }}>
                             <a
-                                href={assetPath("/PDF_docs/Reglement_interieur_SHEVA_2025_v12.pdf")}
+                                href={assetPath(
+                                    "/PDF_docs/Reglement_interieur_SHEVA_2025_v12.pdf",
+                                )}
                                 style={{
                                     display: "inline-block",
                                     background: teal,
@@ -2100,6 +2164,23 @@ export default function InfosClient() {
                             Accédez à votre espace personnel pour gérer tous vos
                             besoins équestres en ligne, 24h/24 et 7j/7.
                         </p>
+                        <button
+                            onClick={() => setNoticesOpen(true)}
+                            style={{
+                                display: "block",
+                                margin: "0 auto 28px",
+                                padding: "8px 18px",
+                                borderRadius: 8,
+                                background: "white",
+                                border: "1px solid white",
+                                color: tealDark,
+                                fontSize: 13,
+                                fontWeight: 700,
+                                cursor: "pointer",
+                            }}
+                        >
+                            📄 Notices d'inscription
+                        </button>
 
                         {/* Fonctionnalités */}
                         <div
