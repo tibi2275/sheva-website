@@ -5,6 +5,7 @@ import { DownloadPopup } from "@/components/DownloadPopup";
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
+import { assetPath } from "@/lib/assetPath";
 
 export const metadata: Metadata = {
     title: "Le Centre Équestre SHEVA",
@@ -367,7 +368,7 @@ function PersonCard({
             >
                 {img ? (
                     <Image
-                        src={img}
+                        src={assetPath(img)}
                         alt={name}
                         fill
                         style={{
@@ -1028,7 +1029,7 @@ export default function CentrePage() {
                                         }}
                                     >
                                         <Image
-                                            src={inst.img}
+                                            src={assetPath(inst.img)}
                                             alt={inst.title}
                                             fill
                                             style={{ objectFit: "cover" }}

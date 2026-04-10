@@ -138,7 +138,7 @@ export function NewsCarousel({ articles }: { articles: Article[] }) {
                                 {/* Photo */}
                                 <div style={{ position: "relative", height: 200, overflow: "hidden" }}>
                                     <Image
-                                        src={article.img}
+                                        src={assetPath(article.img)}
                                         alt={article.title}
                                         fill
                                         sizes={`${CARD_W}px`}
@@ -272,7 +272,7 @@ export function NewsCarousel({ articles }: { articles: Article[] }) {
                         {/* Image hero */}
                         <div style={{ position: "relative", height: 260 }}>
                             <Image
-                                src={modal.img}
+                                src={assetPath(modal.img)}
                                 alt={modal.title}
                                 fill
                                 style={{ objectFit: "cover" }}

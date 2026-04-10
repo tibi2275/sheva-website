@@ -363,7 +363,7 @@ export default function ApreshevaClient() {
                                         }}
                                     >
                                         <Image
-                                            src={r.photo}
+                                            src={assetPath(r.photo)}
                                             alt={r.nom}
                                             fill
                                             style={{

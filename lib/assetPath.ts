@@ -14,5 +14,9 @@
 export const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "/sheva-website";
 
 export function assetPath(path: string): string {
+    // Ne pas préfixer les URLs absolues (http/https) ou les data URIs
+    if (!path || path.startsWith("http") || path.startsWith("//") || path.startsWith("data:")) {
+        return path;
+    }
     return `${basePath}${path}`;
 }

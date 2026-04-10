@@ -360,7 +360,7 @@ function QualityLabels() {
                 {qualityLabels.map((l) => (
                     <Image
                         key={l.alt}
-                        src={l.src}
+                        src={assetPath(l.src)}
                         alt={l.alt}
                         width={72}
                         height={48}
@@ -391,7 +391,7 @@ function QualityLabels() {
                 {ffeLogos.map((l) => (
                     <Image
                         key={l.alt}
-                        src={l.src}
+                        src={assetPath(l.src)}
                         alt={l.alt}
                         width={72}
                         height={48}
@@ -581,7 +581,7 @@ function PreviewSection() {
                                 }}
                             >
                                 <Image
-                                    src={card.img}
+                                    src={assetPath(card.img)}
                                     alt={card.title}
                                     fill
                                     style={{

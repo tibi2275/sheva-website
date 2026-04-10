@@ -515,7 +515,7 @@ function HorseCard({ horse }: { horse: Horse }) {
             {/* ── Photo (full card) ── */}
             {horse.img ? (
                 <Image
-                    src={horse.img}
+                    src={assetPath(horse.img)}
                     alt={horse.name}
                     fill
                     style={{ objectFit: "cover", objectPosition: "center top" }}

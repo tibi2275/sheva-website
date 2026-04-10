@@ -149,7 +149,7 @@ export function Footer() {
                                 rel="noopener noreferrer"
                             >
                                 <Image
-                                    src={l.src}
+                                    src={assetPath(l.src)}
                                     alt={l.alt}
                                     width={72}
                                     height={36}

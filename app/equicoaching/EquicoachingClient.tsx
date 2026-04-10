@@ -508,7 +508,7 @@ export function EquicoachingClient() {
                                         }}
                                     >
                                         <Image
-                                            src={o.img}
+                                            src={assetPath(o.img)}
                                             alt={o.alt}
                                             fill
                                             style={{

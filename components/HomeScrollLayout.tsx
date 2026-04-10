@@ -217,7 +217,7 @@ function ExploreCard({
                 }}
             >
                 <Image
-                    src={card.img}
+                    src={assetPath(card.img)}
                     alt={card.title}
                     fill
                     style={{ objectFit: "cover", transition: "transform 0.6s" }}
@@ -609,7 +609,7 @@ export function HomeScrollLayout() {
                             {row.logos.map((logo) => (
                                 <Image
                                     key={logo.alt}
-                                    src={logo.src}
+                                    src={assetPath(logo.src)}
                                     alt={logo.alt}
                                     width={72}
                                     height={48}

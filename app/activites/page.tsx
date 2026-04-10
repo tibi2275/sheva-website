@@ -100,7 +100,7 @@ function CourseCard({
         >
             <div style={{ position: "relative", height: 180, flexShrink: 0 }}>
                 <Image
-                    src={img}
+                    src={assetPath(img)}
                     alt={title}
                     fill
                     style={{ objectFit: "cover" }}
@@ -884,7 +884,7 @@ export default function ActivitesPage() {
                                         }}
                                     >
                                         <Image
-                                            src={team.img}
+                                            src={assetPath(team.img)}
                                             alt={team.title}
                                             fill
                                             style={{ objectFit: "cover" }}
