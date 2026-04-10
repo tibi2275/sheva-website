@@ -215,8 +215,8 @@ const TARIFS_FORFAITS: {
                 badge: "Poney",
                 note: "Pas de cours pendant les vacances",
                 annuel: { prix: 537, seances: "39 séances" },
-                s1: { prix: null },
-                s2: { prix: null },
+                s1: { prix: null, seances: "" },
+                s2: { prix: null, seances: "" },
             },
             {
                 nom: "Poney Débutant",
@@ -262,8 +262,8 @@ const TARIFS_FORFAITS: {
                 desc: "Cours 1h30 pour G6-G7",
                 badge: "Perf.",
                 annuel: { prix: 1241, seances: "39 + 6 vacances" },
-                s1: { prix: null },
-                s2: { prix: null },
+                s1: { prix: null, seances: "" },
+                s2: { prix: null, seances: "" },
             },
         ],
     },
@@ -2342,7 +2342,7 @@ export default function PlanningClient() {
                                                 {v.dates}
                                             </div>
 
-                                            {v.pdf && (
+                                            {/*v.pdf && (
                                                 <a
                                                     href={v.pdf}
                                                     target="_blank"
@@ -2358,7 +2358,7 @@ export default function PlanningClient() {
                                                 >
                                                     📋 Consulter le planning →
                                                 </a>
-                                            )}
+                                            )*/}
                                         </div>
                                     ))}
                                 </div>
