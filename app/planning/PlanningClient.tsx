@@ -834,18 +834,25 @@ export default function PlanningClient() {
                             position: "relative",
                         }}
                     >
-                        <p
+                        {/* Breadcrumb */}
+                        <div
                             style={{
-                                fontSize: 11,
-                                fontWeight: 700,
-                                letterSpacing: "0.15em",
-                                textTransform: "uppercase" as const,
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                gap: 8,
+                                marginBottom: 20,
+                                fontSize: 13,
                                 color: "rgba(255,255,255,0.7)",
-                                marginBottom: 12,
                             }}
                         >
-                            SAISON {SAISON}
-                        </p>
+                            <Link href="/" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none" }}>
+                                Accueil
+                            </Link>
+                            <span>›</span>
+                            <span style={{ color: "white", fontWeight: 600 }}>Planning & Tarifs</span>
+                        </div>
+
                         <h1
                             style={{
                                 fontSize: "clamp(28px,5vw,42px)",
@@ -926,6 +933,41 @@ export default function PlanningClient() {
                                 🔍 Trouver ma reprise
                             </button>
                         </div>
+
+                        {/* Quick nav */}
+                        <div
+                            style={{
+                                display: "flex",
+                                flexWrap: "wrap",
+                                gap: 10,
+                                justifyContent: "center",
+                                marginTop: 28,
+                            }}
+                        >
+                            {[
+                                { label: "Planning",  href: "#planning" },
+                                { label: "Calendrier", href: "#calendrier" },
+                                { label: "Tarifs",    href: "#tarifs" },
+                                { label: "Annulation", href: "#annulation" },
+                            ].map((l) => (
+                                <a
+                                    key={l.href}
+                                    href={l.href}
+                                    style={{
+                                        padding: "8px 18px",
+                                        borderRadius: 8,
+                                        background: "rgba(255,255,255,0.15)",
+                                        border: "1px solid rgba(255,255,255,0.3)",
+                                        color: "white",
+                                        fontSize: 13,
+                                        fontWeight: 600,
+                                        textDecoration: "none",
+                                    }}
+                                >
+                                    {l.label}
+                                </a>
+                            ))}
+                        </div>
                     </div>
                 </section>
 
@@ -979,7 +1021,7 @@ export default function PlanningClient() {
                         </div>
 
                         {/* Calendrier vacances + forfaits */}
-                        <div className="planning-cal-grid">
+                        <div id="calendrier" className="planning-cal-grid">
                             <div
                                 style={{
                                     background: "white",
