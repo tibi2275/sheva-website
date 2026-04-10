@@ -1104,7 +1104,7 @@ export default function InfosClient() {
                                     }}
                                 >
                                     <Image
-                                        src="/images/acces-sheva.avif"
+                                        src={assetPath("/images/acces-sheva.avif")}
                                         alt="Accès et parking SHEVA"
                                         fill
                                         style={{ objectFit: "cover" }}

@@ -160,10 +160,10 @@ export function HomeScrollLayout() {
             <div style={{ position: "fixed", inset: 0, zIndex: 0 }}>
                 <video
                     autoPlay muted loop playsInline
-                    poster="/images/Images-illustrations/activ-hero.jpeg"
+                    poster={assetPath("/images/Images-illustrations/activ-hero.jpeg")}
                     style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
                 >
-                    <source src="/images/Images-illustrations/herobanner.mp4" type="video/mp4" />
+                    <source src={assetPath("/images/Images-illustrations/herobanner.mp4")} type="video/mp4" />
                 </video>
                 {/* Flou + assombrissement */}
                 <div style={{ position: "absolute", inset: 0, backdropFilter: "blur(3px)", WebkitBackdropFilter: "blur(3px)", background: "rgba(0,0,0,0.38)" }} />

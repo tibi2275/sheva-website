@@ -108,7 +108,7 @@ export default function ApreshevaClient() {
                         }}
                     >
                         <Image
-                            src="/images/logos/apressheva.jpeg"
+                            src={assetPath("/images/logos/apressheva.jpeg")}
                             alt="Logo L'Après SHEVA"
                             width={100}
                             height={100}

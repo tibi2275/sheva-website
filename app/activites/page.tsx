@@ -3,6 +3,7 @@ import { PhotoGallery } from "@/components/PhotoGallery";
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
+import { assetPath } from "@/lib/assetPath";
 
 export const metadata: Metadata = {
     title: "Activités équestres | Cours, stages et loisirs — SHEVA",
@@ -415,7 +416,9 @@ export default function ActivitesPage() {
                                         }}
                                     >
                                         <Image
-                                            src="/images/Images-illustrations/activites-illustration.avif"
+                                            src={assetPath(
+                                                "/images/Images-illustrations/activites-illustration.avif",
+                                            )}
                                             alt="Éveil Poney"
                                             fill
                                             style={{ objectFit: "cover" }}
@@ -1310,7 +1313,9 @@ export default function ActivitesPage() {
                                     }}
                                 >
                                     <Image
-                                        src="/images/Images-illustrations/challenge.JPG"
+                                        src={assetPath(
+                                            "/images/Images-illustrations/challenge.JPG",
+                                        )}
                                         alt="Challenge Interne"
                                         fill
                                         style={{ objectFit: "cover" }}
@@ -1440,7 +1445,9 @@ export default function ActivitesPage() {
                                     }}
                                 >
                                     <Image
-                                        src="/images/Images-illustrations/stages.jpg"
+                                        src={assetPath(
+                                            "/images/Images-illustrations/stages.jpg",
+                                        )}
                                         alt="Stages SHEVA"
                                         fill
                                         style={{ objectFit: "cover" }}
@@ -1561,7 +1568,9 @@ export default function ActivitesPage() {
                                     }}
                                 >
                                     <Image
-                                        src="/images/Images-illustrations/sorties-act.jpeg"
+                                        src={assetPath(
+                                            "/images/Images-illustrations/sorties-act.jpeg",
+                                        )}
                                         alt="Sorties extérieures"
                                         fill
                                         style={{ objectFit: "cover" }}
@@ -1676,7 +1685,9 @@ export default function ActivitesPage() {
                                 style={{ position: "relative", minHeight: 220 }}
                             >
                                 <Image
-                                    src="/images/equicoaching/IMG_5225.JPEG"
+                                    src={assetPath(
+                                        "/images/equicoaching/IMG_5225.JPEG",
+                                    )}
                                     alt="Équicoaching SHEVA"
                                     fill
                                     style={{ objectFit: "cover" }}

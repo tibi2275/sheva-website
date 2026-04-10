@@ -308,7 +308,7 @@ export function EquicoachingClient() {
                             }}
                         >
                             <Image
-                                src="/images/equicoaching/Elsa Florence et Valentin.JPEG"
+                                src={assetPath("/images/equicoaching/Elsa Florence et Valentin.JPEG")}
                                 alt="Séance d'équicoaching à la SHEVA"
                                 fill
                                 style={{ objectFit: "cover", objectPosition: "center" }}
@@ -347,7 +347,7 @@ export function EquicoachingClient() {
                                 }}
                             >
                                 <Image
-                                    src="/images/equicoaching/IMG_4097.JPEG"
+                                    src={assetPath("/images/equicoaching/IMG_4097.JPEG")}
                                     alt="Connexion humain-cheval en équicoaching"
                                     fill
                                     style={{ objectFit: "cover", objectPosition: "center" }}
@@ -637,7 +637,7 @@ export function EquicoachingClient() {
                                 }}
                             >
                                 <Image
-                                    src="/images/equicoaching/IMG_5225.JPEG"
+                                    src={assetPath("/images/equicoaching/IMG_5225.JPEG")}
                                     alt="Elsa Dogliotti — Sementis Équicoaching"
                                     fill
                                     style={{ objectFit: "cover", objectPosition: "center top" }}
