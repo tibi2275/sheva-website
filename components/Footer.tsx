@@ -1,5 +1,6 @@
 "use client";
 
+import { assetPath } from "@/lib/assetPath";
 import Image from "next/image";
 
 const partnerLogos = [
