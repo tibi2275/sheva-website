@@ -9,7 +9,7 @@ const basePath =
 
 const nextConfig = {
     output: "export",
-    basePath,
+    basePath: basePath,
     images: {
         // Obligatoire pour output: "export" — désactive l'API /_next/image
         // qui n'existe pas dans un export statique (GitHub Pages, serve…)
