@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { assetPath } from "@/lib/assetPath";
 
 export type Article = {
     date: string;
@@ -29,17 +30,29 @@ export function NewsCarousel({ articles }: { articles: Article[] }) {
     // Index visible pour les dots
     const dotIndex = ((rawIndex % n) + n) % n;
 
-    const next = () => { setAnimated(true); setRawIndex(r => r + 1); };
-    const prev = () => { setAnimated(true); setRawIndex(r => r - 1); };
+    const next = () => {
+        setAnimated(true);
+        setRawIndex((r) => r + 1);
+    };
+    const prev = () => {
+        setAnimated(true);
+        setRawIndex((r) => r - 1);
+    };
 
     // Saut silencieux quand on atteint les bords du triple tableau
     useEffect(() => {
         if (rawIndex >= n * 2) {
-            const t = setTimeout(() => { setAnimated(false); setRawIndex(rawIndex - n); }, 520);
+            const t = setTimeout(() => {
+                setAnimated(false);
+                setRawIndex(rawIndex - n);
+            }, 520);
             return () => clearTimeout(t);
         }
         if (rawIndex < n) {
-            const t = setTimeout(() => { setAnimated(false); setRawIndex(rawIndex + n); }, 520);
+            const t = setTimeout(() => {
+                setAnimated(false);
+                setRawIndex(rawIndex + n);
+            }, 520);
             return () => clearTimeout(t);
         }
     }, [rawIndex, n]);
@@ -62,7 +75,9 @@ export function NewsCarousel({ articles }: { articles: Article[] }) {
     // Escape pour fermer le modal
     useEffect(() => {
         if (!modal) return;
-        const fn = (e: KeyboardEvent) => { if (e.key === "Escape") setModal(null); };
+        const fn = (e: KeyboardEvent) => {
+            if (e.key === "Escape") setModal(null);
+        };
         window.addEventListener("keydown", fn);
         return () => window.removeEventListener("keydown", fn);
     }, [modal]);
@@ -73,21 +88,42 @@ export function NewsCarousel({ articles }: { articles: Article[] }) {
         <>
             {/* ── Carrousel ─────────────────────────────── */}
             <div
-                style={{ position: "relative", overflow: "hidden", paddingTop: 8, paddingBottom: 8 }}
+                style={{
+                    position: "relative",
+                    overflow: "hidden",
+                    paddingTop: 8,
+                    paddingBottom: 8,
+                }}
                 onMouseEnter={() => setPaused(true)}
                 onMouseLeave={() => setPaused(false)}
             >
                 {/* Dégradés latéraux */}
-                <div style={{
-                    position: "absolute", left: 0, top: 0, bottom: 0, width: 64,
-                    background: "linear-gradient(to right, #fafbfb, transparent)",
-                    zIndex: 2, pointerEvents: "none",
-                }} />
-                <div style={{
-                    position: "absolute", right: 0, top: 0, bottom: 0, width: 64,
-                    background: "linear-gradient(to left, #fafbfb, transparent)",
-                    zIndex: 2, pointerEvents: "none",
-                }} />
+                <div
+                    style={{
+                        position: "absolute",
+                        left: 0,
+                        top: 0,
+                        bottom: 0,
+                        width: 64,
+                        background:
+                            "linear-gradient(to right, #fafbfb, transparent)",
+                        zIndex: 2,
+                        pointerEvents: "none",
+                    }}
+                />
+                <div
+                    style={{
+                        position: "absolute",
+                        right: 0,
+                        top: 0,
+                        bottom: 0,
+                        width: 64,
+                        background:
+                            "linear-gradient(to left, #fafbfb, transparent)",
+                        zIndex: 2,
+                        pointerEvents: "none",
+                    }}
+                />
 
                 {/* Track */}
                 <div
@@ -97,7 +133,8 @@ export function NewsCarousel({ articles }: { articles: Article[] }) {
                     }}
                     onTouchEnd={(e) => {
                         if (touchStartX.current === null) return;
-                        const delta = e.changedTouches[0].clientX - touchStartX.current;
+                        const delta =
+                            e.changedTouches[0].clientX - touchStartX.current;
                         if (delta < -SWIPE_THRESHOLD) next();
                         else if (delta > SWIPE_THRESHOLD) prev();
                         touchStartX.current = null;
@@ -106,7 +143,9 @@ export function NewsCarousel({ articles }: { articles: Article[] }) {
                         display: "flex",
                         gap: CARD_GAP,
                         transform: `translateX(calc(50vw - ${CARD_W / 2}px + ${translateX}px))`,
-                        transition: animated ? "transform 0.52s cubic-bezier(0.4, 0, 0.2, 1)" : "none",
+                        transition: animated
+                            ? "transform 0.52s cubic-bezier(0.4, 0, 0.2, 1)"
+                            : "none",
                         willChange: "transform",
                     }}
                 >
@@ -116,7 +155,11 @@ export function NewsCarousel({ articles }: { articles: Article[] }) {
                             <div
                                 key={i}
                                 onClick={() => {
-                                    if (!isCenter) { setRawIndex(i); setAnimated(true); return; }
+                                    if (!isCenter) {
+                                        setRawIndex(i);
+                                        setAnimated(true);
+                                        return;
+                                    }
                                     setModal(article);
                                     setPaused(true);
                                 }}
@@ -129,14 +172,23 @@ export function NewsCarousel({ articles }: { articles: Article[] }) {
                                     boxShadow: isCenter
                                         ? "0 8px 24px rgba(0,0,0,0.11)"
                                         : "0 1px 6px rgba(0,0,0,0.05)",
-                                    transform: isCenter ? "scale(1.015)" : "scale(0.985)",
-                                    transition: "transform 0.4s ease, box-shadow 0.4s ease",
+                                    transform: isCenter
+                                        ? "scale(1.015)"
+                                        : "scale(0.985)",
+                                    transition:
+                                        "transform 0.4s ease, box-shadow 0.4s ease",
                                     overflow: "hidden",
                                     cursor: "pointer",
                                 }}
                             >
                                 {/* Photo */}
-                                <div style={{ position: "relative", height: 200, overflow: "hidden" }}>
+                                <div
+                                    style={{
+                                        position: "relative",
+                                        height: 200,
+                                        overflow: "hidden",
+                                    }}
+                                >
                                     <Image
                                         src={assetPath(article.img)}
                                         alt={article.title}
@@ -144,43 +196,71 @@ export function NewsCarousel({ articles }: { articles: Article[] }) {
                                         sizes={`${CARD_W}px`}
                                         style={{ objectFit: "cover" }}
                                     />
-                                    <span style={{
-                                        position: "absolute", top: 12, left: 12,
-                                        padding: "4px 10px",
-                                        background: "linear-gradient(45deg, #ff6b35, #f7931e)",
-                                        color: "white", fontSize: 11, fontWeight: 700, borderRadius: 8,
-                                        letterSpacing: "0.3px",
-                                    }}>
+                                    <span
+                                        style={{
+                                            position: "absolute",
+                                            top: 12,
+                                            left: 12,
+                                            padding: "4px 10px",
+                                            background:
+                                                "linear-gradient(45deg, #ff6b35, #f7931e)",
+                                            color: "white",
+                                            fontSize: 11,
+                                            fontWeight: 700,
+                                            borderRadius: 8,
+                                            letterSpacing: "0.3px",
+                                        }}
+                                    >
                                         Actualité
                                     </span>
                                 </div>
 
                                 {/* Texte */}
                                 <div style={{ padding: "16px 20px 20px" }}>
-                                    <time style={{ fontSize: 11, color: "#9ca3af", letterSpacing: "0.3px" }}>
+                                    <time
+                                        style={{
+                                            fontSize: 11,
+                                            color: "#9ca3af",
+                                            letterSpacing: "0.3px",
+                                        }}
+                                    >
                                         {article.date}
                                     </time>
-                                    <h3 style={{
-                                        fontSize: 15, fontWeight: 700,
-                                        color: "rgb(30,41,59)",
-                                        margin: "6px 0 8px", lineHeight: 1.4,
-                                    }}>
+                                    <h3
+                                        style={{
+                                            fontSize: 15,
+                                            fontWeight: 700,
+                                            color: "rgb(30,41,59)",
+                                            margin: "6px 0 8px",
+                                            lineHeight: 1.4,
+                                        }}
+                                    >
                                         {article.title}
                                     </h3>
-                                    <p style={{
-                                        fontSize: 13, color: "#6b7280", lineHeight: 1.65,
-                                        display: "-webkit-box",
-                                        WebkitLineClamp: 3,
-                                        WebkitBoxOrient: "vertical",
-                                        overflow: "hidden",
-                                    }}>
+                                    <p
+                                        style={{
+                                            fontSize: 13,
+                                            color: "#6b7280",
+                                            lineHeight: 1.65,
+                                            display: "-webkit-box",
+                                            WebkitLineClamp: 3,
+                                            WebkitBoxOrient: "vertical",
+                                            overflow: "hidden",
+                                        }}
+                                    >
                                         {article.excerpt}
                                     </p>
-                                    <span style={{
-                                        display: "inline-flex", alignItems: "center",
-                                        gap: 4, marginTop: 14, fontSize: 13,
-                                        fontWeight: 700, color: "#ff6b35",
-                                    }}>
+                                    <span
+                                        style={{
+                                            display: "inline-flex",
+                                            alignItems: "center",
+                                            gap: 4,
+                                            marginTop: 14,
+                                            fontSize: 13,
+                                            fontWeight: 700,
+                                            color: "#ff6b35",
+                                        }}
+                                    >
                                         Lire la suite →
                                     </span>
                                 </div>
@@ -191,19 +271,33 @@ export function NewsCarousel({ articles }: { articles: Article[] }) {
             </div>
 
             {/* ── Navigation ───────────────────────────── */}
-            <div style={{
-                display: "flex", alignItems: "center",
-                justifyContent: "center", gap: 12, marginTop: 20,
-            }}>
+            <div
+                style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: 12,
+                    marginTop: 20,
+                }}
+            >
                 <button
-                    onClick={() => { prev(); setPaused(true); }}
+                    onClick={() => {
+                        prev();
+                        setPaused(true);
+                    }}
                     aria-label="Article précédent"
                     style={{
-                        width: 36, height: 36, borderRadius: "50%",
+                        width: 36,
+                        height: 36,
+                        borderRadius: "50%",
                         border: "1.5px solid rgba(94,180,174,0.4)",
-                        background: "white", color: "rgb(69,144,150)",
-                        fontSize: 18, cursor: "pointer",
-                        display: "flex", alignItems: "center", justifyContent: "center",
+                        background: "white",
+                        color: "rgb(69,144,150)",
+                        fontSize: 18,
+                        cursor: "pointer",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
                         lineHeight: 1,
                     }}
                 >
@@ -214,28 +308,48 @@ export function NewsCarousel({ articles }: { articles: Article[] }) {
                     {articles.map((_, i) => (
                         <button
                             key={i}
-                            onClick={() => { setRawIndex(n + i); setAnimated(true); setPaused(true); }}
+                            onClick={() => {
+                                setRawIndex(n + i);
+                                setAnimated(true);
+                                setPaused(true);
+                            }}
                             aria-label={`Article ${i + 1}`}
                             style={{
                                 width: i === dotIndex ? 20 : 6,
-                                height: 6, borderRadius: 3, border: "none",
-                                background: i === dotIndex ? "rgb(94,180,174)" : "rgba(94,180,174,0.3)",
-                                cursor: "pointer", padding: 0,
-                                transition: "width 0.3s ease, background 0.3s ease",
+                                height: 6,
+                                borderRadius: 3,
+                                border: "none",
+                                background:
+                                    i === dotIndex
+                                        ? "rgb(94,180,174)"
+                                        : "rgba(94,180,174,0.3)",
+                                cursor: "pointer",
+                                padding: 0,
+                                transition:
+                                    "width 0.3s ease, background 0.3s ease",
                             }}
                         />
                     ))}
                 </div>
 
                 <button
-                    onClick={() => { next(); setPaused(true); }}
+                    onClick={() => {
+                        next();
+                        setPaused(true);
+                    }}
                     aria-label="Article suivant"
                     style={{
-                        width: 36, height: 36, borderRadius: "50%",
+                        width: 36,
+                        height: 36,
+                        borderRadius: "50%",
                         border: "1.5px solid rgba(94,180,174,0.4)",
-                        background: "white", color: "rgb(69,144,150)",
-                        fontSize: 18, cursor: "pointer",
-                        display: "flex", alignItems: "center", justifyContent: "center",
+                        background: "white",
+                        color: "rgb(69,144,150)",
+                        fontSize: 18,
+                        cursor: "pointer",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
                         lineHeight: 1,
                     }}
                 >
@@ -248,9 +362,13 @@ export function NewsCarousel({ articles }: { articles: Article[] }) {
                 <div
                     onClick={() => setModal(null)}
                     style={{
-                        position: "fixed", inset: 0, zIndex: 200,
+                        position: "fixed",
+                        inset: 0,
+                        zIndex: 200,
                         background: "rgba(0,0,0,0.72)",
-                        display: "flex", alignItems: "center", justifyContent: "center",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
                         padding: 16,
                         backdropFilter: "blur(4px)",
                         WebkitBackdropFilter: "blur(4px)",
@@ -278,16 +396,28 @@ export function NewsCarousel({ articles }: { articles: Article[] }) {
                                 style={{ objectFit: "cover" }}
                                 sizes="680px"
                             />
-                            <div style={{
-                                position: "absolute", inset: 0,
-                                background: "linear-gradient(to bottom, transparent 55%, rgba(0,0,0,0.35))",
-                            }} />
-                            <span style={{
-                                position: "absolute", top: 16, left: 16,
-                                padding: "4px 10px",
-                                background: "linear-gradient(45deg, #ff6b35, #f7931e)",
-                                color: "white", fontSize: 11, fontWeight: 700, borderRadius: 8,
-                            }}>
+                            <div
+                                style={{
+                                    position: "absolute",
+                                    inset: 0,
+                                    background:
+                                        "linear-gradient(to bottom, transparent 55%, rgba(0,0,0,0.35))",
+                                }}
+                            />
+                            <span
+                                style={{
+                                    position: "absolute",
+                                    top: 16,
+                                    left: 16,
+                                    padding: "4px 10px",
+                                    background:
+                                        "linear-gradient(45deg, #ff6b35, #f7931e)",
+                                    color: "white",
+                                    fontSize: 11,
+                                    fontWeight: 700,
+                                    borderRadius: 8,
+                                }}
+                            >
                                 Actualité
                             </span>
                         </div>
@@ -297,12 +427,20 @@ export function NewsCarousel({ articles }: { articles: Article[] }) {
                             onClick={() => setModal(null)}
                             aria-label="Fermer"
                             style={{
-                                position: "absolute", top: 16, right: 16,
-                                width: 36, height: 36, borderRadius: "50%",
+                                position: "absolute",
+                                top: 16,
+                                right: 16,
+                                width: 36,
+                                height: 36,
+                                borderRadius: "50%",
                                 background: "rgba(0,0,0,0.45)",
-                                border: "none", color: "white",
-                                fontSize: 16, cursor: "pointer",
-                                display: "flex", alignItems: "center", justifyContent: "center",
+                                border: "none",
+                                color: "white",
+                                fontSize: 16,
+                                cursor: "pointer",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
                             }}
                         >
                             ✕
@@ -310,20 +448,34 @@ export function NewsCarousel({ articles }: { articles: Article[] }) {
 
                         {/* Contenu */}
                         <div style={{ padding: "28px 28px 36px" }}>
-                            <time style={{ fontSize: 12, color: "#9ca3af", letterSpacing: "0.3px" }}>
+                            <time
+                                style={{
+                                    fontSize: 12,
+                                    color: "#9ca3af",
+                                    letterSpacing: "0.3px",
+                                }}
+                            >
                                 {modal.date}
                             </time>
-                            <h2 style={{
-                                fontSize: 22, fontWeight: 800,
-                                color: "rgb(30,41,59)",
-                                margin: "8px 0 20px", lineHeight: 1.3,
-                            }}>
+                            <h2
+                                style={{
+                                    fontSize: 22,
+                                    fontWeight: 800,
+                                    color: "rgb(30,41,59)",
+                                    margin: "8px 0 20px",
+                                    lineHeight: 1.3,
+                                }}
+                            >
                                 {modal.title}
                             </h2>
-                            <div style={{
-                                fontSize: 15, color: "#374151",
-                                lineHeight: 1.85, whiteSpace: "pre-line",
-                            }}>
+                            <div
+                                style={{
+                                    fontSize: 15,
+                                    color: "#374151",
+                                    lineHeight: 1.85,
+                                    whiteSpace: "pre-line",
+                                }}
+                            >
                                 {modal.body}
                             </div>
                         </div>

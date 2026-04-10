@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { assetPath } from "@/lib/assetPath";
 
 const SWIPE_THRESHOLD = 50; // px minimum pour déclencher un swipe
 
@@ -134,7 +135,9 @@ export function PhotoGallery() {
                         }}
                         onTouchEnd={(e) => {
                             if (carouselTouchStartX.current === null) return;
-                            const delta = e.changedTouches[0].clientX - carouselTouchStartX.current;
+                            const delta =
+                                e.changedTouches[0].clientX -
+                                carouselTouchStartX.current;
                             if (delta < -SWIPE_THRESHOLD) next();
                             else if (delta > SWIPE_THRESHOLD) prev();
                             carouselTouchStartX.current = null;
@@ -175,7 +178,9 @@ export function PhotoGallery() {
                                     }}
                                 >
                                     <Image
-                                        src={assetPath(`/images/Images-illustrations/${photo}`)}
+                                        src={assetPath(
+                                            `/images/Images-illustrations/${photo}`,
+                                        )}
                                         alt={`Photo ${realIndex + 1}`}
                                         fill
                                         sizes="340px"
@@ -282,13 +287,21 @@ export function PhotoGallery() {
                     }}
                     onTouchEnd={(e) => {
                         if (lightboxTouchStartX.current === null) return;
-                        const delta = e.changedTouches[0].clientX - lightboxTouchStartX.current;
+                        const delta =
+                            e.changedTouches[0].clientX -
+                            lightboxTouchStartX.current;
                         if (delta < -SWIPE_THRESHOLD) {
                             e.stopPropagation();
-                            setLightbox((i) => i !== null ? (i + 1) % photos.length : null);
+                            setLightbox((i) =>
+                                i !== null ? (i + 1) % photos.length : null,
+                            );
                         } else if (delta > SWIPE_THRESHOLD) {
                             e.stopPropagation();
-                            setLightbox((i) => i !== null ? (i - 1 + photos.length) % photos.length : null);
+                            setLightbox((i) =>
+                                i !== null
+                                    ? (i - 1 + photos.length) % photos.length
+                                    : null,
+                            );
                         }
                         lightboxTouchStartX.current = null;
                     }}
@@ -341,7 +354,9 @@ export function PhotoGallery() {
                         }}
                     >
                         <Image
-                            src={assetPath(`/images/Images-illustrations/${photos[lightbox]}`)}
+                            src={assetPath(
+                                `/images/Images-illustrations/${photos[lightbox]}`,
+                            )}
                             alt={`Photo ${lightbox + 1}`}
                             fill
                             style={{ objectFit: "contain" }}
