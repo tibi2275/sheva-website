@@ -175,7 +175,7 @@ export function PhotoGallery() {
                                     }}
                                 >
                                     <Image
-                                        src={assetPath(`/images/Images-illustrations/${photo)}`}
+                                        src={assetPath(`/images/Images-illustrations/${photo}`)}
                                         alt={`Photo ${realIndex + 1}`}
                                         fill
                                         sizes="340px"
@@ -341,7 +341,7 @@ export function PhotoGallery() {
                         }}
                     >
                         <Image
-                            src={assetPath(`/images/Images-illustrations/${photos[lightbox])}`}
+                            src={assetPath(`/images/Images-illustrations/${photos[lightbox]}`)}
                             alt={`Photo ${lightbox + 1}`}
                             fill
                             style={{ objectFit: "contain" }}
