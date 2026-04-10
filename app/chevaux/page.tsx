@@ -4,6 +4,7 @@ import { PhotoGallery } from "@/components/PhotoGallery";
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
+import { assetPath } from "@/lib/assetPath";
 
 export const metadata: Metadata = {
     title: "Nos Chevaux & Poneys | SHEVA - Pôle équestre Paris Val-de-Marne",
@@ -1730,7 +1731,7 @@ export default function ChevauxPage() {
                                 }}
                             >
                                 <a
-                                    href="/PDF_docs/Bull Adhesion ApresSHEVA 2026.pdf"
+                                    href={assetPath("/PDF_docs/Bull Adhesion ApresSHEVA 2026.pdf")}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     style={{

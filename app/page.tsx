@@ -3,6 +3,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { assetPath } from "@/lib/assetPath";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { AnnouncementModal } from "@/components/AnnouncementModal";
@@ -187,10 +188,10 @@ function Hero() {
                 muted
                 loop
                 playsInline
-                poster="/images/Images-illustrations/activ-hero.jpeg"
+                poster={assetPath("/images/Images-illustrations/activ-hero.jpeg")}
             >
                 <source
-                    src="/images/Images-illustrations/herobanner.mp4"
+                    src={assetPath("/images/Images-illustrations/herobanner.mp4")}
                     type="video/mp4"
                 />
             </video>

@@ -4,6 +4,7 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import Link from "next/link";
 import { useState, useEffect, useCallback } from "react";
+import { assetPath } from "@/lib/assetPath";
 import React from "react";
 import { Noto_Sans_Old_Italic } from "next/font/google";
 
@@ -40,7 +41,7 @@ const VACANCES = [
         detail: "reprises de vacances",
         dates: "Du 8 février au 21 février 2027",
         type: "vacances",
-        // pdf: "/PDF_docs/Reprises Vacances Hiver 2026.pdf",
+        // pdf: "/PDF_docs/Reprises Vacances Hiver 2026.pdf")},
     },
     {
         nom: "Vacances de printemps",
@@ -2597,7 +2598,7 @@ export default function PlanningClient() {
                             Tarifs valables pour la saison {SAISON}. Consultez
                             nos{" "}
                             <a
-                                href="/PDF_docs/Conditions Generales de Vente.pdf"
+                                href={assetPath("/PDF_docs/Conditions Generales de Vente.pdf")}
                                 style={{
                                     color: teal,
                                     fontWeight: 600,
@@ -3186,7 +3187,7 @@ export default function PlanningClient() {
 
                                 <div style={{ textAlign: "center" }}>
                                     <a
-                                        href="/PDF_docs/Conditions Generales de Vente.pdf"
+                                        href={assetPath("/PDF_docs/Conditions Generales de Vente.pdf")}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         style={{
@@ -3497,7 +3498,7 @@ export default function PlanningClient() {
                                 </div>
                                 <div style={{ marginTop: 20 }}>
                                     <a
-                                        href="/PDF_docs/Conditions Generales de Vente.pdf"
+                                        href={assetPath("/PDF_docs/Conditions Generales de Vente.pdf")}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         style={{
@@ -3599,11 +3600,11 @@ export default function PlanningClient() {
                                 >
                                     {[
                                         {
-                                            href: "/PDF_docs/Notice_assu.pdf",
+                                            href: assetPath("/PDF_docs/Notice_assu.pdf"),
                                             label: "📋 Notice assurance",
                                         },
                                         {
-                                            href: "/PDF_docs/assu_infocontractuelles.pdf",
+                                            href: assetPath("/PDF_docs/assu_infocontractuelles.pdf"),
                                             label: "📄 Fiche contractuelle",
                                         },
                                     ].map(({ href, label }) => (

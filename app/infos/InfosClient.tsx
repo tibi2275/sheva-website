@@ -3,6 +3,7 @@
 import { Nav } from "@/components/Nav";
 import Link from "next/link";
 import Image from "next/image";
+import { assetPath } from "@/lib/assetPath";
 import { useState } from "react";
 import { Footer } from "@/components/Footer";
 
@@ -33,14 +34,14 @@ const FAQ_SECTIONS = [
                         <br />
                         <br />
                         <a
-                            href="/PDF_docs/fiche_niveau_poney.pdf"
+                            href={assetPath("/PDF_docs/fiche_niveau_poney.pdf")}
                             className="faq-link"
                         >
                             📄 Fiche de niveau Poney
                         </a>
                         <br />
                         <a
-                            href="/PDF_docs/fiche_niveau_cheval.pdf"
+                            href={assetPath("/PDF_docs/fiche_niveau_cheval.pdf")}
                             className="faq-link"
                         >
                             📄 Fiche de niveau Cheval
@@ -1153,7 +1154,7 @@ export default function InfosClient() {
                         </p>
                         <div style={{ textAlign: "center", marginBottom: 36 }}>
                             <a
-                                href="/PDF_docs/Reglement_interieur_SHEVA_2025_v12.pdf"
+                                href={assetPath("/PDF_docs/Reglement_interieur_SHEVA_2025_v12.pdf")}
                                 style={{
                                     display: "inline-block",
                                     background: teal,
@@ -2565,7 +2566,7 @@ export default function InfosClient() {
                                 {NOTICES.map((n) => (
                                     <a
                                         key={n.href}
-                                        href={n.href}
+                                        href={assetPath(n.href)}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         style={{
