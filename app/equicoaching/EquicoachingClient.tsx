@@ -4,6 +4,7 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import Link from "next/link";
 import Image from "next/image";
+import { assetPath } from "@/lib/assetPath";
 
 // ─── BRAND ────────────────────────────────────────────────────────────────────
 const teal = "rgb(94,180,174)";
@@ -136,7 +137,6 @@ export function EquicoachingClient() {
         <>
             <Nav />
             <main style={{ paddingTop: 64 }}>
-
                 {/* ── HERO ──────────────────────────────────────────────────── */}
                 <section
                     style={{
@@ -170,14 +170,20 @@ export function EquicoachingClient() {
                     >
                         <Link
                             href="/"
-                            style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none" }}
+                            style={{
+                                color: "rgba(255,255,255,0.7)",
+                                textDecoration: "none",
+                            }}
                         >
                             Accueil
                         </Link>
                         {" › "}
                         <Link
                             href="/activites"
-                            style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none" }}
+                            style={{
+                                color: "rgba(255,255,255,0.7)",
+                                textDecoration: "none",
+                            }}
                         >
                             Activités
                         </Link>
@@ -205,7 +211,8 @@ export function EquicoachingClient() {
                             lineHeight: 1.6,
                         }}
                     >
-                        Une approche unique de développement personnel accompagné par le cheval
+                        Une approche unique de développement personnel
+                        accompagné par le cheval
                     </p>
 
                     {/* Quicklinks */}
@@ -273,8 +280,9 @@ export function EquicoachingClient() {
                                 }}
                             >
                                 <p>
-                                    L'équicoaching est une méthode de coaching et de développement
-                                    personnel facilitée par les chevaux. Lors des séances ou stages,
+                                    L'équicoaching est une méthode de coaching
+                                    et de développement personnel facilitée par
+                                    les chevaux. Lors des séances ou stages,
                                     tout se déroule{" "}
                                     <strong style={{ color: "rgb(15,23,42)" }}>
                                         à pied avec le cheval
@@ -282,16 +290,19 @@ export function EquicoachingClient() {
                                     — aucune expérience équestre n'est requise.
                                 </p>
                                 <p>
-                                    En session individuelle ou en petit groupe, on peut aborder des
-                                    thèmes personnels ou professionnels : confiance en soi,
-                                    reconnexion à soi, assertivité, créativité, leadership, travail
-                                    en équipe, management ou teambuilding.
+                                    En session individuelle ou en petit groupe,
+                                    on peut aborder des thèmes personnels ou
+                                    professionnels : confiance en soi,
+                                    reconnexion à soi, assertivité, créativité,
+                                    leadership, travail en équipe, management ou
+                                    teambuilding.
                                 </p>
                                 <p>
-                                    La SHEVA a souhaité proposer ces activités car l'équicoaching
-                                    permet d'établir une{" "}
+                                    La SHEVA a souhaité proposer ces activités
+                                    car l'équicoaching permet d'établir une{" "}
                                     <strong style={{ color: "rgb(15,23,42)" }}>
-                                        relation différente entre l'humain et le cheval
+                                        relation différente entre l'humain et le
+                                        cheval
                                     </strong>
                                     .
                                 </p>
@@ -308,10 +319,15 @@ export function EquicoachingClient() {
                             }}
                         >
                             <Image
-                                src={assetPath("/images/equicoaching/Elsa Florence et Valentin.JPEG")}
+                                src={assetPath(
+                                    "/images/equicoaching/Elsa Florence et Valentin.JPEG",
+                                )}
                                 alt="Séance d'équicoaching à la SHEVA"
                                 fill
-                                style={{ objectFit: "cover", objectPosition: "center" }}
+                                style={{
+                                    objectFit: "cover",
+                                    objectPosition: "center",
+                                }}
                                 sizes="(max-width: 768px) 100vw, 50vw"
                             />
                         </div>
@@ -347,10 +363,15 @@ export function EquicoachingClient() {
                                 }}
                             >
                                 <Image
-                                    src={assetPath("/images/equicoaching/IMG_4097.JPEG")}
+                                    src={assetPath(
+                                        "/images/equicoaching/IMG_4097.JPEG",
+                                    )}
                                     alt="Connexion humain-cheval en équicoaching"
                                     fill
-                                    style={{ objectFit: "cover", objectPosition: "center" }}
+                                    style={{
+                                        objectFit: "cover",
+                                        objectPosition: "center",
+                                    }}
                                     sizes="(max-width: 768px) 100vw, 50vw"
                                 />
                             </div>
@@ -366,16 +387,18 @@ export function EquicoachingClient() {
                                 }}
                             >
                                 <p>
-                                    Le cheval a toujours accompagné l'Homme. Depuis la nuit des
-                                    temps, nos espèces sont liées. Alors que nos ancêtres réalisaient
-                                    des peintures rupestres, l'animal qu'ils ont le plus représenté
-                                    est le cheval.
+                                    Le cheval a toujours accompagné l'Homme.
+                                    Depuis la nuit des temps, nos espèces sont
+                                    liées. Alors que nos ancêtres réalisaient
+                                    des peintures rupestres, l'animal qu'ils ont
+                                    le plus représenté est le cheval.
                                 </p>
                                 <p>
-                                    Dans un monde hyperconnecté où tout va très vite, les chevaux
-                                    nous permettent de nous rappeler qui l'on est vraiment, à quel
-                                    point nous appartenons nous aussi à la nature. Ils nous permettent
-                                    de nous connecter à eux avec{" "}
+                                    Dans un monde hyperconnecté où tout va très
+                                    vite, les chevaux nous permettent de nous
+                                    rappeler qui l'on est vraiment, à quel point
+                                    nous appartenons nous aussi à la nature. Ils
+                                    nous permettent de nous connecter à eux avec{" "}
                                     <strong style={{ color: "rgb(15,23,42)" }}>
                                         simplicité et authenticité
                                     </strong>
@@ -390,8 +413,9 @@ export function EquicoachingClient() {
                                         paddingLeft: 16,
                                     }}
                                 >
-                                    Chaque interaction avec le cheval est une opportunité
-                                    d'apprentissage et de transformation.
+                                    Chaque interaction avec le cheval est une
+                                    opportunité d'apprentissage et de
+                                    transformation.
                                 </p>
                             </div>
                         </div>
@@ -412,11 +436,19 @@ export function EquicoachingClient() {
                                         background: "white",
                                         borderRadius: 16,
                                         padding: "32px 28px",
-                                        boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
+                                        boxShadow:
+                                            "0 2px 12px rgba(0,0,0,0.06)",
                                         border: "1px solid rgba(94,180,174,0.15)",
                                     }}
                                 >
-                                    <div style={{ fontSize: 36, marginBottom: 16 }}>{f.icon}</div>
+                                    <div
+                                        style={{
+                                            fontSize: 36,
+                                            marginBottom: 16,
+                                        }}
+                                    >
+                                        {f.icon}
+                                    </div>
                                     <h3
                                         style={{
                                             fontSize: 17,
@@ -427,7 +459,13 @@ export function EquicoachingClient() {
                                     >
                                         {f.title}
                                     </h3>
-                                    <p style={{ fontSize: 14, color: "#6b7280", lineHeight: 1.6 }}>
+                                    <p
+                                        style={{
+                                            fontSize: 14,
+                                            color: "#6b7280",
+                                            lineHeight: 1.6,
+                                        }}
+                                    >
                                         {f.text}
                                     </p>
                                 </div>
@@ -458,7 +496,8 @@ export function EquicoachingClient() {
                                         borderRadius: 16,
                                         overflow: "hidden",
                                         background: "white",
-                                        boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
+                                        boxShadow:
+                                            "0 4px 20px rgba(0,0,0,0.08)",
                                         border: "1px solid #f0f0f0",
                                     }}
                                 >
@@ -472,7 +511,10 @@ export function EquicoachingClient() {
                                             src={o.img}
                                             alt={o.alt}
                                             fill
-                                            style={{ objectFit: "cover", objectPosition: "center top" }}
+                                            style={{
+                                                objectFit: "cover",
+                                                objectPosition: "center top",
+                                            }}
                                             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 480px"
                                         />
                                         {/* Badge durée */}
@@ -520,7 +562,13 @@ export function EquicoachingClient() {
                                         >
                                             {o.title}
                                         </h3>
-                                        <p style={{ fontSize: 14, color: "#6b7280", lineHeight: 1.6 }}>
+                                        <p
+                                            style={{
+                                                fontSize: 14,
+                                                color: "#6b7280",
+                                                lineHeight: 1.6,
+                                            }}
+                                        >
                                             {o.desc}
                                         </p>
                                     </div>
@@ -561,11 +609,19 @@ export function EquicoachingClient() {
                                         lineHeight: 1.6,
                                     }}
                                 >
-                                    Sementis Équicoaching propose des événements entreprise à la
-                                    SHEVA : coaching d'équipe, formation leadership & management,
-                                    teambuilding et accompagnements individuels sur mesure.
+                                    Sementis Équicoaching propose des événements
+                                    entreprise à la SHEVA : coaching d'équipe,
+                                    formation leadership & management,
+                                    teambuilding et accompagnements individuels
+                                    sur mesure.
                                 </p>
-                                <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
+                                <div
+                                    style={{
+                                        display: "flex",
+                                        gap: 16,
+                                        flexWrap: "wrap",
+                                    }}
+                                >
                                     <a
                                         href="mailto:E.Dogliotti@sementiscoaching.com"
                                         style={{
@@ -637,10 +693,15 @@ export function EquicoachingClient() {
                                 }}
                             >
                                 <Image
-                                    src={assetPath("/images/equicoaching/IMG_5225.JPEG")}
+                                    src={assetPath(
+                                        "/images/equicoaching/IMG_5225.JPEG",
+                                    )}
                                     alt="Elsa Dogliotti — Sementis Équicoaching"
                                     fill
-                                    style={{ objectFit: "cover", objectPosition: "center top" }}
+                                    style={{
+                                        objectFit: "cover",
+                                        objectPosition: "center top",
+                                    }}
                                     sizes="(max-width: 768px) 100vw, 400px"
                                 />
                             </div>
@@ -675,7 +736,12 @@ export function EquicoachingClient() {
                                         >
                                             Elsa Dogliotti
                                         </div>
-                                        <div style={{ fontSize: 12, color: "#6b7280" }}>
+                                        <div
+                                            style={{
+                                                fontSize: 12,
+                                                color: "#6b7280",
+                                            }}
+                                        >
                                             Fondatrice — Sementis Équicoaching
                                         </div>
                                     </div>
@@ -692,23 +758,33 @@ export function EquicoachingClient() {
                                     }}
                                 >
                                     <p>
-                                        <strong style={{ color: "rgb(15,23,42)" }}>Sementis</strong>{" "}
-                                        est une entreprise de coaching créée en 2024 par{" "}
-                                        <strong style={{ color: "rgb(15,23,42)" }}>
+                                        <strong
+                                            style={{ color: "rgb(15,23,42)" }}
+                                        >
+                                            Sementis
+                                        </strong>{" "}
+                                        est une entreprise de coaching créée en
+                                        2024 par{" "}
+                                        <strong
+                                            style={{ color: "rgb(15,23,42)" }}
+                                        >
                                             Elsa Dogliotti
                                         </strong>
                                         , cavalière et bénévole à la SHEVA.
                                     </p>
                                     <p>
-                                        Après 25 ans en entreprise en tant que Directrice des
-                                        Ressources Humaines, Elsa a expérimenté l'équicoaching — ça
-                                        a été une véritable révélation !
+                                        Après 25 ans en entreprise en tant que
+                                        Directrice des Ressources Humaines, Elsa
+                                        a expérimenté l'équicoaching — ça a été
+                                        une véritable révélation !
                                     </p>
                                     <p>
-                                        Formée au coaching professionnel chez Mosaik International, à
-                                        l'équicoaching avec la méthode{" "}
-                                        <em>Medicine Horse Way</em> pour les adultes et{" "}
-                                        <em>Poneymotions</em> pour les enfants.
+                                        Formée au coaching professionnel chez
+                                        Mosaik International, à l'équicoaching
+                                        avec la méthode{" "}
+                                        <em>Medicine Horse Way</em> pour les
+                                        adultes et <em>Poneymotions</em> pour
+                                        les enfants.
                                     </p>
                                 </div>
 
@@ -840,14 +916,21 @@ export function EquicoachingClient() {
                                 lineHeight: 1.65,
                             }}
                         >
-                            Vous souhaitez organiser des événements à la SHEVA avec vos propres
-                            clients ?{" "}
+                            Vous souhaitez organiser des événements à la SHEVA
+                            avec vos propres clients ?{" "}
                             <strong style={{ color: "white" }}>
                                 La SHEVA loue ses installations !
                             </strong>{" "}
                             N'hésitez pas à nous contacter pour un devis.
                         </p>
-                        <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
+                        <div
+                            style={{
+                                display: "flex",
+                                gap: 16,
+                                justifyContent: "center",
+                                flexWrap: "wrap",
+                            }}
+                        >
                             <a
                                 href="mailto:sheva@sheva.fr"
                                 style={{
@@ -882,7 +965,9 @@ export function EquicoachingClient() {
                 </section>
 
                 {/* ── CTA FINAL ─────────────────────────────────────────────── */}
-                <section style={{ padding: "72px 24px", background: "#f8fafc" }}>
+                <section
+                    style={{ padding: "72px 24px", background: "#f8fafc" }}
+                >
                     <div style={{ ...container, textAlign: "center" }}>
                         <div
                             style={{
@@ -896,7 +981,9 @@ export function EquicoachingClient() {
                                 border: "1px solid #f0f0f0",
                             }}
                         >
-                            <div style={{ fontSize: 48, marginBottom: 20 }}>🐴</div>
+                            <div style={{ fontSize: 48, marginBottom: 20 }}>
+                                🐴
+                            </div>
                             <h3
                                 style={{
                                     fontSize: 24,
@@ -916,10 +1003,17 @@ export function EquicoachingClient() {
                                     lineHeight: 1.65,
                                 }}
                             >
-                                Contactez-nous pour connaître les prochaines dates ou pour toute
-                                question.
+                                Contactez-nous pour connaître les prochaines
+                                dates ou pour toute question.
                             </p>
-                            <div style={{ display: "flex", gap: 14, flexWrap: "wrap", justifyContent: "center" }}>
+                            <div
+                                style={{
+                                    display: "flex",
+                                    gap: 14,
+                                    flexWrap: "wrap",
+                                    justifyContent: "center",
+                                }}
+                            >
                                 <a
                                     href="mailto:E.Dogliotti@sementiscoaching.com"
                                     style={{

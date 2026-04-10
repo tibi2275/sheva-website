@@ -4,6 +4,7 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import Link from "next/link";
 import Image from "next/image";
+import { assetPath } from "@/lib/assetPath";
 
 // ─── BRAND ────────────────────────────────────────────────────────────────────
 const teal = "rgb(94,180,174)";
@@ -82,11 +83,23 @@ export default function ApreshevaClient() {
                             color: "rgba(255,255,255,0.7)",
                         }}
                     >
-                        <Link href="/" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none" }}>
+                        <Link
+                            href="/"
+                            style={{
+                                color: "rgba(255,255,255,0.7)",
+                                textDecoration: "none",
+                            }}
+                        >
                             Accueil
                         </Link>
                         <span>›</span>
-                        <Link href="/chevaux" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none" }}>
+                        <Link
+                            href="/chevaux"
+                            style={{
+                                color: "rgba(255,255,255,0.7)",
+                                textDecoration: "none",
+                            }}
+                        >
                             Chevaux &amp; Poneys
                         </Link>
                         <span>›</span>
@@ -112,7 +125,11 @@ export default function ApreshevaClient() {
                             alt="Logo L'Après SHEVA"
                             width={100}
                             height={100}
-                            style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                            style={{
+                                objectFit: "cover",
+                                width: "100%",
+                                height: "100%",
+                            }}
                         />
                     </div>
 
@@ -136,8 +153,8 @@ export default function ApreshevaClient() {
                             lineHeight: 1.6,
                         }}
                     >
-                        Ils ont fait la SHEVA. Découvrez les retraités qui coulent
-                        désormais de belles journées bien méritées.
+                        Ils ont fait la SHEVA. Découvrez les retraités qui
+                        coulent désormais de belles journées bien méritées.
                     </p>
 
                     {/* Quick nav */}
@@ -172,7 +189,13 @@ export default function ApreshevaClient() {
 
                 {/* ── INTRO L'APRÈS SHEVA ── */}
                 <section style={{ background: "white", padding: "48px 24px" }}>
-                    <div style={{ maxWidth: 760, margin: "0 auto", textAlign: "center" }}>
+                    <div
+                        style={{
+                            maxWidth: 760,
+                            margin: "0 auto",
+                            textAlign: "center",
+                        }}
+                    >
                         <p
                             style={{
                                 fontSize: 11,
@@ -213,12 +236,13 @@ export default function ApreshevaClient() {
                             }}
                         >
                             L&apos;Après Sheva est une association créée par des{" "}
-                            <strong>cavaliers du centre équestre</strong>, dont toutes
-                            les actions sont menées en concertation avec l&apos;équipe
-                            enseignante et le bureau de la SHEVA. Sa mission : trouver
-                            les meilleures personnes capables d&apos;assurer une belle
-                            retraite à nos chevaux et poneys, et veiller à leur
-                            bien-être tout au long de leur carrière.
+                            <strong>cavaliers du centre équestre</strong>, dont
+                            toutes les actions sont menées en concertation avec
+                            l&apos;équipe enseignante et le bureau de la SHEVA.
+                            Sa mission : trouver les meilleures personnes
+                            capables d&apos;assurer une belle retraite à nos
+                            chevaux et poneys, et veiller à leur bien-être tout
+                            au long de leur carrière.
                         </p>
                         <div
                             style={{
@@ -265,7 +289,9 @@ export default function ApreshevaClient() {
                 </section>
 
                 {/* ── RETRAITÉS ── */}
-                <section style={{ background: "#f8fafc", padding: "56px 24px 72px" }}>
+                <section
+                    style={{ background: "#f8fafc", padding: "56px 24px 72px" }}
+                >
                     <div style={{ maxWidth: 900, margin: "0 auto" }}>
                         <div
                             style={{
@@ -340,13 +366,21 @@ export default function ApreshevaClient() {
                                             src={r.photo}
                                             alt={r.nom}
                                             fill
-                                            style={{ objectFit: "cover", objectPosition: "center top" }}
+                                            style={{
+                                                objectFit: "cover",
+                                                objectPosition: "center top",
+                                            }}
                                             sizes="(max-width: 640px) 100vw, 450px"
                                         />
                                     </div>
 
                                     {/* Infos */}
-                                    <div style={{ padding: "22px 24px 24px", flex: 1 }}>
+                                    <div
+                                        style={{
+                                            padding: "22px 24px 24px",
+                                            flex: 1,
+                                        }}
+                                    >
                                         <div
                                             style={{
                                                 display: "flex",
