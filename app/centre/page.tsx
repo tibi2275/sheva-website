@@ -1079,6 +1079,8 @@ export default function CentrePage() {
                                 borderRadius: 16,
                                 padding: "24px 28px",
                                 border: "1px solid #f0f0f0",
+                                alignItems: "center",
+                                textAlign: "center",
                             }}
                         >
                             <h3
@@ -1096,6 +1098,8 @@ export default function CentrePage() {
                                     display: "flex",
                                     flexWrap: "wrap",
                                     gap: 12,
+
+                                    justifyContent: "center",
                                 }}
                             >
                                 {equipment.map((e) => (
@@ -1130,6 +1134,7 @@ export default function CentrePage() {
                                 borderRadius: 16,
                                 padding: "28px 32px",
                                 border: `1px solid rgba(94,180,174,0.2)`,
+                                textAlign: "center",
                             }}
                         >
                             <h3
@@ -1196,6 +1201,8 @@ export default function CentrePage() {
                                 lineHeight: 1.7,
                                 marginBottom: 40,
                                 maxWidth: 720,
+                                textAlign: "center",
+                                margin: "0 auto 40px",
                             }}
                         >
                             Pour que chaque cavalier trouve l'équitation qui lui
@@ -1212,6 +1219,7 @@ export default function CentrePage() {
                                 marginBottom: 20,
                                 paddingBottom: 10,
                                 borderBottom: "1px solid #f0f0f0",
+                                textAlign: "center",
                             }}
                         >
                             L'Équipe Pédagogique
@@ -1230,6 +1238,7 @@ export default function CentrePage() {
                                 margin: "48px 0 20px",
                                 paddingBottom: 10,
                                 borderBottom: "1px solid #f0f0f0",
+                                textAlign: "center",
                             }}
                         >
                             Les Soigneurs
@@ -1259,6 +1268,7 @@ export default function CentrePage() {
                                 marginBottom: 20,
                                 paddingBottom: 10,
                                 borderBottom: "1px solid #f0f0f0",
+                                textAlign: "center",
                             }}
                         >
                             Le Bureau
@@ -1277,6 +1287,7 @@ export default function CentrePage() {
                                 margin: "48px 0 20px",
                                 paddingBottom: 10,
                                 borderBottom: "1px solid #f0f0f0",
+                                textAlign: "center",
                             }}
                         >
                             Les Membres

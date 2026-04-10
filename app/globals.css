@@ -56,6 +56,17 @@ body {
     background: rgb(69, 144, 150);
 }
 
+/* Listes avec puce teal discrète */
+.dot-list {
+    list-style-type: disc;
+    padding-left: 18px;
+    margin: 0;
+}
+.dot-list li::marker {
+    color: rgb(94, 180, 174);
+    font-size: 0.8em;
+}
+
 /* Instagram embed sizing fix */
 .instagram-media {
     min-width: 100% !important;
@@ -126,24 +137,9 @@ body {
     }
 }
 
-/* News grid */
-.news-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-}
-.news-article-card:hover .news-article-img {
-    transform: scale(1.04);
-}
-@media (min-width: 640px) {
-    .news-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-@media (min-width: 1024px) {
-    .news-grid {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
+/* Instagram feed row — masque la scrollbar */
+.insta-feed-row::-webkit-scrollbar {
+    display: none;
 }
 
 /* ── Centre page ── */

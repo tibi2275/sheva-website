@@ -70,8 +70,6 @@ function Tag({ children }: { children: React.ReactNode }) {
     );
 }
 
-
-
 function CourseCard({
     img,
     title,
@@ -834,7 +832,7 @@ export default function ActivitesPage() {
                                 {
                                     emoji: "🎯",
                                     title: "Équipe Club",
-                                    img: "/images/Images-illustrations/lemans.jpeg",
+                                    img: "/images/Images-illustrations/compet_club.jpeg",
                                     desc: "Une équipe de cavaliers expérimentés, menée par Jessica, sillonne la France à la recherche des podiums.",
                                     features: [
                                         "Épreuves Club 3 à Club Elite",
@@ -1281,6 +1279,8 @@ export default function ActivitesPage() {
                                 lineHeight: 1.7,
                                 marginBottom: 40,
                                 maxWidth: 720,
+                                textAlign: "center",
+                                margin: "0 auto 40px",
                             }}
                         >
                             Des activités variées sont régulièrement organisées

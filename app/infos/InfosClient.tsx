@@ -4,6 +4,7 @@ import { Nav } from "@/components/Nav";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { Footer } from "@/components/Footer";
 
 // ─── BRAND ────────────────────────────────────────────────────────────────────
 const teal = "rgb(94,180,174)";
@@ -598,6 +599,37 @@ const NOTICES = [
     },
 ];
 
+function SectionHeader({ label, title }: { label: string; title: string }) {
+    return (
+        <div style={{ marginBottom: 40 }}>
+            <p
+                style={{
+                    fontSize: 11,
+                    fontWeight: 700,
+                    letterSpacing: "0.12em",
+                    textTransform: "uppercase",
+                    color: teal,
+                    marginBottom: 8,
+                    textAlign: "center",
+                }}
+            >
+                {label}
+            </p>
+            <h2
+                style={{
+                    fontSize: 28,
+                    fontWeight: 700,
+                    color: "rgb(15,23,42)",
+                    textAlign: "center",
+                    margin: 0,
+                }}
+            >
+                {title}
+            </h2>
+        </div>
+    );
+}
+
 export default function InfosClient() {
     const [noticesOpen, setNoticesOpen] = useState(false);
 
@@ -731,24 +763,9 @@ export default function InfosClient() {
                 ══════════════════════════════════════ */}
                 <section id="contact" style={{ padding: "56px 24px" }}>
                     <div style={{ maxWidth: 900, margin: "0 auto" }}>
-                        <h2
-                            style={{
-                                fontSize: 26,
-                                fontWeight: 800,
-                                color: "#111827",
-                                marginBottom: 6,
-                            }}
-                        >
-                            Contact &amp; Accès
-                        </h2>
-                        <div
-                            style={{
-                                width: 48,
-                                height: 3,
-                                background: teal,
-                                borderRadius: 2,
-                                marginBottom: 32,
-                            }}
+                        <SectionHeader
+                            label="Localisation"
+                            title="Contact & Accès"
                         />
 
                         {/* Coordonnées + Emails */}
@@ -1020,11 +1037,11 @@ export default function InfosClient() {
                                     color: "#92400e",
                                 }}
                             >
-                                <strong>⚠️ Parking :</strong> Le parking privé
-                                de la SHEVA n&apos;est pas encore utilisable.
-                                Merci de vous garer sur le{" "}
-                                <strong>parking public du PIDS</strong> et
-                                d&apos;accéder à la SHEVA par l&apos;entrée
+                                <strong>⚠️ Parking : </strong>
+                                Le parking privé de la SHEVA n&apos;est pas
+                                encore utilisable. Merci de vous garer sur le{" "}
+                                <strong>parking public du PIDS </strong>
+                                et d&apos;accéder à la SHEVA par l&apos;entrée
                                 piétons.
                             </div>
                         </div>
@@ -1105,26 +1122,9 @@ export default function InfosClient() {
                     style={{ padding: "56px 24px", background: "white" }}
                 >
                     <div style={{ maxWidth: 900, margin: "0 auto" }}>
-                        <h2
-                            style={{
-                                fontSize: 26,
-                                fontWeight: 800,
-                                color: "#111827",
-                                marginBottom: 6,
-                                textAlign: "center",
-                                justifyContent: "center",
-                            }}
-                        >
-                            Fonctionnement du Club
-                        </h2>
-                        <div
-                            style={{
-                                width: 48,
-                                height: 3,
-                                background: teal,
-                                borderRadius: 2,
-                                margin: "0 auto 20px",
-                            }}
+                        <SectionHeader
+                            label="Organisation"
+                            title="Fonctionnement du Club"
                         />
                         <p
                             style={{
@@ -1203,8 +1203,8 @@ export default function InfosClient() {
                                     Les forfaits :
                                 </p>
                                 <ul
+                                    className="dot-list"
                                     style={{
-                                        paddingLeft: 18,
                                         margin: "0 0 14px",
                                         fontSize: 14,
                                         color: "#374151",
@@ -1238,8 +1238,8 @@ export default function InfosClient() {
                                     Les reprises :
                                 </p>
                                 <ul
+                                    className="dot-list"
                                     style={{
-                                        paddingLeft: 18,
                                         margin: 0,
                                         fontSize: 14,
                                         color: "#374151",
@@ -1295,8 +1295,8 @@ export default function InfosClient() {
                                     Timing d&apos;une reprise :
                                 </p>
                                 <ul
+                                    className="dot-list"
                                     style={{
-                                        paddingLeft: 18,
                                         margin: "0 0 16px",
                                         fontSize: 14,
                                         color: "#374151",
@@ -1334,8 +1334,8 @@ export default function InfosClient() {
                                     🐴 Alternance des reprises
                                 </h4>
                                 <ul
+                                    className="dot-list"
                                     style={{
-                                        paddingLeft: 18,
                                         margin: "0 0 16px",
                                         fontSize: 14,
                                         color: "#374151",
@@ -1364,8 +1364,8 @@ export default function InfosClient() {
                                     🏖️ Vacances Scolaires
                                 </h4>
                                 <ul
+                                    className="dot-list"
                                     style={{
-                                        paddingLeft: 18,
                                         margin: 0,
                                         fontSize: 14,
                                         color: "#374151",
@@ -1473,8 +1473,8 @@ export default function InfosClient() {
                                             {title}
                                         </p>
                                         <ul
+                                            className="dot-list"
                                             style={{
-                                                paddingLeft: 18,
                                                 margin: 0,
                                                 fontSize: 13,
                                                 color: "#374151",
@@ -1514,8 +1514,8 @@ export default function InfosClient() {
                                     Consignes importantes :
                                 </p>
                                 <ul
+                                    className="dot-list"
                                     style={{
-                                        paddingLeft: 18,
                                         margin: 0,
                                         fontSize: 14,
                                         color: "#374151",
@@ -1542,25 +1542,9 @@ export default function InfosClient() {
                 ══════════════════════════════════════ */}
                 <section id="materiel" style={{ padding: "56px 24px" }}>
                     <div style={{ maxWidth: 900, margin: "0 auto" }}>
-                        <h2
-                            style={{
-                                fontSize: 26,
-                                fontWeight: 800,
-                                color: "#111827",
-                                marginBottom: 6,
-                                textAlign: "center",
-                            }}
-                        >
-                            Matériel Requis
-                        </h2>
-                        <div
-                            style={{
-                                width: 48,
-                                height: 3,
-                                background: teal,
-                                borderRadius: 2,
-                                margin: "0 auto 20px",
-                            }}
+                        <SectionHeader
+                            label="Équipement"
+                            title="Matériel Requis"
                         />
                         <p
                             style={{
@@ -1599,8 +1583,8 @@ export default function InfosClient() {
                                     ✅ Obligatoire
                                 </h3>
                                 <ul
+                                    className="dot-list"
                                     style={{
-                                        paddingLeft: 18,
                                         margin: "0 0 14px",
                                         fontSize: 14,
                                         color: "#374151",
@@ -1668,8 +1652,8 @@ export default function InfosClient() {
                                         ⭐ Recommandé
                                     </h3>
                                     <ul
+                                        className="dot-list"
                                         style={{
-                                            paddingLeft: 18,
                                             margin: 0,
                                             fontSize: 14,
                                             color: "#374151",
@@ -1712,8 +1696,8 @@ export default function InfosClient() {
                                         ❌ Déconseillé
                                     </h3>
                                     <ul
+                                        className="dot-list"
                                         style={{
-                                            paddingLeft: 18,
                                             margin: 0,
                                             fontSize: 14,
                                             color: "#374151",
@@ -1752,25 +1736,9 @@ export default function InfosClient() {
                     style={{ padding: "56px 24px", background: "white" }}
                 >
                     <div style={{ maxWidth: 900, margin: "0 auto" }}>
-                        <h2
-                            style={{
-                                fontSize: 26,
-                                fontWeight: 800,
-                                color: "#111827",
-                                marginBottom: 6,
-                                textAlign: "center",
-                            }}
-                        >
-                            Modalités d&apos;Inscription
-                        </h2>
-                        <div
-                            style={{
-                                width: 48,
-                                height: 3,
-                                background: teal,
-                                borderRadius: 2,
-                                margin: "0 auto 20px",
-                            }}
+                        <SectionHeader
+                            label="Rejoindre la SHEVA"
+                            title="Modalités d'Inscription"
                         />
                         <p
                             style={{
@@ -1857,15 +1825,15 @@ export default function InfosClient() {
                                     {[
                                         {
                                             date: "6 mai",
-                                            text: "Réunion d'informations en visio conférence",
+                                            text: "Réunion d'informations en visio conférence - à 20h30 (environ 1h)",
                                             link: {
-                                                href: "/PDF_docs/reu-info.pdf",
-                                                label: "Voir les slides",
+                                                href: "",
+                                                label: "Lien de la visio à venir",
                                             },
                                         },
                                         {
-                                            date: "12 mai",
-                                            text: "Ouverture inscriptions séances d'essai — depuis l'espace en ligne",
+                                            date: "11 mai",
+                                            text: "Ouverture inscriptions séances d'essai — depuis l'espace en ligne, attention à créer votre compte avant de pouvoir vous inscrire à une séance d'essai",
                                         },
                                         {
                                             date: "24 mai",
@@ -1939,8 +1907,8 @@ export default function InfosClient() {
                                     Avant inscription :
                                 </p>
                                 <ul
+                                    className="dot-list"
                                     style={{
-                                        paddingLeft: 18,
                                         margin: 0,
                                         fontSize: 13,
                                         color: "#374151",
@@ -2010,15 +1978,15 @@ export default function InfosClient() {
                                 >
                                     {[
                                         {
-                                            date: "11 mai 13h",
+                                            date: "11 mai à 13h",
                                             label: "Reprises Cheval G5-G7",
                                         },
                                         {
-                                            date: "12 mai 13h",
+                                            date: "12 mai à 13h",
                                             label: "Reprises Cheval G0-G4",
                                         },
                                         {
-                                            date: "13 mai 13h",
+                                            date: "13 mai à 13h",
                                             label: "Reprises Poney tous niveaux",
                                         },
                                     ].map(({ date, label }) => (
@@ -2080,8 +2048,8 @@ export default function InfosClient() {
                                     Points importants :
                                 </p>
                                 <ul
+                                    className="dot-list"
                                     style={{
-                                        paddingLeft: 18,
                                         margin: 0,
                                         fontSize: 13,
                                         color: "#374151",
@@ -2116,25 +2084,9 @@ export default function InfosClient() {
                 ══════════════════════════════════════ */}
                 <section id="espace" style={{ padding: "56px 24px" }}>
                     <div style={{ maxWidth: 900, margin: "0 auto" }}>
-                        <h2
-                            style={{
-                                fontSize: 26,
-                                fontWeight: 800,
-                                color: "#111827",
-                                marginBottom: 6,
-                                textAlign: "center",
-                            }}
-                        >
-                            Espace Personnel en Ligne
-                        </h2>
-                        <div
-                            style={{
-                                width: 48,
-                                height: 3,
-                                background: teal,
-                                borderRadius: 2,
-                                margin: "0 auto 20px",
-                            }}
+                        <SectionHeader
+                            label="Espace Client"
+                            title="Espace Personnel en Ligne"
                         />
                         <p
                             style={{
@@ -2409,25 +2361,9 @@ export default function InfosClient() {
                     style={{ padding: "56px 24px", background: "white" }}
                 >
                     <div style={{ maxWidth: 900, margin: "0 auto" }}>
-                        <h2
-                            style={{
-                                fontSize: 26,
-                                fontWeight: 800,
-                                color: "#111827",
-                                marginBottom: 6,
-                                textAlign: "center",
-                            }}
-                        >
-                            Questions Fréquentes
-                        </h2>
-                        <div
-                            style={{
-                                width: 48,
-                                height: 3,
-                                background: teal,
-                                borderRadius: 2,
-                                margin: "0 auto 20px",
-                            }}
+                        <SectionHeader
+                            label="Aide & FAQ"
+                            title="Questions Fréquentes"
                         />
                         <p
                             style={{
@@ -2518,6 +2454,7 @@ export default function InfosClient() {
                     </div>
                 </section>
             </main>
+            <Footer />
 
             {/* ── MODAL NOTICES ── */}
             {noticesOpen && (

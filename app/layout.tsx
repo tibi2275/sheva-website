@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import "./globals.css";
 
 // Poppins — police originale de la SHEVA
@@ -51,6 +52,7 @@ export default function RootLayout({
                 style={{ fontFamily: "var(--font-poppins), sans-serif" }}
             >
                 {children}
+                <ScrollToTop />
             </body>
         </html>
     );

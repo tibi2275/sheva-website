@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
+const SWIPE_THRESHOLD = 50; // px minimum pour déclencher un swipe
+
 const photos = [
     "0d33c4f9-64e2-4e20-96c0-fcbc419a827d.jpg",
     "0FAA4EB7-F51A-4DBD-9A11-1603A9478F75.jpeg",
@@ -46,6 +48,8 @@ export function PhotoGallery() {
     const [paused, setPaused] = useState(false);
     const [lightbox, setLightbox] = useState<number | null>(null);
     const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+    const carouselTouchStartX = useRef<number | null>(null);
+    const lightboxTouchStartX = useRef<number | null>(null);
 
     // Duplicate list for seamless loop
     const all = [...photos, ...photos];
@@ -78,7 +82,8 @@ export function PhotoGallery() {
         return () => window.removeEventListener("keydown", fn);
     }, []);
 
-    const translateX = -(index * (ITEM_W + GAP));
+    // Correction : chaque slot fait exactement ITEM_W px (item 328 + gap 12)
+    const translateX = -(index * ITEM_W);
 
     return (
         <>
@@ -123,6 +128,17 @@ export function PhotoGallery() {
 
                     {/* Scrolling track */}
                     <div
+                        onTouchStart={(e) => {
+                            carouselTouchStartX.current = e.touches[0].clientX;
+                            setPaused(true);
+                        }}
+                        onTouchEnd={(e) => {
+                            if (carouselTouchStartX.current === null) return;
+                            const delta = e.changedTouches[0].clientX - carouselTouchStartX.current;
+                            if (delta < -SWIPE_THRESHOLD) next();
+                            else if (delta > SWIPE_THRESHOLD) prev();
+                            carouselTouchStartX.current = null;
+                        }}
                         style={{
                             display: "flex",
                             gap: GAP,
@@ -261,6 +277,21 @@ export function PhotoGallery() {
             {lightbox !== null && (
                 <div
                     onClick={() => setLightbox(null)}
+                    onTouchStart={(e) => {
+                        lightboxTouchStartX.current = e.touches[0].clientX;
+                    }}
+                    onTouchEnd={(e) => {
+                        if (lightboxTouchStartX.current === null) return;
+                        const delta = e.changedTouches[0].clientX - lightboxTouchStartX.current;
+                        if (delta < -SWIPE_THRESHOLD) {
+                            e.stopPropagation();
+                            setLightbox((i) => i !== null ? (i + 1) % photos.length : null);
+                        } else if (delta > SWIPE_THRESHOLD) {
+                            e.stopPropagation();
+                            setLightbox((i) => i !== null ? (i - 1 + photos.length) % photos.length : null);
+                        }
+                        lightboxTouchStartX.current = null;
+                    }}
                     style={{
                         position: "fixed",
                         inset: 0,

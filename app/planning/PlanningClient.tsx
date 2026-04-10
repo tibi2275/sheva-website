@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import Link from "next/link";
 import { useState, useEffect, useCallback } from "react";
 import React from "react";
+import { Noto_Sans_Old_Italic } from "next/font/google";
 
 // ─── BRAND ────────────────────────────────────────────────────────────────────
 const teal = "rgb(94,180,174)";
@@ -21,36 +22,36 @@ const SAISON_FIN = "4 juillet 2027";
 
 // Vacances scolaires
 const VACANCES = [
-    { nom: "Reprise des cours", dates: "Le 25 août 2025", type: "normal" },
+    { nom: "Reprise des cours", dates: "Le 24 août 2026", type: "normal" },
     {
         nom: "Vacances de Toussaint",
         detail: "reprises normales",
-        dates: "Du 20 octobre au 2 novembre 2025",
+        dates: "Du 19 octobre au 1 novembre 2026",
         type: "normal",
     },
     {
         nom: "Vacances de Noël",
         detail: "reprises de vacances",
-        dates: "Du 22 décembre 2025 au 4 janvier 2026",
+        dates: "Du 21 décembre 2026 au 3 janvier 2027",
         type: "vacances",
     },
     {
         nom: "Vacances d'hiver",
         detail: "reprises de vacances",
-        dates: "Du 23 février au 8 mars 2026",
+        dates: "Du 8 février au 21 février 2027",
         type: "vacances",
-        pdf: "/PDF_docs/Reprises Vacances Hiver 2026.pdf",
+        // pdf: "/PDF_docs/Reprises Vacances Hiver 2026.pdf",
     },
     {
         nom: "Vacances de printemps",
         detail: "reprises de vacances",
-        dates: "Du 20 avril au 3 mai 2026",
+        dates: "Du 5 avril au 18 avril 2027",
         type: "vacances",
     },
     {
         nom: "Vacances d'été",
         detail: "fin des reprises",
-        dates: "À partir du 5 juillet",
+        dates: "À partir du 4 juillet",
         type: "fin",
     },
 ];
@@ -103,90 +104,136 @@ interface JourPlanning {
 // prettier-ignore
 const PLANNING_HEBDO: JourPlanning[] = [
     { jour: "Lundi", creneaux: [
-        { heure: "12h30",            lieu: "gm", type: "cheval", label: "Galop 4-5",    simLevels: ["galop5"] },
-        { heure: "17h30",            lieu: "gm", type: "cheval", label: "Galop 2",      simLevels: ["argent"] },
-        { heure: "18h30",            lieu: "gm", type: "cheval", label: "Galop 3-4",    simLevels: ["galop3", "galop4"] },
-        { heure: "19h30",            lieu: "gm", type: "cheval", label: "Galop 2",      simLevels: ["galop2"] },
-        { heure: "20h30", duree: 90, lieu: "gm", type: "perf",   label: "Perf. 1h30",   simLevels: ["perf_g6", "perf_g7"] },
+        { heure: "12h30",            lieu: "gm", type: "cheval", label: "Galop 4-5 Dressage",    simLevels: ["galop5", "galop4"] },
+        { heure: "17h30",            lieu: "pm", type: "poney", label: "Galop Argent",      simLevels: ["argent"] },
+        { heure: "18h30",            lieu: "pm", type: "cheval", label: "Galop 3",    simLevels: ["galop3"] },
+        { heure: "18h30",            lieu: "gm", type: "cheval", label: "Galop 4",    simLevels: ["galop4"] },
+        { heure: "19h30",            lieu: "gm", type: "cheval", label: "Galop 6",      simLevels: ["galop6"] },
+        { heure: "19h30",            lieu: "pm", type: "cheval", label: "Galop 2",      simLevels: ["galop2"] },
+        { heure: "20h30", duree: 90, lieu: "gm", type: "perf",   label: "Galop 6-7 Dressage",   simLevels: ["perf_g6", "perf_g7"] },
+        { heure: "20h30", duree: 60, lieu: "pm", type: "cheval", label: "Galop 2-3",   simLevels: ["galop2", "galop3"] },
     ]},
     { jour: "Mardi", creneaux: [
         { heure: "12h30",            lieu: "gm", type: "cheval", label: "Galop 6-7",    simLevels: ["galop6", "galop7"] },
         { heure: "17h30", duree: 30, lieu: "pm", type: "poney",  label: "Baby",         simLevels: ["baby_rep"] },
-        { heure: "18h00",            lieu: "gm", type: "cheval", label: "Galop 1 / 4",  simLevels: ["galop4"] },
-        { heure: "19h00",            lieu: "gm", type: "cheval", label: "Galop 1-2",    simLevels: ["galop1", "galop2"] },
-        { heure: "20h00",            lieu: "gm", type: "cheval", label: "Galop 3-5",    simLevels: ["galop3", "galop4", "galop5"] },
+        { heure: "18h00",            lieu: "gm", type: "cheval", label: "Galop 4",  simLevels: ["galop4"] },
+        { heure: "18h00",            lieu: "pm", type: "poney", label: "Galop Bronze",  simLevels: ["bronze"] },
+        { heure: "19h00",            lieu: "pm", type: "cheval", label: "Galop 1-2",    simLevels: ["galop1", "galop2"] },
+        { heure: "20h00",            lieu: "pm", type: "cheval", label: "Galop 3-4",    simLevels: ["galop3", "galop4"] },
+        { heure: "20h00",            lieu: "gm", type: "cheval", label: "Galop 5",    simLevels: ["galop5"] },
     ]},
     { jour: "Mercredi", creneaux: [
         { heure: "10h00", duree: 30, lieu: "pm", type: "poney",  label: "Baby",         simLevels: ["baby_rep"] },
         { heure: "10h30", duree: 30, lieu: "pm", type: "poney",  label: "Baby",         simLevels: ["baby_rep"] },
-        { heure: "11h00",            lieu: "pm", type: "poney",  label: "Bronze",       simLevels: ["bronze"] },
+        { heure: "11h00",            lieu: "pm", type: "poney",  label: "Galop Bronze",       simLevels: ["bronze"] },
         { heure: "12h30", duree: 45, lieu: "pm", type: "poney",  label: "Débutant",     simLevels: ["debutant"] },
         { heure: "13h15", duree: 45, lieu: "pm", type: "poney",  label: "Débutant",     simLevels: ["debutant"] },
-        { heure: "14h00",            lieu: "pm", type: "poney",  label: "Bronze",       simLevels: ["bronze"] },
-        { heure: "15h00",            lieu: "gm", type: "cheval", label: "Galop 2",      simLevels: ["galop2"] },
-        { heure: "16h00",            lieu: "gm", type: "cheval", label: "Galop 1 / 4",  simLevels: ["galop1", "galop4"] },
-        { heure: "17h00",            lieu: "pm", type: "poney",  label: "Argent",       simLevels: ["argent"] },
-        { heure: "18h00",            lieu: "pm", type: "poney",  label: "Débutant",     simLevels: ["debutant"] },
-        { heure: "19h00",            lieu: "gm", type: "cheval", label: "Galop 3",      simLevels: ["galop3"] },
+        { heure: "14h00",            lieu: "pm", type: "poney",  label: "Galop Bronze",       simLevels: ["bronze"] },
+        { heure: "15h00",            lieu: "pm", type: "cheval", label: "Galop 2",      simLevels: ["galop2"] },
+        { heure: "15h00",            lieu: "gm", type: "poney", label: "Galop Or",      simLevels: ["or"] },
+        { heure: "16h00",            lieu: "pm", type: "cheval", label: "Galop 1",      simLevels: ["galop1"] },
+        { heure: "16h00",            lieu: "gm", type: "cheval", label: "Galop 4",      simLevels: ["galop4"] },
+        { heure: "17h00",            lieu: "pm", type: "poney",  label: "Galop Argent", simLevels: ["argent"] },
+        { heure: "17h00",            lieu: "gm", type: "cheval", label: "Galop 5",      simLevels: ["galop5"] },
+        { heure: "18h00",            lieu: "pm", type: "cheval",  label: "Galop 0",     simLevels: ["debutant_cheval"] },
+        { heure: "19h00",            lieu: "pm", type: "cheval", label: "Galop 3",      simLevels: ["galop3"] },
         { heure: "19h30",            lieu: "gm", type: "cheval", label: "Galop 6",      simLevels: ["galop6"] },
-        { heure: "20h30", duree: 90, lieu: "gm", type: "perf",   label: "Perf. 1h30",   simLevels: ["perf_g7"] },
+        { heure: "20h30", duree: 90, lieu: "gm", type: "perf",   label: "Galop 7 Perf.",   simLevels: ["perf_g7"] },
     ]},
     { jour: "Jeudi", creneaux: [
-        { heure: "18h00",            lieu: "gm", type: "cheval", label: "Galop 1 / 4",  simLevels: ["galop1", "galop4"] },
-        { heure: "18h30",            lieu: "pm", type: "poney",  label: "Débutant",     simLevels: ["debutant"] },
-        { heure: "19h30",            lieu: "gm", type: "cheval", label: "Galop 3-5",    simLevels: ["galop3", "galop4", "galop5"] },
-        { heure: "20h30", duree: 90, lieu: "gm", type: "perf",   label: "Perf. 1h30",   simLevels: ["perf_g7"] },
+        
+        { heure: "18h30",            lieu: "pm", type: "cheval",  label: "Galop 0+ 1",     simLevels: ["debutant_cheval", "galop1"] },
+        { heure: "19h30",            lieu: "pm", type: "cheval", label: "Galop 3",    simLevels: ["galop3"] },
+        { heure: "20h30", duree: 60, lieu: "pm", type: "cheval",   label: "Galop 1-2",   simLevels: ["galop1", "galop2"] },
+        { heure: "18h30",            lieu: "gm", type: "cheval",  label: "Galop 4",     simLevels: ["galop4"] },
+        { heure: "19h30",            lieu: "gm", type: "cheval", label: "Galop 5",    simLevels: ["galop5"] },
+        { heure: "20h30", duree: 60, lieu: "gm", type: "perf",   label: "Galop 7 Perf.",   simLevels: ["perf_g7"] },
     ]},
     { jour: "Vendredi", creneaux: [
-        { heure: "17h30",            lieu: "pm", type: "poney",  label: "Débutant",     simLevels: ["debutant"] },
-        { heure: "18h30",            lieu: "gm", type: "cheval", label: "Galop 1",      simLevels: ["galop5"] },
-        { heure: "19h30",            lieu: "gm", type: "cheval", label: "Galop 2",      simLevels: ["galop2"] },
-        { heure: "20h30",            lieu: "gm", type: "cheval", label: "Galop 4",      simLevels: ["galop4"] },
+        { heure: "17h30", duree: 30, lieu: "pm", type: "poney",  label: "Débutant",     simLevels: ["debutant"] },
+        { heure: "18h30",            lieu: "pm", type: "cheval", label: "Galop 1",      simLevels: ["galop1"] },
+        { heure: "18h30",            lieu: "gm", type: "cheval", label: "Galop 5",      simLevels: ["galop5"] },
+        { heure: "19h30",            lieu: "pm", type: "cheval", label: "Galop 2",      simLevels: ["galop2"] },
+        { heure: "20h30",            lieu: "pm", type: "cheval", label: "Galop 4",      simLevels: ["galop4"] },
+        { heure: "20h30", duree: 90, lieu: "gm", type: "cheval", label: "Galop 6",      simLevels: ["perf_g6"] },
     ]},
     { jour: "Samedi", creneaux: [
-        { heure: "9h30",             lieu: "pm", type: "poney",  label: "Argent / G5",  simLevels: ["argent", "galop5"] },
-        { heure: "10h30",            lieu: "pm", type: "poney",  label: "Galop 1 / Or", simLevels: ["galop1", "or"] },
+        { heure: "9h30",             lieu: "pm", type: "poney",  label: "Argent",  simLevels: ["argent"] },
+        { heure: "9h30",             lieu: "gm", type: "cheval",  label: "Galop 5",  simLevels: ["galop5"] },
+        { heure: "10h30",            lieu: "pm", type: "cheval",  label: "Galop 1", simLevels: ["galop1"] },
+        { heure: "10h30",            lieu: "gm", type: "poney",  label: "Galop Or", simLevels: ["or"] },
         { heure: "11h30", duree: 45, lieu: "pm", type: "poney",  label: "Débutant",     simLevels: ["debutant"] },
         { heure: "12h15", duree: 45, lieu: "pm", type: "poney",  label: "Débutant",     simLevels: ["debutant"] },
-        { heure: "13h00",            lieu: "gm", type: "cheval", label: "Galop 2",      simLevels: ["galop2"] },
-        { heure: "14h00",            lieu: "gm", type: "cheval", label: "Or / Galop 3", simLevels: ["debutant_chev", "or", "galop3"] },
-        { heure: "15h00",            lieu: "gm", type: "cheval", label: "Bronze / G3",  simLevels: ["bronze", "galop3"] },
+        { heure: "11h30", duree: 90, lieu: "gm", type: "perf", label: "Galop 7 Perf.",      simLevels: ["perf_g7"] },
+        { heure: "13h00",            lieu: "pm", type: "cheval", label: "Galop 2",      simLevels: ["galop2"] },
+        { heure: "14h00",            lieu: "gm", type: "poney", label: "Or", simLevels: ["or"] },
+        { heure: "14h00",            lieu: "pm", type: "cheval", label: "Galop 0", simLevels: ["debutant_cheval"] },
+        { heure: "15h00",            lieu: "pm", type: "poney", label: "Bronze",  simLevels: ["bronze"] },
+        { heure: "15h00",            lieu: "gm", type: "cheval", label: "Galop 3",  simLevels: ["galop3"] },
         { heure: "16h00",            lieu: "gm", type: "cheval", label: "Galop 4",      simLevels: ["galop4"] },
-        { heure: "17h00",            lieu: "pm", type: "poney",  label: "Débutant",     simLevels: ["debutant"] },
-        { heure: "17h00", duree: 90, lieu: "gm", type: "perf",   label: "Perf. 1h30",   simLevels: ["perf_g6"] },
+        { heure: "16h00",            lieu: "pm", type: "poney", label: "Galop Argent",      simLevels: ["argent"] },
+        { heure: "17h00", duree: 45, lieu: "pm", type: "poney",  label: "Débutant",     simLevels: ["debutant"] },
+        { heure: "17h00", duree: 90, lieu: "gm", type: "perf",   label: "Galop 6 Perf.",   simLevels: ["perf_g6"] },
     ]},
     { jour: "Dimanche", creneaux: [
-        { heure: "9h00",             lieu: "gm", type: "galop",  label: "Galop 4-5",    simLevels: ["galop4", "galop5"] },
-        { heure: "10h00",            lieu: "gm", type: "galop",  label: "Argent / G2",  simLevels: ["argent", "or"] },
-        { heure: "11h00",            lieu: "pm", type: "poney",  label: "Bronze",       simLevels: ["bronze"] },
+        { heure: "9h00",             lieu: "gm", type: "cheval",  label: "Galop 4-5",    simLevels: ["galop4", "galop5"] },
+        { heure: "10h00",            lieu: "gm", type: "poney",  label: "Galop Or-Argent",  simLevels: ["argent", "or"] },
+        { heure: "10h00",            lieu: "pm", type: "cheval",  label: "Galop 0",  simLevels: ["debutant_cheval"] },
+        { heure: "11h00",            lieu: "pm", type: "poney",  label: "Galop Bronze",       simLevels: ["bronze"] },
         { heure: "12h00", duree: 30, lieu: "pm", type: "baby",   label: "Baby",         simLevels: ["baby_rep"] },
         { heure: "12h30", duree: 30, lieu: "pm", type: "baby",   label: "Baby",         simLevels: ["baby_rep"] },
     ]},
 ];
 
 // ─── TARIFS ────────────────────────────────────────────────────────────────────
-const TARIFS_FORFAITS = [
+// Pour chaque forfait :
+//   annuel  : prix annuel + nb de séances incluses (hors vacances)
+//   s1      : forfait 1er semestre (sep → jan) — plus long
+//   s2      : forfait 2nd semestre (jan → juin)
+// Les séances vacances (ex: +6 annuel, +4 S1, +2 S2) sont en supplément.
+// Mettez null pour les prix encore à définir.
+const TARIFS_FORFAITS: {
+    categorie: string;
+    icon: string;
+    items: {
+        nom: string;
+        desc: string;
+        badge: string;
+        note?: string;
+        annuel: { prix: number | null; seances: string };
+        s1: { prix: number | null; seances: string };
+        s2: { prix: number | null; seances: string };
+    }[];
+}[] = [
     {
         categorie: "Poney",
         icon: "🐴",
         items: [
             {
                 nom: "Baby (4-6 ans)",
-                prix: 537,
                 desc: "Éveil équestre, séances de 30 min",
                 badge: "Poney",
+                note: "Pas de cours pendant les vacances",
+                annuel: { prix: 537, seances: "39 séances" },
+                s1: { prix: null },
+                s2: { prix: null },
             },
             {
                 nom: "Poney Débutant",
-                prix: 671,
                 desc: "Apprentissage des bases à poney",
                 badge: "Poney",
+                note: "Pas de cours pendant les vacances",
+                annuel: { prix: 671, seances: "39 séances" },
+                s1: { prix: 396, seances: "20 séances" },
+                s2: { prix: 376, seances: "19 séances" },
             },
             {
                 nom: "Poney (Bronze/Argent/Or)",
-                prix: 895,
                 desc: "Perfectionnement niveau poney",
                 badge: "Poney",
+                annuel: { prix: 895, seances: "39 + 6 vacances" },
+                s1: { prix: 503, seances: "20 + 2 vacances" },
+                s2: { prix: 526, seances: "19 + 4 vacances" },
             },
         ],
     },
@@ -196,21 +243,27 @@ const TARIFS_FORFAITS = [
         items: [
             {
                 nom: "Cheval -16 ans",
-                prix: 1042,
                 desc: "Équitation cheval pour les jeunes",
                 badge: "Cheval",
+                annuel: { prix: 1042, seances: "39 + 6 vacances" },
+                s1: { prix: 586, seances: "20 + 2 vacances" },
+                s2: { prix: 612, seances: "19 + 4 vacances" },
             },
             {
                 nom: "Cheval +16 ans",
-                prix: 1108,
                 desc: "Équitation cheval pour les adultes",
                 badge: "Cheval",
+                annuel: { prix: 1108, seances: "39 + 6 vacances" },
+                s1: { prix: 623, seances: "20 + 2 vacances" },
+                s2: { prix: 651, seances: "19 + 4 vacances" },
             },
             {
                 nom: "Perfectionnement 1h30",
-                prix: 1241,
                 desc: "Cours 1h30 pour G6-G7",
                 badge: "Perf.",
+                annuel: { prix: 1241, seances: "39 + 6 vacances" },
+                s1: { prix: null },
+                s2: { prix: null },
             },
         ],
     },
@@ -746,6 +799,7 @@ function PlanningComponent() {
                     color: "#9ca3af",
                 }}
             >
+                <i>Mis à jour le 10/04/2026</i> &nbsp;·&nbsp;{" "}
                 <strong>PM</strong> = Petit Manège &nbsp;·&nbsp;{" "}
                 <strong>GM</strong> = Grand Manège
             </div>
@@ -758,48 +812,44 @@ function PlanningComponent() {
                     justifyContent: "center",
                 }}
             >
-                {(
-                    [
-                        "baby",
-                        "poney",
-                        "galop",
-                        "cheval",
-                        "perf",
-                    ] as CreneauType[]
-                ).map((type) => {
-                    const c = CRENEAU_COLORS[type];
-                    const labels: Record<string, string> = {
-                        baby: "Baby (30min)",
-                        poney: "Poney",
-                        galop: "Galops",
-                        cheval: "Cheval débutant",
-                        perf: "Perf. 1h30",
-                    };
-                    return (
-                        <div
-                            key={type}
-                            style={{
-                                display: "flex",
-                                alignItems: "center",
-                                gap: 5,
-                                fontSize: 11,
-                                color: "#6b7280",
-                            }}
-                        >
+                {(["baby", "poney", "cheval", "perf"] as CreneauType[]).map(
+                    (type) => {
+                        const c = CRENEAU_COLORS[type];
+                        const labels: Record<string, string> = {
+                            baby: "Baby (30min)",
+                            poney: "Poney",
+
+                            cheval: "Cheval débutant",
+                            perf: "Perf. 1h30",
+                        };
+                        return (
                             <div
+                                key={type}
                                 style={{
-                                    width: 10,
-                                    height: 10,
-                                    borderRadius: 2,
-                                    background: c.border,
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: 5,
+                                    fontSize: 11,
+                                    color: "#6b7280",
                                 }}
-                            />
-                            <span style={{ color: c.text, fontWeight: 600 }}>
-                                {labels[type]}
-                            </span>
-                        </div>
-                    );
-                })}
+                            >
+                                <div
+                                    style={{
+                                        width: 10,
+                                        height: 10,
+                                        borderRadius: 2,
+                                        background: c.border,
+                                    }}
+                                />
+                                <span
+                                    style={{ color: c.text, fontWeight: 600 }}
+                                >
+                                    {labels[type]}
+                                </span>
+                            </div>
+                        );
+                    },
+                )}
             </div>
         </div>
     );
@@ -907,7 +957,7 @@ function Simulateur({
             ];
         if (mt === "cheval")
             return [
-                { val: "debutant", label: "🌟 Débutant" },
+                { val: "debutant_cheval", label: "🌟 Débutant" },
                 { val: "galop1", label: "1️⃣ Galop 1" },
                 { val: "galop2", label: "2️⃣ Galop 2" },
                 { val: "galop3", label: "3️⃣ Galop 3" },
@@ -2215,7 +2265,8 @@ export default function PlanningClient() {
                                             margin: 0,
                                         }}
                                     >
-                                        Calendrier des vacances - 2025-2026
+                                        Calendrier des vacances - Saison
+                                        2026-2027
                                     </h3>
                                 </div>
                                 <div
@@ -2339,7 +2390,8 @@ export default function PlanningClient() {
                                             margin: 0,
                                         }}
                                     >
-                                        Calendrier des forfaits
+                                        Calendrier des forfaits - Saison
+                                        2026-2027
                                     </h3>
                                 </div>
                                 <div
@@ -2448,6 +2500,7 @@ export default function PlanningClient() {
                                     fontWeight: 700,
                                     color: "rgb(15,23,42)",
                                     marginBottom: 16,
+                                    textAlign: "center",
                                 }}
                             >
                                 📝 Informations importantes
@@ -2568,7 +2621,7 @@ export default function PlanningClient() {
                             {[
                                 {
                                     id: "forfaits" as const,
-                                    label: "🎫 Forfaits annuels",
+                                    label: "🎫 Forfaits",
                                 },
                                 {
                                     id: "activites" as const,
@@ -2608,6 +2661,18 @@ export default function PlanningClient() {
                         {activeTab === "forfaits" && (
                             <div>
                                 {/* Tableau compact forfaits */}
+                                <p
+                                    style={{
+                                        textAlign: "center",
+                                        fontSize: 13,
+                                        color: "#6b7280",
+                                        marginBottom: 28,
+                                    }}
+                                >
+                                    Tarifs des forfaits, cotisations et
+                                    licences. Mis à jour 10/04/2026.
+                                    <br />
+                                </p>
                                 <div
                                     style={{
                                         overflowX: "auto",
@@ -2620,10 +2685,77 @@ export default function PlanningClient() {
                                         style={{
                                             width: "100%",
                                             borderCollapse: "collapse",
-                                            minWidth: 380,
+                                            minWidth: 620,
                                         }}
                                     >
+                                        {/* Ligne de groupes */}
+                                        <colgroup>
+                                            <col style={{ width: "32%" }} />
+                                            <col style={{ width: "8%" }} />
+                                            <col style={{ width: "20%" }} />
+                                            <col style={{ width: "20%" }} />
+                                            <col style={{ width: "20%" }} />
+                                        </colgroup>
                                         <thead>
+                                            {/* Ligne groupes */}
+                                            <tr
+                                                style={{
+                                                    background:
+                                                        "rgba(94,180,174,0.04)",
+                                                }}
+                                            >
+                                                <th
+                                                    colSpan={2}
+                                                    style={{
+                                                        borderBottom:
+                                                            "1px solid rgba(94,180,174,0.15)",
+                                                    }}
+                                                />
+                                                {[
+                                                    {
+                                                        label: "Annuel",
+                                                        sub: "sep → juillet",
+                                                    },
+                                                    {
+                                                        label: "1er Semestre",
+                                                        sub: "sep → jan",
+                                                    },
+                                                    {
+                                                        label: "2nd Semestre",
+                                                        sub: "jan → juillet",
+                                                    },
+                                                ].map((g) => (
+                                                    <th
+                                                        key={g.label}
+                                                        style={{
+                                                            padding:
+                                                                "8px 12px 4px",
+                                                            textAlign:
+                                                                "center" as const,
+                                                            fontSize: 11,
+                                                            fontWeight: 700,
+                                                            color: tealDark,
+                                                            borderBottom:
+                                                                "1px solid rgba(94,180,174,0.15)",
+                                                            borderLeft:
+                                                                "1px solid rgba(94,180,174,0.15)",
+                                                        }}
+                                                    >
+                                                        {g.label}
+                                                        <div
+                                                            style={{
+                                                                fontSize: 10,
+                                                                fontWeight: 400,
+                                                                color: "#9ca3af",
+                                                                marginTop: 1,
+                                                            }}
+                                                        >
+                                                            {g.sub}
+                                                        </div>
+                                                    </th>
+                                                ))}
+                                            </tr>
+                                            {/* Ligne colonnes */}
                                             <tr
                                                 style={{
                                                     background:
@@ -2632,7 +2764,7 @@ export default function PlanningClient() {
                                             >
                                                 <th
                                                     style={{
-                                                        padding: "11px 16px",
+                                                        padding: "9px 16px",
                                                         textAlign:
                                                             "left" as const,
                                                         fontSize: 12,
@@ -2642,11 +2774,11 @@ export default function PlanningClient() {
                                                             "2px solid rgba(94,180,174,0.2)",
                                                     }}
                                                 >
-                                                    Forfait annuel
+                                                    Forfait
                                                 </th>
                                                 <th
                                                     style={{
-                                                        padding: "11px 16px",
+                                                        padding: "9px 10px",
                                                         textAlign:
                                                             "center" as const,
                                                         fontSize: 12,
@@ -2660,22 +2792,31 @@ export default function PlanningClient() {
                                                 >
                                                     Type
                                                 </th>
-                                                <th
-                                                    style={{
-                                                        padding: "11px 16px",
-                                                        textAlign:
-                                                            "right" as const,
-                                                        fontSize: 12,
-                                                        fontWeight: 700,
-                                                        color: tealDark,
-                                                        borderBottom:
-                                                            "2px solid rgba(94,180,174,0.2)",
-                                                        whiteSpace:
-                                                            "nowrap" as const,
-                                                    }}
-                                                >
-                                                    Prix
-                                                </th>
+                                                {[
+                                                    "Séances / Prix",
+                                                    "Séances / Prix",
+                                                    "Séances / Prix",
+                                                ].map((h, i) => (
+                                                    <th
+                                                        key={i}
+                                                        style={{
+                                                            padding: "9px 12px",
+                                                            textAlign:
+                                                                "center" as const,
+                                                            fontSize: 11,
+                                                            fontWeight: 600,
+                                                            color: "#6b7280",
+                                                            borderBottom:
+                                                                "2px solid rgba(94,180,174,0.2)",
+                                                            borderLeft:
+                                                                "1px solid rgba(94,180,174,0.12)",
+                                                            whiteSpace:
+                                                                "nowrap" as const,
+                                                        }}
+                                                    >
+                                                        {h}
+                                                    </th>
+                                                ))}
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -2685,7 +2826,7 @@ export default function PlanningClient() {
                                                 >
                                                     <tr>
                                                         <td
-                                                            colSpan={3}
+                                                            colSpan={5}
                                                             style={{
                                                                 padding:
                                                                     "8px 16px 5px",
@@ -2709,116 +2850,178 @@ export default function PlanningClient() {
                                                         </td>
                                                     </tr>
                                                     {cat.items.map(
-                                                        (item, ii) => (
-                                                            <tr
-                                                                key={`fitem-${ci}-${ii}`}
-                                                                style={{
-                                                                    background:
-                                                                        ii %
-                                                                            2 ===
-                                                                        0
-                                                                            ? "white"
-                                                                            : "#fafbfb",
-                                                                }}
-                                                            >
-                                                                <td
-                                                                    style={{
-                                                                        padding:
-                                                                            "10px 16px",
-                                                                        fontSize: 13,
-                                                                        color: "#374151",
-                                                                        borderBottom:
-                                                                            "1px solid #f3f4f6",
-                                                                    }}
-                                                                >
-                                                                    <div
+                                                        (item, ii) => {
+                                                            const badgeBg =
+                                                                item.badge ===
+                                                                "Poney"
+                                                                    ? "#f0fdf4"
+                                                                    : item.badge ===
+                                                                        "Cheval"
+                                                                      ? "#eff6ff"
+                                                                      : "#fff7ed";
+                                                            const badgeColor =
+                                                                item.badge ===
+                                                                "Poney"
+                                                                    ? "#15803d"
+                                                                    : item.badge ===
+                                                                        "Cheval"
+                                                                      ? "#1d4ed8"
+                                                                      : "#c2410c";
+                                                            const priceCellStyle =
+                                                                (slot: {
+                                                                    prix:
+                                                                        | number
+                                                                        | null;
+                                                                    seances: string;
+                                                                }) => (
+                                                                    <td
                                                                         style={{
-                                                                            fontWeight: 600,
-                                                                        }}
-                                                                    >
-                                                                        {
-                                                                            item.nom
-                                                                        }
-                                                                    </div>
-                                                                    <div
-                                                                        style={{
-                                                                            fontSize: 11,
-                                                                            color: "#9ca3af",
-                                                                            marginTop: 2,
-                                                                        }}
-                                                                    >
-                                                                        {
-                                                                            item.desc
-                                                                        }
-                                                                    </div>
-                                                                </td>
-                                                                <td
-                                                                    style={{
-                                                                        padding:
-                                                                            "10px 16px",
-                                                                        textAlign:
-                                                                            "center" as const,
-                                                                        borderBottom:
-                                                                            "1px solid #f3f4f6",
-                                                                    }}
-                                                                >
-                                                                    <span
-                                                                        style={{
-                                                                            fontSize: 11,
-                                                                            fontWeight: 700,
                                                                             padding:
-                                                                                "3px 8px",
-                                                                            borderRadius: 20,
-                                                                            background:
-                                                                                item.badge ===
-                                                                                "Poney"
-                                                                                    ? "#f0fdf4"
-                                                                                    : item.badge ===
-                                                                                        "Cheval"
-                                                                                      ? "#eff6ff"
-                                                                                      : "#fff7ed",
-                                                                            color:
-                                                                                item.badge ===
-                                                                                "Poney"
-                                                                                    ? "#15803d"
-                                                                                    : item.badge ===
-                                                                                        "Cheval"
-                                                                                      ? "#1d4ed8"
-                                                                                      : "#c2410c",
+                                                                                "10px 12px",
+                                                                            textAlign:
+                                                                                "center" as const,
+                                                                            borderBottom:
+                                                                                "1px solid #f3f4f6",
+                                                                            borderLeft:
+                                                                                "1px solid #f0f0f0",
+                                                                            verticalAlign:
+                                                                                "middle" as const,
                                                                         }}
                                                                     >
-                                                                        {
-                                                                            item.badge
-                                                                        }
-                                                                    </span>
-                                                                </td>
-                                                                <td
+                                                                        <div
+                                                                            style={{
+                                                                                fontSize: 15,
+                                                                                fontWeight: 800,
+                                                                                color:
+                                                                                    slot.prix !==
+                                                                                    null
+                                                                                        ? tealDark
+                                                                                        : "#9ca3af",
+                                                                                whiteSpace:
+                                                                                    "nowrap" as const,
+                                                                            }}
+                                                                        >
+                                                                            {slot.prix !==
+                                                                            null
+                                                                                ? `${slot.prix} €`
+                                                                                : "—"}
+                                                                        </div>
+                                                                        <div
+                                                                            style={{
+                                                                                fontSize: 10,
+                                                                                color: "#9ca3af",
+                                                                                marginTop: 2,
+                                                                            }}
+                                                                        >
+                                                                            {
+                                                                                slot.seances
+                                                                            }
+                                                                        </div>
+                                                                    </td>
+                                                                );
+                                                            return (
+                                                                <tr
+                                                                    key={`fitem-${ci}-${ii}`}
                                                                     style={{
-                                                                        padding:
-                                                                            "10px 16px",
-                                                                        textAlign:
-                                                                            "right" as const,
-                                                                        fontSize: 16,
-                                                                        fontWeight: 800,
-                                                                        color: tealDark,
-                                                                        borderBottom:
-                                                                            "1px solid #f3f4f6",
-                                                                        whiteSpace:
-                                                                            "nowrap" as const,
+                                                                        background:
+                                                                            ii %
+                                                                                2 ===
+                                                                            0
+                                                                                ? "white"
+                                                                                : "#fafbfb",
                                                                     }}
                                                                 >
-                                                                    {item.prix}{" "}
-                                                                    €
-                                                                </td>
-                                                            </tr>
-                                                        ),
+                                                                    <td
+                                                                        style={{
+                                                                            padding:
+                                                                                "10px 16px",
+                                                                            fontSize: 13,
+                                                                            color: "#374151",
+                                                                            borderBottom:
+                                                                                "1px solid #f3f4f6",
+                                                                        }}
+                                                                    >
+                                                                        <div
+                                                                            style={{
+                                                                                fontWeight: 600,
+                                                                            }}
+                                                                        >
+                                                                            {
+                                                                                item.nom
+                                                                            }
+                                                                        </div>
+                                                                        <div
+                                                                            style={{
+                                                                                fontSize: 11,
+                                                                                color: "#9ca3af",
+                                                                                marginTop: 2,
+                                                                            }}
+                                                                        >
+                                                                            {
+                                                                                item.desc
+                                                                            }
+                                                                        </div>
+                                                                        {item.note && (
+                                                                            <div
+                                                                                style={{
+                                                                                    fontSize: 10,
+                                                                                    color: "#f59e0b",
+                                                                                    marginTop: 2,
+                                                                                }}
+                                                                            >
+                                                                                ⚠{" "}
+                                                                                {
+                                                                                    item.note
+                                                                                }
+                                                                            </div>
+                                                                        )}
+                                                                    </td>
+                                                                    <td
+                                                                        style={{
+                                                                            padding:
+                                                                                "10px 10px",
+                                                                            textAlign:
+                                                                                "center" as const,
+                                                                            borderBottom:
+                                                                                "1px solid #f3f4f6",
+                                                                        }}
+                                                                    >
+                                                                        <span
+                                                                            style={{
+                                                                                fontSize: 11,
+                                                                                fontWeight: 700,
+                                                                                padding:
+                                                                                    "3px 7px",
+                                                                                borderRadius: 20,
+                                                                                background:
+                                                                                    badgeBg,
+                                                                                color: badgeColor,
+                                                                            }}
+                                                                        >
+                                                                            {
+                                                                                item.badge
+                                                                            }
+                                                                        </span>
+                                                                    </td>
+                                                                    {priceCellStyle(
+                                                                        item.annuel,
+                                                                    )}
+                                                                    {priceCellStyle(
+                                                                        item.s1,
+                                                                    )}
+                                                                    {priceCellStyle(
+                                                                        item.s2,
+                                                                    )}
+                                                                </tr>
+                                                            );
+                                                        },
                                                     )}
                                                 </React.Fragment>
                                             ))}
                                             {/* Séparateur cotisation */}
                                             <tr>
                                                 <td
-                                                    colSpan={3}
+                                                    colSpan={5}
                                                     style={{
                                                         padding: "8px 16px 5px",
                                                         fontSize: 11,
@@ -3015,7 +3218,7 @@ export default function PlanningClient() {
                                     }}
                                 >
                                     Tarifs des activités ponctuelles, stages et
-                                    animations. Mis à jour 08/2024.
+                                    animations. Mis à jour 10/04/2026.
                                     <br />* Tarifs hors engagement et frais
                                     kilométriques pour les concours.
                                 </p>
@@ -3089,7 +3292,7 @@ export default function PlanningClient() {
                                                 >
                                                     <tr>
                                                         <td
-                                                            colSpan={3}
+                                                            colSpan={5}
                                                             style={{
                                                                 padding:
                                                                     "10px 16px 6px",
@@ -3505,7 +3708,6 @@ export default function PlanningClient() {
                         </div>
                     </div>
                 </section>
-
             </main>
             <Footer />
 
