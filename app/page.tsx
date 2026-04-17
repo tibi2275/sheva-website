@@ -7,139 +7,20 @@ import { assetPath } from "@/lib/assetPath";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { AnnouncementModal } from "@/components/AnnouncementModal";
-import { HomeScrollLayout } from "@/components/HomeScrollLayout";
-// Imports conservés pour la version legacy (voir commentaire dans HomePage)
-import { NewsCarousel, type Article } from "@/components/NewsCarousel";
+import { HomeScrollLayout } from "@/components/HomeScrollLayout"; // layout alternatif (non actif)
+import { NewsCarousel } from "@/components/NewsCarousel";
 import { InstagramCarousel } from "@/components/InstagramCarousel";
 import { PhotoGallery } from "@/components/PhotoGallery";
+import { articles } from "@/lib/newsData";
+import {
+    stats,
+    previewCards,
+    quickLinks,
+    qualityLabels,
+    ffeLogos,
+} from "@/lib/homeData";
 
-// ─── DATA ────────────────────────────────────────────────────────────────────
-
-const navLinks = [
-    {
-        label: "Le centre",
-        href: "/centre",
-        sub: [
-            { label: "Notre histoire", href: "/centre#histoire" },
-            { label: "L'association", href: "/centre#association" },
-            { label: "Les installations", href: "/centre#installations" },
-            { label: "L'équipe", href: "/centre#equipe" },
-        ],
-    },
-    {
-        label: "Activités",
-        href: "/activites",
-        sub: [
-            { label: "Cours d'équitation", href: "/activites#cours" },
-            { label: "Compétition", href: "/activites#competition" },
-            { label: "Examens & galops", href: "/activites#galops" },
-            { label: "Stages & sorties", href: "/activites#activites" },
-            { label: "Équicoaching", href: "/equicoaching" },
-        ],
-    },
-    {
-        label: "Chevaux & poneys",
-        href: "/chevaux",
-        sub: [
-            { label: "Chevaux", href: "/chevaux#chevaux-detail" },
-            { label: "Poneys", href: "/chevaux#poneys" },
-            { label: "Bien-être", href: "/chevaux#bien-etre" },
-            { label: "Après SHEVA", href: "/chevaux#apres-sheva" },
-        ],
-    },
-    {
-        label: "Planning & tarifs",
-        href: "/planning",
-        sub: [
-            { label: "Planning des cours", href: "/planning#planning" },
-            { label: "Nos tarifs", href: "/planning#tarifs" },
-            { label: "Assurance & annulations", href: "/planning#annulation" },
-        ],
-    },
-    {
-        label: "Infos pratiques",
-        href: "/infos",
-        sub: [
-            { label: "Contact & accès", href: "/infos#contact" },
-            { label: "Fonctionnement", href: "/infos#fonctionnement" },
-            { label: "Matériel", href: "/infos#materiel" },
-            { label: "Inscriptions", href: "/infos#inscriptions" },
-            { label: "FAQ", href: "/infos#faq" },
-        ],
-    },
-];
-
-const stats = [
-    { value: "670", label: "licenciés" },
-    { value: "40+", label: "chevaux & poneys" },
-    { value: "10 km", label: "de Paris" },
-    { value: "Loi 1901", label: "association" },
-];
-
-const previewCards = [
-    {
-        href: "/centre",
-        img: "/images/Images-illustrations/0d33c4f9-64e2-4e20-96c0-fcbc419a827d.jpg",
-        tag: "Centre",
-        title: "Le Centre Équestre",
-        desc: "Notre histoire, nos installations modernes et notre équipe passionnée au cœur du Val-de-Marne.",
-        cta: "En savoir plus",
-    },
-    {
-        href: "/activites",
-        img: "/images/Images-illustrations/activites-illustration.avif",
-        tag: "Activités",
-        title: "Nos Activités",
-        desc: "Cours pour tous niveaux, compétitions, examens de galops, stages. De l'initiation au perfectionnement.",
-        cta: "Découvrir",
-    },
-    {
-        href: "/chevaux",
-        img: "/images/Images-illustrations/chevaux-illustration.avif",
-        tag: "Chevaux",
-        title: "Chevaux & Poneys",
-        desc: "Rencontrez nos chevaux et poneys sélectionnés pour leur tempérament et leurs qualités pédagogiques.",
-        cta: "Les rencontrer",
-    },
-    {
-        href: "/planning",
-        img: "/images/Images-illustrations/planning-illustration.JPG",
-        tag: "Planning",
-        title: "Planning & Tarifs",
-        desc: "Consultez le planning des reprises et nos différents tarifs pour trouver la formule qui vous convient.",
-        cta: "Consulter",
-    },
-    {
-        href: "/infos",
-        img: "/images/Images-illustrations/chevaux-illustration22.avif",
-        tag: "Infos",
-        title: "Infos Pratiques",
-        desc: "Accès, horaires, contact, FAQ. Toutes les informations utiles pour votre première visite.",
-        cta: "S'informer",
-    },
-    {
-        href: "https://cloud6.kavalog.fr/SHEVA/",
-        img: "/images/Images-illustrations/compte-illustration.avif",
-        tag: "Espace membre",
-        title: "Espace Membre",
-        desc: "Inscrivez-vous, réservez vos cours, gérez vos absences depuis votre compte en ligne.",
-        cta: "Se connecter",
-        external: true,
-    },
-];
-
-const qualityLabels = [
-    { src: "/images/logos/logo-efe.jpg", alt: "École Française d'Équitation" },
-    { src: "/images/logos/logo-bea.png", alt: "Bien-être animal" },
-    {
-        src: "/images/logos/FFE-Poney-club-de-France.jpg",
-        alt: "Poney Club de France",
-    },
-    {
-        src: "/images/logos/FFE-Logo-Cheval-Club-de-France.jpg",
-        alt: "Cheval Club de France",
-    },
-];
+// ─── COULEURS ─────────────────────────────────────────────────────────────────
 
 const teal = "rgb(94,180,174)";
 const tealDark = "rgb(69,144,150)";
@@ -304,17 +185,6 @@ function StatsBar() {
 
 // ─── QUALITY LABELS ──────────────────────────────────────────────────────────
 
-const ffeLogos = [
-    {
-        src: "/images/logos/FFE_Logo.png",
-        alt: "FFE - Fédération Française d'Équitation",
-    },
-    {
-        src: "/images/logos/GHN_logo.png",
-        alt: "GHN - Groupement Hippique National",
-    },
-];
-
 function QualityLabels() {
     const rowStyle: React.CSSProperties = {
         display: "flex",
@@ -408,88 +278,8 @@ function QualityLabels() {
     );
 }
 
-// ─── NEWS DATA ────────────────────────────────────────────────────────────────
-// Pour ajouter un article : ajouter un objet dans le tableau `articles`
-// Champs : date · title · excerpt (aperçu) · body (texte complet) · img
-
-const articles: Article[] = [
-    {
-        date: "Dimanche 8 février 2026",
-        title: "Vacances d'Hiver : Inscriptions aux reprises ouvertes",
-        excerpt:
-            "Les vacances d'hiver approchent ! Comme chaque année, un planning dédié est mis en place. Les inscriptions se font depuis votre espace en ligne.",
-        body: `Les vacances d'hiver approchent à grands pas, et le SHEVA vous prépare un planning de reprises spécialement conçu pour ces deux semaines.
-
-Que vous soyez débutant ou cavalier confirmé, des créneaux adaptés à tous les niveaux seront disponibles du lundi au vendredi tout au long de la période de vacances.
-
-📅 Comment s'inscrire ?
-Les inscriptions se font exclusivement depuis votre espace adhérent en ligne. Connectez-vous et réservez votre créneau avant qu'il ne soit complet — les places partent vite !
-
-🐴 Ce qui vous attend :
-• Reprises en carrière et en manège
-• Séances de longe pour les plus jeunes (à partir de 4 ans)
-• Ateliers découverte du pansage et des soins
-
-N'hésitez pas à contacter le club si vous avez des questions. À très bientôt au centre !`,
-        img: "/images/Images-illustrations/shevaneige.jpg",
-    },
-    {
-        date: "Samedi 14 mars 2026",
-        title: "Concours de Printemps : le programme est disponible",
-        excerpt:
-            "Le traditionnel concours de printemps du SHEVA aura lieu les 4 et 5 avril. Découvrez le programme et les modalités d'inscription pour cavaliers et spectateurs.",
-        body: `C'est officiel : le concours de printemps du SHEVA se tiendra les samedi 4 et dimanche 5 avril 2026 sur nos installations.
-
-Au programme, des épreuves de CSO (Club 1 à Amateur 2) ainsi que des épreuves de dressage niveaux débutant et confirmé. La journée du samedi sera consacrée aux épreuves jeunes cavaliers, et le dimanche aux catégories seniors.
-
-📋 Inscription des cavaliers :
-Les engagements sont à déposer avant le 28 mars via le formulaire disponible à l'accueil ou en ligne sur la page Activités.
-
-🎪 Pour les spectateurs :
-L'entrée est libre et gratuite. Une buvette sera tenue par l'association tout le week-end, et un espace restauration sera disponible le dimanche midi.
-
-Venez nombreux encourager nos cavaliers !`,
-        img: "/images/Images-illustrations/activ-hero.jpeg",
-    },
-    {
-        date: "Mardi 3 mars 2026",
-        title: "Nouveaux poneys au centre : bienvenue à Noisette et Galéo !",
-        excerpt:
-            "Le SHEVA a accueilli deux nouveaux poneys en ce début de printemps. Noisette et Galéo viennent renforcer notre troupe et rejoindront les reprises dès avril.",
-        body: `Nous avons le plaisir de vous présenter deux nouvelles têtes qui ont rejoint l'écurie du SHEVA début mars.
-
-🐴 Noisette — Poney Welsh section B, 7 ans
-Jument douce et fiable, Noisette est idéale pour les cavaliers en apprentissage. Elle a déjà une belle expérience du travail en carrière et s'intégrera dans les reprises débutants dès le mois d'avril.
-
-🐴 Galéo — Poney Connemara, 9 ans
-Galéo est un petit costaud plein d'énergie, parfait pour les cavaliers intermédiaires qui souhaitent progresser sur les exercices techniques. Il adore les barres et sera très à l'aise sur les cours de CSO.
-
-Les deux poneys sont en période d'intégration au sein de la troupe. Venez faire leur connaissance aux heures de pansage ou lors de votre prochaine reprise — ils adorent les caresses !`,
-        img: "/images/Images-illustrations/chevaux-hero.jpeg",
-    },
-    {
-        date: "Vendredi 20 février 2026",
-        title: "Rénovation du club-house : les travaux avancent bien !",
-        excerpt:
-            "Les travaux de rénovation du club-house sont en bonne voie. Découvrez les changements prévus et la date de réouverture annoncée pour fin mars.",
-        body: `Depuis début février, l'équipe du SHEVA s'active pour rénover entièrement le club-house. Les travaux, lancés cet hiver pour minimiser la gêne pendant la saison active, avancent selon le calendrier prévu.
-
-🔨 Ce qui change :
-• Peinture intégrale des murs et du plafond
-• Remplacement des tables et chaises par du mobilier neuf
-• Installation d'un espace cafétéria avec machine à café et micro-ondes
-• Création d'un coin lecture / jeux pour les enfants qui attendent pendant les cours
-
-📅 Réouverture prévue : fin mars 2026
-La date exacte sera communiquée sur notre page Instagram et sur les panneaux d'affichage de l'accueil. En attendant, les vestiaires et sanitaires restent accessibles normalement.
-
-Merci de votre patience — le résultat va valoir le coup !`,
-        img: "/images/Images-illustrations/club-house.jpeg",
-    },
-];
-
-// Les posts Instagram sont désormais récupérés automatiquement
-// via /api/instagram (Graph API Meta). Voir app/api/instagram/route.ts.
+// ★ Pour modifier les articles : éditer lib/newsData.ts
+// Les posts Instagram : récupérés automatiquement via /api/instagram (Graph API Meta)
 
 // ─── NEWS SECTION ─────────────────────────────────────────────────────────────
 
@@ -654,19 +444,6 @@ function PreviewSection() {
 // ─── QUICK ACCESS ─────────────────────────────────────────────────────────────
 
 function QuickAccess() {
-    const links = [
-        { label: "S'inscrire", href: "/planning#inscription", icon: "✏️" },
-        { label: "Planning", href: "/planning", icon: "📅" },
-        { label: "Tarifs", href: "/planning#tarifs", icon: "💶" },
-        { label: "Contact", href: "/infos#contact", icon: "📞" },
-        { label: "Galops", href: "/activites#galops", icon: "🏆" },
-        {
-            label: "Mon compte",
-            href: "https://cloud6.kavalog.fr/SHEVA/",
-            icon: "👤",
-        },
-    ];
-
     return (
         <section
             className="py-10 border-t border-gray-100"
@@ -677,7 +454,7 @@ function QuickAccess() {
                     Accès rapide
                 </p>
                 <div className="grid grid-cols-3 sm:grid-cols-6 gap-3">
-                    {links.map((l) => (
+                    {quickLinks.map((l) => (
                         <Link
                             key={l.href}
                             href={l.href}

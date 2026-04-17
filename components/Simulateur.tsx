@@ -76,8 +76,8 @@ export function Simulateur({
         if (age <= 6) return null;
         if (age <= 9) return "poney";
         if (age >= 13) return "cheval";
-        const h = parseFloat(m.height), w = parseInt(m.weight);
-        if (h && w) return h > 1.5 || w > 60 ? "cheval" : "poney";
+        const h = parseInt(m.height), w = parseInt(m.weight);
+        if (h && w) return h > 150 || w > 60 ? "cheval" : "poney";
         return null;
     };
 
@@ -295,13 +295,13 @@ export function Simulateur({
                             {needsMorpho && (
                                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
                                     {[
-                                        { field: "height" as keyof MemberData, label: "Taille (m)", placeholder: "1.45" },
+                                        { field: "height" as keyof MemberData, label: "Taille (cm)", placeholder: "145" },
                                         { field: "weight" as keyof MemberData, label: "Poids (kg)", placeholder: "45" },
                                     ].map(({ field, label, placeholder }) => (
                                         <div key={field}>
                                             <label style={{ fontSize: 13, fontWeight: 600, color: "#374151", marginBottom: 6, display: "block" }}>{label}</label>
                                             <input type="number" value={currentM[field]} onChange={(e) => updateMember(field, e.target.value)}
-                                                placeholder={placeholder} step={field === "height" ? 0.01 : 1}
+                                                placeholder={placeholder} step={1}
                                                 style={{ width: "100%", padding: "11px 12px", border: `1.5px solid ${currentM[field] ? teal : "#e5e7eb"}`, borderRadius: 10, fontSize: 14, outline: "none", boxSizing: "border-box" }} />
                                         </div>
                                     ))}

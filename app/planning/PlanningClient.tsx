@@ -6,7 +6,6 @@ import Link from "next/link";
 import { useState, useEffect, useCallback } from "react";
 import { assetPath } from "@/lib/assetPath";
 import React from "react";
-import { Noto_Sans_Old_Italic } from "next/font/google";
 import { TrouverReprise } from "@/components/TrouverReprise";
 import { Simulateur } from "@/components/Simulateur";
 import {
@@ -574,9 +573,7 @@ function PlanningComponent({ highlightLevel }: { highlightLevel?: string }) {
                                         ? "rgba(255,107,53,0.08)"
                                         : "white",
                                 color:
-                                    filterLevel === l.val
-                                        ? orange
-                                        : "#9ca3af",
+                                    filterLevel === l.val ? orange : "#9ca3af",
                                 fontWeight: 600,
                                 fontSize: 12,
                                 cursor: "pointer",
@@ -781,9 +778,7 @@ function PlanningComponent({ highlightLevel }: { highlightLevel?: string }) {
     );
 }
 
-
 // TrouverReprise et Simulateur importés depuis @/components/
-
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // PAGE PRINCIPALE
@@ -846,11 +841,19 @@ export default function PlanningClient() {
                                 color: "rgba(255,255,255,0.7)",
                             }}
                         >
-                            <Link href="/" style={{ color: "rgba(255,255,255,0.7)", textDecoration: "none" }}>
+                            <Link
+                                href="/"
+                                style={{
+                                    color: "rgba(255,255,255,0.7)",
+                                    textDecoration: "none",
+                                }}
+                            >
                                 Accueil
                             </Link>
                             <span>›</span>
-                            <span style={{ color: "white", fontWeight: 600 }}>Planning & Tarifs</span>
+                            <span style={{ color: "white", fontWeight: 600 }}>
+                                Planning & Tarifs
+                            </span>
                         </div>
 
                         <h1
@@ -875,7 +878,14 @@ export default function PlanningClient() {
                             Retrouvez les horaires de toutes nos reprises et nos
                             tarifs adaptés à tous les niveaux.
                         </p>
-                        <div style={{ display: "flex", gap: 12, flexWrap: "wrap", justifyContent: "center" }}>
+                        <div
+                            style={{
+                                display: "flex",
+                                gap: 12,
+                                flexWrap: "wrap",
+                                justifyContent: "center",
+                            }}
+                        >
                             <button
                                 onClick={() => setSimOpen(true)}
                                 style={{
@@ -891,15 +901,20 @@ export default function PlanningClient() {
                                     fontSize: 15,
                                     cursor: "pointer",
                                     boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
-                                    transition: "transform 0.2s, box-shadow 0.2s",
+                                    transition:
+                                        "transform 0.2s, box-shadow 0.2s",
                                 }}
                                 onMouseEnter={(e) => {
-                                    e.currentTarget.style.transform = "translateY(-2px)";
-                                    e.currentTarget.style.boxShadow = "0 8px 28px rgba(0,0,0,0.2)";
+                                    e.currentTarget.style.transform =
+                                        "translateY(-2px)";
+                                    e.currentTarget.style.boxShadow =
+                                        "0 8px 28px rgba(0,0,0,0.2)";
                                 }}
                                 onMouseLeave={(e) => {
-                                    e.currentTarget.style.transform = "translateY(0)";
-                                    e.currentTarget.style.boxShadow = "0 4px 20px rgba(0,0,0,0.15)";
+                                    e.currentTarget.style.transform =
+                                        "translateY(0)";
+                                    e.currentTarget.style.boxShadow =
+                                        "0 4px 20px rgba(0,0,0,0.15)";
                                 }}
                             >
                                 🐎 Simuler mon inscription
@@ -919,15 +934,20 @@ export default function PlanningClient() {
                                     fontSize: 15,
                                     cursor: "pointer",
                                     backdropFilter: "blur(8px)",
-                                    transition: "transform 0.2s, background 0.2s",
+                                    transition:
+                                        "transform 0.2s, background 0.2s",
                                 }}
                                 onMouseEnter={(e) => {
-                                    e.currentTarget.style.transform = "translateY(-2px)";
-                                    e.currentTarget.style.background = "rgba(255,255,255,0.25)";
+                                    e.currentTarget.style.transform =
+                                        "translateY(-2px)";
+                                    e.currentTarget.style.background =
+                                        "rgba(255,255,255,0.25)";
                                 }}
                                 onMouseLeave={(e) => {
-                                    e.currentTarget.style.transform = "translateY(0)";
-                                    e.currentTarget.style.background = "rgba(255,255,255,0.15)";
+                                    e.currentTarget.style.transform =
+                                        "translateY(0)";
+                                    e.currentTarget.style.background =
+                                        "rgba(255,255,255,0.15)";
                                 }}
                             >
                                 🔍 Trouver ma reprise
@@ -945,9 +965,9 @@ export default function PlanningClient() {
                             }}
                         >
                             {[
-                                { label: "Planning",  href: "#planning" },
+                                { label: "Planning", href: "#planning" },
                                 { label: "Calendrier", href: "#calendrier" },
-                                { label: "Tarifs",    href: "#tarifs" },
+                                { label: "Tarifs", href: "#tarifs" },
                                 { label: "Annulation", href: "#annulation" },
                             ].map((l) => (
                                 <a
@@ -1370,7 +1390,13 @@ export default function PlanningClient() {
                         <SectionHeader label="TARIFS" title="Nos Tarifs" />
 
                         {/* Bouton simulateur */}
-                        <div style={{ textAlign: "center", marginTop: -24, marginBottom: 20 }}>
+                        <div
+                            style={{
+                                textAlign: "center",
+                                marginTop: -24,
+                                marginBottom: 20,
+                            }}
+                        >
                             <button
                                 onClick={() => setSimOpen(true)}
                                 style={{
@@ -1385,16 +1411,22 @@ export default function PlanningClient() {
                                     fontWeight: 700,
                                     fontSize: 14,
                                     cursor: "pointer",
-                                    boxShadow: "0 4px 16px rgba(94,180,174,0.35)",
-                                    transition: "transform 0.2s, box-shadow 0.2s",
+                                    boxShadow:
+                                        "0 4px 16px rgba(94,180,174,0.35)",
+                                    transition:
+                                        "transform 0.2s, box-shadow 0.2s",
                                 }}
                                 onMouseEnter={(e) => {
-                                    e.currentTarget.style.transform = "translateY(-2px)";
-                                    e.currentTarget.style.boxShadow = "0 8px 24px rgba(94,180,174,0.45)";
+                                    e.currentTarget.style.transform =
+                                        "translateY(-2px)";
+                                    e.currentTarget.style.boxShadow =
+                                        "0 8px 24px rgba(94,180,174,0.45)";
                                 }}
                                 onMouseLeave={(e) => {
-                                    e.currentTarget.style.transform = "translateY(0)";
-                                    e.currentTarget.style.boxShadow = "0 4px 16px rgba(94,180,174,0.35)";
+                                    e.currentTarget.style.transform =
+                                        "translateY(0)";
+                                    e.currentTarget.style.boxShadow =
+                                        "0 4px 16px rgba(94,180,174,0.35)";
                                 }}
                             >
                                 🧮 Simuler mon tarif
@@ -1413,7 +1445,9 @@ export default function PlanningClient() {
                             Tarifs valables pour la saison {SAISON}. Consultez
                             nos{" "}
                             <a
-                                href={assetPath("/PDF_docs/Conditions Generales de Vente.pdf")}
+                                href={assetPath(
+                                    "/PDF_docs/Conditions Generales de Vente.pdf",
+                                )}
                                 style={{
                                     color: teal,
                                     fontWeight: 600,
@@ -2002,7 +2036,9 @@ export default function PlanningClient() {
 
                                 <div style={{ textAlign: "center" }}>
                                     <a
-                                        href={assetPath("/PDF_docs/Conditions Generales de Vente.pdf")}
+                                        href={assetPath(
+                                            "/PDF_docs/Conditions Generales de Vente.pdf",
+                                        )}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         style={{
@@ -2313,7 +2349,9 @@ export default function PlanningClient() {
                                 </div>
                                 <div style={{ marginTop: 20 }}>
                                     <a
-                                        href={assetPath("/PDF_docs/Conditions Generales de Vente.pdf")}
+                                        href={assetPath(
+                                            "/PDF_docs/Conditions Generales de Vente.pdf",
+                                        )}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         style={{
@@ -2369,10 +2407,11 @@ export default function PlanningClient() {
                                     }}
                                 >
                                     {[
-                                        "Proposée par un organisme partenaire de la SHEVA.",
-                                        "Couvre l'incapacité temporaire ou définitive de pratiquer (accident, maladie, grossesse…).",
-                                        "Doit être souscrite dans les 30 jours suivant l'inscription à la SHEVA.",
-                                        "Documents mis à jour régulièrement — vérifier la dernière version avant souscription.",
+                                        "Notre partenaire Generali propose une assurance annulation facultative à la souscription (adhésion payante).",
+                                        "L’adhésion est facultative et se fait directement depuis votre espace membre.",
+                                        "En cas d’annulation, le remboursement est géré exclusivement par Generali (cf notice du contrat : cas faisant objet de la garantie) la SHEVA ne procède à aucun remboursement.",
+                                        "Les garanties prennent effet le 1ᵉʳ septembre — tout événement survenu entre la date d’inscription et le 1ᵉʳ septembre est exclu.",
+                                        "Consultez attentivement la notice d’information avant de souscrire : ",
                                     ].map((txt, i) => (
                                         <div
                                             key={i}
@@ -2415,12 +2454,10 @@ export default function PlanningClient() {
                                 >
                                     {[
                                         {
-                                            href: assetPath("/PDF_docs/Notice_assu.pdf"),
+                                            href: assetPath(
+                                                "/PDF_docs/notice_assurance_generali.pdf",
+                                            ),
                                             label: "📋 Notice assurance",
-                                        },
-                                        {
-                                            href: assetPath("/PDF_docs/assu_infocontractuelles.pdf"),
-                                            label: "📄 Fiche contractuelle",
                                         },
                                     ].map(({ href, label }) => (
                                         <a
@@ -2531,7 +2568,10 @@ export default function PlanningClient() {
             <Simulateur isOpen={simOpen} onClose={() => setSimOpen(false)} />
 
             {/* Trouver ma reprise drawer */}
-            <TrouverReprise isOpen={finderOpen} onClose={() => setFinderOpen(false)} />
+            <TrouverReprise
+                isOpen={finderOpen}
+                onClose={() => setFinderOpen(false)}
+            />
         </>
     );
 }
