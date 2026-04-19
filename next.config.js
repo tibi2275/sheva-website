@@ -1,18 +1,16 @@
 /** @type {import('next').NextConfig} */
 
-// Le basePath est /sheva-website sur GitHub Pages, vide en local.
-// On lit PAGES_BASE_PATH (injecté par configure-pages ou le workflow),
-// avec fallback sur GITHUB_ACTIONS pour éviter tout problème de timing.
-const basePath =
-    process.env.PAGES_BASE_PATH ||
-    (process.env.GITHUB_ACTIONS === "true" ? "" : "");
+// basePath : vide pour un déploiement sur nom de domaine custom (site à la racine /).
+// Si tu redéploies un jour sur GitHub Pages SANS domaine custom (ex: user.github.io/sheva),
+// passe PAGES_BASE_PATH=/sheva au moment du build.
+const basePath = process.env.PAGES_BASE_PATH ?? "";
 
 const nextConfig = {
     output: "export",
     basePath: basePath,
     images: {
         // Obligatoire pour output: "export" — désactive l'API /_next/image
-        // qui n'existe pas dans un export statique (GitHub Pages, serve…)
+        // qui n'existe pas dans un export statique.
         unoptimized: true,
         remotePatterns: [],
     },

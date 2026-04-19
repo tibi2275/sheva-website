@@ -1890,7 +1890,7 @@ export default function InfosClient() {
                                             date: "6 mai",
                                             text: "Réunion d'informations en visio conférence - à 20h30 (environ 1h)",
                                             link: {
-                                                href: "",
+                                                href: "https://meet.google.com/afr-xbej-the",
                                                 label: "Lien de la visio à venir",
                                             },
                                         },
