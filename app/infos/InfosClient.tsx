@@ -9,9 +9,7 @@ import { Footer } from "@/components/Footer";
 import { TrouverReprise } from "@/components/TrouverReprise";
 import { Simulateur } from "@/components/Simulateur";
 
-// ─── BRAND ────────────────────────────────────────────────────────────────────
-const teal = "rgb(94,180,174)";
-const tealDark = "rgb(69,144,150)";
+import { teal, tealDark } from "@/lib/theme";
 
 // ─── NIVEAU TOOLS (boutons FAQ) ───────────────────────────────────────────────
 function NiveauTools() {
@@ -2171,9 +2169,9 @@ export default function InfosClient() {
                                 margin: "0 auto 28px",
                                 padding: "8px 18px",
                                 borderRadius: 8,
-                                background: "white",
+                                background: tealDark,
                                 border: "1px solid white",
-                                color: tealDark,
+                                color: "white",
                                 fontSize: 13,
                                 fontWeight: 700,
                                 cursor: "pointer",

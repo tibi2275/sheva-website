@@ -11,10 +11,7 @@ export const metadata: Metadata = {
         "Cours d'équitation, stages, balades, compétitions et animations : la SHEVA propose une large gamme d'activités équestres à Créteil, dans une ambiance conviviale.",
 };
 
-// ─── BRAND ────────────────────────────────────────────────────────────────────
-const teal = "rgb(94,180,174)";
-const tealDark = "rgb(69,144,150)";
-const orange = "#ff6b35";
+import { teal, tealDark, orange } from "@/lib/theme";
 
 // ─── GALLERY ──────────────────────────────────────────────────────────────────
 

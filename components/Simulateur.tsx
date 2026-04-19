@@ -2,11 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { REPRISES_BY_LEVEL, FORFAITS_PRICING, COTISATIONS } from "@/lib/planning-data";
-
-const teal = "rgb(94,180,174)";
-const tealDark = "rgb(69,144,150)";
-const orange = "#ff6b35";
-const SAISON = "2026-2027";
+import { teal, tealDark, orange, SAISON } from "@/lib/theme";
 
 type MountType = "poney" | "cheval" | null;
 

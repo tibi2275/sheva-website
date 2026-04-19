@@ -12,9 +12,7 @@ export const metadata: Metadata = {
         "Découvrez les chevaux et poneys de la SHEVA, sélectionnés pour leur qualité, leur gentillesse et leur polyvalence. Des montures adaptées à tous les niveaux pour apprendre et progresser.",
 };
 
-// ─── BRAND ────────────────────────────────────────────────────────────────────
-const teal = "rgb(94,180,174)";
-const tealDark = "rgb(69,144,150)";
+import { teal, tealDark } from "@/lib/theme";
 
 // ─── DATA ─────────────────────────────────────────────────────────────────────
 

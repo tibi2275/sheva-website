@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { assetPath } from "@/lib/assetPath";
+import { teal, tealDark } from "@/lib/theme";
 
 // ─── DATA ─────────────────────────────────────────────────────────────────────
 
@@ -104,9 +105,6 @@ export function Nav({ transparent = false }: { transparent?: boolean }) {
         setOpenSection(null);
     };
 
-    // ── TEAL BRAND ──
-    const teal = "rgb(94,180,174)";
-    const tealDark = "rgb(69,144,150)";
     const headerBg = isOpaque
         ? `linear-gradient(135deg, ${teal} 0%, ${tealDark} 100%)`
         : "linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, transparent 100%)";

@@ -6,10 +6,7 @@ import {
     PONEY_LEVELS,
     CHEVAL_LEVELS,
 } from "@/lib/planning-data";
-
-const teal = "rgb(94,180,174)";
-const tealDark = "rgb(69,144,150)";
-const orange = "#ff6b35";
+import { teal, tealDark, orange } from "@/lib/theme";
 
 // ─── QUIZ PONEY ───────────────────────────────────────────────────────────────
 const PONEY_QUIZ: {

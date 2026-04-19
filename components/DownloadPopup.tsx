@@ -1,9 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
-const teal = "rgb(94,180,174)";
-const tealDark = "rgb(69,144,150)";
+import { teal, tealDark } from "@/lib/theme";
 
 const documents = [
     { label: "Statuts", href: "/PDF_docs/Statuts_SHEVA_2023.pdf" },

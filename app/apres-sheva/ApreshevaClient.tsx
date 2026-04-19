@@ -6,9 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { assetPath } from "@/lib/assetPath";
 
-// ─── BRAND ────────────────────────────────────────────────────────────────────
-const teal = "rgb(94,180,174)";
-const tealDark = "rgb(69,144,150)";
+import { teal, tealDark } from "@/lib/theme";
 
 // ─── DONNÉES — RETRAITÉS ───────────────────────────────────────────────────────
 const RETRAITES = [

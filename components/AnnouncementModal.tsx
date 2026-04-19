@@ -36,7 +36,7 @@ export type Announcement = {
 
 // ★ MODIFIEZ ICI pour changer l'annonce
 export const currentAnnouncement: Announcement = {
-    id: "inscriptions-2026-2027-v13",
+    id: "news_inscriptions_2026", // changez cette valeur pour forcer l'annonce à réapparaître
     emoji: "🌸",
     label: "Inscriptions",
     title: "Les inscriptions pour la prochaine saison arrivent à grand pas !",

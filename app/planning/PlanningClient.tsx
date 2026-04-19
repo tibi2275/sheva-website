@@ -20,18 +20,7 @@ import {
     type CreneauType,
 } from "@/lib/planning-data";
 
-// ─── BRAND ────────────────────────────────────────────────────────────────────
-const teal = "rgb(94,180,174)";
-const tealDark = "rgb(69,144,150)";
-const orange = "#ff6b35";
-
-// ═══════════════════════════════════════════════════════════════════════════════
-// ██  CONSTANTES — MODIFIEZ ICI POUR METTRE À JOUR LE PLANNING ET LES TARIFS ██
-// ═══════════════════════════════════════════════════════════════════════════════
-
-const SAISON = "2026-2027";
-const SAISON_DEBUT = "24 août 2026";
-const SAISON_FIN = "4 juillet 2027";
+import { teal, tealDark, orange, SAISON, SAISON_DEBUT, SAISON_FIN } from "@/lib/theme";
 
 // Vacances scolaires
 const VACANCES = [
@@ -1023,7 +1012,8 @@ export default function PlanningClient() {
                                 ·
                             </span>
                             <em style={{ color: "#6b7280" }}>
-                                Planning adapté pendant les vacances scolaires
+                                Planning provisoir susceptible de modifications
+                                avant l'ouverture des inscriptions.
                             </em>
                         </div>
 
@@ -2407,11 +2397,7 @@ export default function PlanningClient() {
                                     }}
                                 >
                                     {[
-                                        "Notre partenaire Generali propose une assurance annulation facultative à la souscription (adhésion payante).",
-                                        "L’adhésion est facultative et se fait directement depuis votre espace membre.",
-                                        "En cas d’annulation, le remboursement est géré exclusivement par Generali (cf notice du contrat : cas faisant objet de la garantie) la SHEVA ne procède à aucun remboursement.",
-                                        "Les garanties prennent effet le 1ᵉʳ septembre — tout événement survenu entre la date d’inscription et le 1ᵉʳ septembre est exclu.",
-                                        "Consultez attentivement la notice d’information avant de souscrire : ",
+                                        "Nous travaillons actuellement sur une nouvelle offre d\u2019assurance annulation pour la saison 2026-2027. Plus d\u2019infos à venir très prochainement !",
                                     ].map((txt, i) => (
                                         <div
                                             key={i}
@@ -2444,7 +2430,7 @@ export default function PlanningClient() {
                                         </div>
                                     ))}
                                 </div>
-                                <div
+                                {/*<div
                                     style={{
                                         marginTop: 20,
                                         display: "flex",
@@ -2455,7 +2441,7 @@ export default function PlanningClient() {
                                     {[
                                         {
                                             href: assetPath(
-                                                "/PDF_docs/notice_assurance_generali.pdf",
+                                                "/PDF_docs/blabla.pdf",
                                             ),
                                             label: "📋 Notice assurance",
                                         },
@@ -2479,7 +2465,7 @@ export default function PlanningClient() {
                                             {label}
                                         </a>
                                     ))}
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>

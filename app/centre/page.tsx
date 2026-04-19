@@ -13,10 +13,7 @@ export const metadata: Metadata = {
         "Découvrez la SHEVA, centre équestre installé au parc interdépartemental des sports de Choisy à Créteil. Infrastructures récentes, cadre verdoyant, pédagogie de qualité.",
 };
 
-// ─── BRAND ────────────────────────────────────────────────────────────────────
-const teal = "rgb(94,180,174)";
-const tealDark = "rgb(69,144,150)";
-const orange = "#ff6b35";
+import { teal, tealDark, orange } from "@/lib/theme";
 
 // ─── DATA ─────────────────────────────────────────────────────────────────────
 
