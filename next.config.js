@@ -5,7 +5,7 @@
 // avec fallback sur GITHUB_ACTIONS pour éviter tout problème de timing.
 const basePath =
     process.env.PAGES_BASE_PATH ||
-    (process.env.GITHUB_ACTIONS === "true" ? "/sheva-website" : "");
+    (process.env.GITHUB_ACTIONS === "true" ? "" : "");
 
 const nextConfig = {
     output: "export",
