@@ -56,6 +56,6 @@ Comme toujours vous êtes attendus nombreux, quelques soient vos compétences po
             "Les vacances de printemps approchent ! C'est le moment de réserver vos places pour les reprises pendant les vacances. Que vous soyez débutant ou cavalier confirmé, nous avons des créneaux adaptés à tous les niveaux. Ne tardez pas, réservez vos créneaux !",
         body: `Rendez vous sur la page planning et sur votre espace en ligne pour réserver vos places dans les reprises des prochaines vacances.
         A très bientôt au centre équestre !`,
-        img: "/images/Images-illustrations/1hponey.jpg",
+        img: "/images/Images-illustrations/printemps.jpeg",
     },
 ];
