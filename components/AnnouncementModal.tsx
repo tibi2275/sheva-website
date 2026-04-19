@@ -36,7 +36,7 @@ export type Announcement = {
 
 // ★ MODIFIEZ ICI pour changer l'annonce
 export const currentAnnouncement: Announcement = {
-    id: "news_inscriptions_2026", // changez cette valeur pour forcer l'annonce à réapparaître
+    id: "news_inscriptions_2026v2", // changez cette valeur pour forcer l'annonce à réapparaître
     emoji: "🌸",
     label: "Inscriptions",
     title: "Les inscriptions pour la prochaine saison arrivent à grand pas !",
@@ -269,8 +269,10 @@ export function AnnouncementModal({
                     style={{
                         width: "100%",
                         maxWidth: 420,
+                        maxHeight: "90svh",
                         borderRadius: 24,
                         overflow: "hidden",
+                        overflowY: "auto",
                         background: "white",
                         boxShadow:
                             "0 32px 80px rgba(0,0,0,0.28), 0 0 0 1px rgba(255,255,255,0.08)",
@@ -285,7 +287,7 @@ export function AnnouncementModal({
                         style={{
                             background:
                                 "linear-gradient(135deg, rgb(94,180,174) 0%, rgb(69,144,150) 60%, rgb(45,120,128) 100%)",
-                            padding: "36px 28px 32px",
+                            padding: "24px 28px 20px",
                             textAlign: "center",
                             position: "relative",
                             overflow: "hidden",
@@ -342,7 +344,7 @@ export function AnnouncementModal({
                         {announcement.emoji && (
                             <div
                                 style={{
-                                    fontSize: 52,
+                                    fontSize: 40,
                                     lineHeight: 1,
                                     marginBottom: 4,
                                 }}
