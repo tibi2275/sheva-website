@@ -69,7 +69,7 @@ const CHEVAL_QUIZ: {
     koNext: number | null;
 }[] = [
     {
-        question: "Tu sais trotter en enlevé et t'arrêter seul(e) ?",
+        question: "Tu sais trotter enlevé et t'arrêter seul(e) ?",
         okLabel: "Oui",
         koLabel: "Non",
         okNext: 1,
@@ -97,7 +97,8 @@ const CHEVAL_QUIZ: {
         koLevel: "galop2",
     },
     {
-        question: "Tu es autonome et tu fais du travail latéral au pas ?",
+        question:
+            "Tu es autonome et tu fais du travail latéral au pas et tu es à l'aise sur des obstacles isolés ?",
         okLabel: "Oui",
         koLabel: "Non",
         okNext: 4,
@@ -645,8 +646,8 @@ export function TrouverReprise({
                 step.level === "galop7"
                     ? (REPRISES_BY_LEVEL["perf_g7"] ?? [])
                     : step.level === "galop6"
-                    ? (REPRISES_BY_LEVEL["perf_g6"] ?? [])
-                    : [];
+                      ? (REPRISES_BY_LEVEL["perf_g6"] ?? [])
+                      : [];
             const reprises = [...baseReprises, ...perfReprises];
             const levelLabel = LEVEL_LABELS[step.level] ?? step.level;
             return (
