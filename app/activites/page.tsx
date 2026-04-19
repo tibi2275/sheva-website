@@ -1443,7 +1443,7 @@ export default function ActivitesPage() {
                                 >
                                     <Image
                                         src={assetPath(
-                                            "/images/Images-illustrations/stages.jpg",
+                                            "/images/Images-illustrations/manege.jpeg",
                                         )}
                                         alt="Stages SHEVA"
                                         fill
