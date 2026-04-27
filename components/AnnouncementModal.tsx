@@ -48,7 +48,8 @@ export const currentAnnouncement: Announcement = {
             </span>
             <br />
             <span>
-                🗓️ <strong>6 mai à 20h </strong> — Réunion d&apos;information
+                🗓️ <strong>6 mai à 20h30 </strong> — Réunion d&apos;information
+                en visioconférence
             </span>
             <br />
             <span>
@@ -58,7 +59,8 @@ export const currentAnnouncement: Announcement = {
             <br />
 
             <span>
-                📌 <strong>26 mai </strong> — Ouverture aux nouveaux adhérents
+                📌 <strong>26 mai </strong> — Ouverture des inscriptions
+                2026-2027 aux nouveaux adhérents
             </span>
             <br />
             <br />
@@ -69,8 +71,8 @@ export const currentAnnouncement: Announcement = {
 
             <span>
                 <br />
-                🔑 <strong>A partir du 11 mai 2026 </strong> — début des
-                inscriptions
+                🔑 <strong>A partir du 11 mai 2026 </strong> — Début des
+                réinscriptions 2026-2027
             </span>
             <br />
             <br />

@@ -38,7 +38,7 @@ const navLinks = [
         href: "/chevaux",
         emoji: "🐴",
         sub: [
-            { label: "Chevaux", href: "/chevaux#chevaux-detail" },
+            { label: "Chevaux", href: "/chevaux#chevaux" },
             { label: "Poneys", href: "/chevaux#poneys" },
             { label: "Bien-être", href: "/chevaux#bien-etre" },
             { label: "Après SHEVA", href: "/chevaux#apres-sheva" },

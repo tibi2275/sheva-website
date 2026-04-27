@@ -127,7 +127,7 @@ const orgItems = [
             "Organisée une fois par an.",
             "Présente le rapport d'activités et le rapport financier.",
             "Vote les comptes, le budget et le renouvellement des membres du Conseil.",
-            "Le vote est réservé aux membres actifs depuis plus de 6 mois, âgés de plus de 16 ans (ou via leur représentant légal).",
+            "Le vote est réservé aux membres actifs depuis plus de 6 mois, âgés de plus de 16 ans ou via leur représentant légal.",
         ],
     },
 ];

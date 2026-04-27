@@ -70,12 +70,16 @@ export const previewCards = [
 // ── Accès rapide ──────────────────────────────────────────────────────────────
 
 export const quickLinks = [
-    { label: "S'inscrire", href: "/planning#inscription", icon: "✏️" },
+    { label: "S'inscrire", href: "/infos#inscriptions", icon: "✏️" },
     { label: "Planning", href: "/planning", icon: "📅" },
     { label: "Tarifs", href: "/planning#tarifs", icon: "💶" },
     { label: "Contact", href: "/infos#contact", icon: "📞" },
-    { label: "Galops", href: "/activites#galops", icon: "🏆" },
-    { label: "Mon compte", href: "https://cloud6.kavalog.fr/SHEVA/", icon: "👤" },
+    { label: "Activités", href: "/activites", icon: "🏆" },
+    {
+        label: "Mon compte",
+        href: "https://cloud6.kavalog.fr/SHEVA/",
+        icon: "👤",
+    },
 ];
 
 // ── Logos & labels qualité ────────────────────────────────────────────────────
@@ -83,11 +87,23 @@ export const quickLinks = [
 export const qualityLabels = [
     { src: "/images/logos/logo-efe.jpg", alt: "École Française d'Équitation" },
     { src: "/images/logos/logo-bea.png", alt: "Bien-être animal" },
-    { src: "/images/logos/FFE-Poney-club-de-France.jpg", alt: "Poney Club de France" },
-    { src: "/images/logos/FFE-Logo-Cheval-Club-de-France.jpg", alt: "Cheval Club de France" },
+    {
+        src: "/images/logos/FFE-Poney-club-de-France.jpg",
+        alt: "Poney Club de France",
+    },
+    {
+        src: "/images/logos/FFE-Logo-Cheval-Club-de-France.jpg",
+        alt: "Cheval Club de France",
+    },
 ];
 
 export const ffeLogos = [
-    { src: "/images/logos/FFE_Logo.png", alt: "FFE - Fédération Française d'Équitation" },
-    { src: "/images/logos/GHN_logo.png", alt: "GHN - Groupement Hippique National" },
+    {
+        src: "/images/logos/FFE_Logo.png",
+        alt: "FFE - Fédération Française d'Équitation",
+    },
+    {
+        src: "/images/logos/GHN_logo.png",
+        alt: "GHN - Groupement Hippique National",
+    },
 ];

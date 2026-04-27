@@ -691,6 +691,13 @@ export default function ActivitesPage() {
                                         "Position et allures",
                                         "Soins et sécurité",
                                     ]}
+                                    extra={
+                                        <>
+                                            Les cours poney niveau "Débutant"
+                                            ont lieu uniquement pendant les
+                                            périodes hors vacances scolaires.
+                                        </>
+                                    }
                                 />
                                 <CourseCard
                                     img="/images/Images-illustrations/activites-illustration.avif"

@@ -42,7 +42,7 @@ function NiveauTools() {
                         boxShadow: "0 3px 12px rgba(255,107,53,0.3)",
                     }}
                 >
-                    🔍 Trouver ma reprise
+                    🔍 Trouver mon niveau
                 </button>
                 {/*<button
                     onClick={() => setSimOpen(true)}
@@ -77,32 +77,18 @@ const FAQ_SECTIONS = [
                 q: "Comment évaluer mon niveau d'équitation et la reprise à laquelle s'inscrire ?",
                 a: (
                     <>
-                        Utilisez nos fiches d&apos;auto-évaluation disponibles
-                        ci-dessous. Les niveaux Galop indiqués dans nos cours
-                        correspondent au niveau <strong>acquis</strong>, pas au
-                        niveau que vous préparez. En cas de doute, nous
-                        recommandons fortement de faire une séance d&apos;essai
-                        pour une évaluation précise avec nos enseignants.
+                        Utilisez notre simulateur d&apos;auto-évaluation
+                        disponible ci-dessous. Les niveaux Galop indiqués dans
+                        nos cours correspondent au niveau{" "}
+                        <strong>acquis</strong>, pas au niveau que vous
+                        préparez. En cas de doute, nous recommandons fortement
+                        de faire une séance d&apos;essai pour une évaluation
+                        précise avec nos enseignants.
                         <br />
                         Les séances d&apos;essai ont lieu une fois par an au
                         mois de mai.
                         <br />
                         <br />
-                        <a
-                            href={assetPath("/PDF_docs/fiche_niveau_poney.pdf")}
-                            className="faq-link"
-                        >
-                            📄 Fiche de niveau Poney
-                        </a>
-                        <br />
-                        <a
-                            href={assetPath(
-                                "/PDF_docs/fiche_niveau_cheval.pdf",
-                            )}
-                            className="faq-link"
-                        >
-                            📄 Fiche de niveau Cheval
-                        </a>
                         <NiveauTools />
                     </>
                 ),
@@ -645,7 +631,11 @@ const NOTICES = [
         href: "/PDF_docs/notice_seance_essai.pdf",
     },
     {
-        label: "📋 Notice réinscriptions trimestrielles",
+        label: "📋 Notice réinscriptions annuelles",
+        href: "/PDF_docs/Notice_Reinscription_Annuelle.pdf",
+    },
+    {
+        label: "📋 Notice réinscriptions semestrielles",
         href: "/PDF_docs/notice_inscriptions_trimestrielles.pdf",
     },
     {
@@ -948,7 +938,7 @@ export default function InfosClient() {
                                             email: "sheva@sheva.fr",
                                         },
                                         {
-                                            label: "Problèmes espace en ligne",
+                                            label: "Espace en ligne",
                                             email: "shevaweb@sheva.fr",
                                         },
                                         {
@@ -1460,6 +1450,13 @@ export default function InfosClient() {
                                         incluse dans le forfait&quot;.
                                     </li>
                                     <li>
+                                        🚫 Les bons de récupération "Reprise
+                                        Vacance" ne fonctionnent que pour les
+                                        reprises qui ont lieu pendant les
+                                        vacances scolaires. Ils ne sont pas
+                                        utilisable en dehors des vacances.
+                                    </li>
+                                    <li>
                                         ⚠️ Les inscriptions sont ouvertes 1 à 2
                                         semaines avant le début des vacances et
                                         les places sont limitées.
@@ -1496,7 +1493,7 @@ export default function InfosClient() {
                                         items: [
                                             "En cas d'absence, vous devez vous désinscrire au plus tard 24h avant votre reprise via votre espace en ligne.",
                                             "Cela génère un bon de récupération, utilisable sur votre espace en ligne pour s'inscrire à une autre reprise.",
-                                            "Ces bons constituent une facilité offerte par la SHEVA (non un droit). Leur usage dépend des places disponibles, hors séances d'obstacle et hors des 4 dernières semaines de la saison.",
+                                            "Ces bons constituent une facilité offerte par la SHEVA (non un droit). Leur usage dépend des places disponibles, hors séances d'obstacle et à l'exclusion du dernier mois de la saison.",
                                         ],
                                     },
                                     {
@@ -1508,7 +1505,7 @@ export default function InfosClient() {
                                     {
                                         title: "Conditions d'utilisation :",
                                         items: [
-                                            "Il est possible de générer jusqu'à 6 bons par forfait annuel (3 par semestre). Au-delà, les absences ne sont pas récupérables.",
+                                            "Il est possible de générer jusqu'à 6 bons par forfait annuel (3 par forfait semestriel). Au-delà, les absences ne sont pas récupérables.",
                                             "Les bons sont valides dès leur création et pendant 2 mois après la reprise annulée.",
                                             "Une récupération non utilisée dans les 2 mois ou réservée mais non effectuée est perdue définitivement.",
                                         ],
@@ -1620,7 +1617,16 @@ export default function InfosClient() {
                             Le matériel peut être acheté dans les magasins de
                             sport ou selleries spécialisées.{" "}
                             <strong>10% de réduction</strong> aux cavaliers
-                            SHEVA à la Sellerie du Bois (Charenton).
+                            SHEVA à la{" "}
+                            <a
+                                href="https://horse-prestige.fr/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{ color: teal }}
+                            >
+                                Sellerie du Bois (Charenton)
+                            </a>
+                            .
                         </p>
 
                         <div
@@ -1981,10 +1987,10 @@ export default function InfosClient() {
                                     <li>
                                         Auto-évaluer votre niveau —{" "}
                                         <a
-                                            href="#faq"
+                                            href="/planning"
                                             style={{ color: tealDark }}
                                         >
-                                            consultez la FAQ
+                                            Trouver mon niveau
                                         </a>
                                     </li>
                                     <li>

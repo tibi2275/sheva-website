@@ -20,7 +20,14 @@ import {
     type CreneauType,
 } from "@/lib/planning-data";
 
-import { teal, tealDark, orange, SAISON, SAISON_DEBUT, SAISON_FIN } from "@/lib/theme";
+import {
+    teal,
+    tealDark,
+    orange,
+    SAISON,
+    SAISON_DEBUT,
+    SAISON_FIN,
+} from "@/lib/theme";
 
 // Vacances scolaires
 const VACANCES = [
@@ -214,7 +221,7 @@ const TARIFS_ACTIVITES = [
             {
                 nom: "Éveil poney (3-4 ans)",
                 cheval: "—",
-                poney: "120 € + 25 € licence",
+                poney: "120 € + 29 € licence",
             },
         ],
     },
@@ -731,8 +738,8 @@ function PlanningComponent({ highlightLevel }: { highlightLevel?: string }) {
                             baby: "Baby (30min)",
                             poney: "Poney",
 
-                            cheval: "Cheval débutant",
-                            perf: "Perf. 1h30",
+                            cheval: "Cheval",
+                            perf: "Cheval - Perf. 1h30",
                         };
                         return (
                             <div
@@ -762,6 +769,18 @@ function PlanningComponent({ highlightLevel }: { highlightLevel?: string }) {
                         );
                     },
                 )}
+            </div>
+            <div
+                style={{
+                    marginTop: 10,
+                    textAlign: "center",
+                    fontSize: 11,
+                    color: "#9ca3af",
+                }}
+            >
+                <strong>Note : </strong>
+                <i>"Galop 0" correspond à un niveau Débutant à cheval</i>{" "}
+                &nbsp;·&nbsp;{" "}
             </div>
         </div>
     );
@@ -1012,11 +1031,29 @@ export default function PlanningClient() {
                                 ·
                             </span>
                             <em style={{ color: "#6b7280" }}>
-                                Planning provisoir susceptible de modifications
+                                Planning provisoire susceptible de modifications
                                 avant l'ouverture des inscriptions.
                             </em>
                         </div>
+                        <div
+                            style={{
+                                padding: "14px 20px",
+                                background: "rgba(94, 180, 174, 0.15)",
+                                border: "1px solid rgba(94,180,174,0.2)",
+                                borderRadius: 12,
+                                marginBottom: 28,
+                                textAlign: "center",
+                                fontSize: 14,
+                                color: "#374151",
+                            }}
+                        >
+                            <strong>Note : </strong>
 
+                            <em style={{ color: "#6b7280" }}>
+                                Les derniers cours de la saison 2025-2026 ont
+                                lieu la semaine du 29 juin au 5 juillet.
+                            </em>
+                        </div>
                         <div
                             style={{
                                 background: "white",
@@ -1554,11 +1591,11 @@ export default function PlanningClient() {
                                                 {[
                                                     {
                                                         label: "Annuel",
-                                                        sub: "sep → juillet",
+                                                        sub: "août → juillet",
                                                     },
                                                     {
                                                         label: "1er Semestre",
-                                                        sub: "sep → jan",
+                                                        sub: "août → jan",
                                                     },
                                                     {
                                                         label: "2nd Semestre",
@@ -2018,8 +2055,12 @@ export default function PlanningClient() {
                                             En ligne 1× ou 4× sans frais (min.
                                             500 €)
                                             <br />
-                                            Ou acompte CB + 1/2 chèques avant la
-                                            1ère séance
+                                            Ou acompte CB + 1 ou 2 chèques à
+                                            remettre rapidement à la SHEVA
+                                            (datés au jour du règlement, à
+                                            l'ordre de « SHEVA », avec le nom du
+                                            cavalier inscrit au dos ; encaissés
+                                            fin août et fin octobre 2026).
                                         </p>
                                     </div>
                                 </div>
