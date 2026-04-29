@@ -95,7 +95,19 @@ const FAQ_SECTIONS = [
             },
             {
                 q: "Puis-je changer de niveau en cours d'année ?",
-                a: "Le choix du niveau d'inscription engage votre responsabilité. Aucun remboursement n'est possible en cas de niveau inadapté. Il est donc crucial de bien s'auto-évaluer ou de faire une séance d'essai avant l'inscription définitive.",
+                a: (
+                    <>
+                        Le choix du niveau d'inscription engage votre
+                        responsabilité. Aucun remboursement n'est possible en
+                        cas de niveau inadapté. Il est donc crucial de bien
+                        s'auto-évaluer ou de faire une séance d'essai avant
+                        l'inscription définitive.
+                        <br />
+                        La SHEVA fera cependant son possible pour trouver une
+                        place adaptée, mais sans garantie et sous réserve des
+                        places disponibles.
+                    </>
+                ),
             },
             {
                 q: "La séance d'essai est-elle obligatoire ?",
@@ -125,7 +137,7 @@ const FAQ_SECTIONS = [
         title: "Fonctionnement du club : Forfaits, reprises, annulations, vacances",
         items: [
             {
-                q: "Quand ont lieu les inscriptions ?",
+                q: "Quand ont lieu les inscriptions annuelles?",
                 a: (
                     <>
                         Chaque année, les inscriptions ont lieu à partir du mois
@@ -180,22 +192,43 @@ const FAQ_SECTIONS = [
                     <>
                         Vous devez vous désinscrire au minimum{" "}
                         <strong>24 heures avant</strong> votre cours pour
-                        générer un bon de récupération. Ce bon est valable
-                        pendant <strong>2 mois</strong> à partir de la date du
-                        cours annulé, selon les places disponibles.
+                        générer un bon de récupération. Ce bon est valable{" "}
+                        <strong>dès votre désinscription </strong>
+                        et pendant <strong>2 mois</strong> à partir de la date
+                        du cours annulé, selon les places disponibles.
                         <br />
-                        Quota : 6 bons par forfait annuel, 3 par semestre. Pas
-                        de récupération sur les séances d&apos;obstacle ni
-                        pendant les 4 dernières semaines de la saison.
+                        Quota : 6 bons par forfait annuel, 3 par forfait
+                        semestriel. Pas de récupération sur les séances
+                        d&apos;obstacle ni pendant le dernier mois de la saison.
                         <br />
                         <br />
                         ❗ En cas d&apos;imprévu de dernière minute (moins de
                         24h), désinscrivez-vous quand même et prévenez votre
                         moniteur en appelant la SHEVA.
                         <br />
+                        <br />
                         <Link href="/infos#fonctionnement" className="faq-link">
                             → Voir la section Fonctionnement
                         </Link>
+                        <br />
+                        <br />❗ Les annulations se font depuis votre{" "}
+                        <a
+                            href="https://cloud6.kavalog.fr/SHEVA/"
+                            className="faq-link"
+                        >
+                            Espace Personnel
+                        </a>
+                        . C'est depuis cet espace que vous pouvez également vous
+                        inscrire aux récupérations, depuis l'onglet "Mes
+                        récupérations".
+                        <br />
+                        <strong>Attention : </strong>La SHEVA offre la
+                        possibilité de récupérer les reprises, mais il ne s'agit
+                        pas d'une garantie. La possibilité de récupérer dépend
+                        des places disponibles dans les cours (d’où l’importance
+                        de vous désinscrire dès que vous avez connaissance d’une
+                        absence à venir pour libérer votre place pour d’autres
+                        cavaliers intéressés par une récupération).
                     </>
                 ),
             },
@@ -210,8 +243,14 @@ const FAQ_SECTIONS = [
                         <br />
                         <br />
                         Pour vous inscrire : dans l&apos;onglet &quot;Mes
-                        Récupérations&quot; de votre Espace Personnel,
-                        sélectionnez un bon{" "}
+                        Récupérations&quot; de votre{" "}
+                        <a
+                            href="https://cloud6.kavalog.fr/SHEVA/"
+                            className="faq-link"
+                        >
+                            Espace Personnel
+                        </a>
+                        , sélectionnez un bon{" "}
                         <strong>&quot;Reprise vacances&quot;</strong> puis la
                         reprise qui vous convient. Ces bons ne sont pas
                         utilisables en dehors des périodes de vacances.
@@ -264,10 +303,16 @@ const FAQ_SECTIONS = [
                 q: "Comment modifier mes informations personnelles ?",
                 a: (
                     <>
-                        Connectez-vous à votre Espace Personnel, cliquez sur
-                        l&apos;icône 👤 en haut à droite, puis sur &quot;Mon
-                        Profil&quot;. Depuis cette fenêtre, vous pouvez modifier
-                        vos informations personnelles.
+                        Connectez-vous à votre{" "}
+                        <a
+                            href="https://cloud6.kavalog.fr/SHEVA/"
+                            className="faq-link"
+                        >
+                            Espace Personnel
+                        </a>
+                        , cliquez sur l&apos;icône 👤 en haut à droite, puis sur
+                        &quot;Mon Profil&quot;. Depuis cette fenêtre, vous
+                        pouvez modifier vos informations personnelles.
                     </>
                 ),
             },
@@ -275,10 +320,16 @@ const FAQ_SECTIONS = [
                 q: "Comment consulter mes factures ?",
                 a: (
                     <>
-                        Connectez-vous à votre Espace Personnel, cliquez sur
-                        l&apos;icône 👤 en haut à droite, puis sur &quot;Mes
-                        factures&quot;. Vous y retrouverez l&apos;ensemble de
-                        vos factures.
+                        Connectez-vous à votre{" "}
+                        <a
+                            href="https://cloud6.kavalog.fr/SHEVA/"
+                            className="faq-link"
+                        >
+                            Espace Personnel
+                        </a>
+                        , cliquez sur l&apos;icône 👤 en haut à droite, puis sur
+                        &quot;Mes factures&quot;. Vous y retrouverez
+                        l&apos;ensemble de vos factures.
                     </>
                 ),
             },
@@ -318,10 +369,17 @@ const FAQ_SECTIONS = [
                 q: "Comment s'inscrire à une activité / stage ?",
                 a: (
                     <>
-                        Connectez-vous à votre Espace Personnel. Allez dans
-                        l&apos;onglet &quot;Activités&quot; et sélectionnez
-                        celle à laquelle vous souhaitez vous inscrire, puis
-                        rendez-vous dans votre panier pour régler.
+                        Connectez-vous à votre{" "}
+                        <a
+                            href="https://cloud6.kavalog.fr/SHEVA/"
+                            className="faq-link"
+                        >
+                            Espace Personnel
+                        </a>
+                        . Allez dans l&apos;onglet &quot;Activités&quot; et
+                        sélectionnez celle à laquelle vous souhaitez vous
+                        inscrire, puis rendez-vous dans votre panier pour
+                        régler.
                     </>
                 ),
             },
@@ -329,9 +387,15 @@ const FAQ_SECTIONS = [
                 q: "Comment s'inscrire à une récupération ou une reprise de vacances ?",
                 a: (
                     <>
-                        Connectez-vous à votre Espace Personnel. Allez dans
-                        l&apos;onglet &quot;Reprises&quot; → &quot;Mes
-                        récupérations&quot;.
+                        Connectez-vous à votre{" "}
+                        <a
+                            href="https://cloud6.kavalog.fr/SHEVA/"
+                            className="faq-link"
+                        >
+                            Espace Personnel
+                        </a>
+                        . Allez dans l&apos;onglet &quot;Reprises&quot; →
+                        &quot;Mes récupérations&quot;.
                         <br />
                         <br />
                         👉 Sélectionnez le bon de récupération dans le menu à
@@ -347,10 +411,16 @@ const FAQ_SECTIONS = [
                 q: "Comment s'inscrire à une reprise isolée (hors bons de récupération) ?",
                 a: (
                     <>
-                        Connectez-vous à votre Espace Personnel. Allez dans
-                        l&apos;onglet &quot;Cartes&quot; → &quot;Acheter une
-                        carte&quot;. Ajoutez-la à votre panier et réglez
-                        l&apos;achat.
+                        Connectez-vous à votre{" "}
+                        <a
+                            href="https://cloud6.kavalog.fr/SHEVA/"
+                            className="faq-link"
+                        >
+                            Espace Personnel
+                        </a>
+                        . Allez dans l&apos;onglet &quot;Cartes&quot; →
+                        &quot;Acheter une carte&quot;. Ajoutez-la à votre panier
+                        et réglez l&apos;achat.
                         <br />
                         <br />
                         Ensuite, allez dans &quot;Reprises&quot; →
@@ -371,6 +441,8 @@ const FAQ_SECTIONS = [
                 q: "Quels sont les modes de paiement acceptés ?",
                 a: (
                     <>
+                        <strong>Pour les forfaits :</strong>
+                        <br />
                         👉 Par CB en ligne en 1 fois ou 4 fois sans frais (min.
                         500 €)
                         <br />
@@ -379,11 +451,19 @@ const FAQ_SECTIONS = [
                         l&apos;ordre de « SHEVA », avec le nom du cavalier
                         inscrit au dos).
                         <br />
+                        👉 Le règlement du forfait doit être fait avant la
+                        première reprise.
+                        <br />
                         <br />
                         Pour les activités et stages, le paiement se fait
-                        uniquement par CB depuis l&apos;espace personnel. Le
-                        règlement du forfait doit être fait avant la première
-                        reprise.
+                        uniquement par CB depuis l&apos;{" "}
+                        <a
+                            href="https://cloud6.kavalog.fr/SHEVA/"
+                            className="faq-link"
+                        >
+                            Espace Personnel
+                        </a>
+                        .
                     </>
                 ),
             },
@@ -628,11 +708,11 @@ const NOTICES = [
     },
     {
         label: "📋 Notice séance d'essai",
-        href: "/PDF_docs/notice_seance_essai.pdf",
+        href: "/PDF_docs/SHEVA_Notice_Inscription-essai_v1.5.pdf",
     },
     {
         label: "📋 Notice réinscriptions annuelles",
-        href: "/PDF_docs/Notice_Reinscription_Annuelle.pdf",
+        href: "/PDF_docs/SHEVA_Notice_Reinscriptions_Web_v2.1.pdf",
     },
     {
         label: "📋 Notice réinscriptions semestrielles",
@@ -1817,7 +1897,9 @@ export default function InfosClient() {
                                 textAlign: "center",
                             }}
                         >
-                            Les inscriptions se font entièrement sur{" "}
+                            Les inscriptions ont lieux chaque année{" "}
+                            <strong>à partir du mois de mai</strong> et se font
+                            entièrement sur{" "}
                             <a
                                 href="https://cloud6.kavalog.fr/SHEVA/"
                                 style={{ color: tealDark, fontWeight: 600 }}
@@ -2140,9 +2222,89 @@ export default function InfosClient() {
                                         du Canada.
                                     </li>
                                     <li>
-                                        Max 2 forfaits les 24 premières heures
+                                        Max 2 forfaits pour une même personne
+                                        les 24 premières heures
                                     </li>
                                 </ul>
+                            </div>
+                        </div>
+                        {/* Infos compactes */}
+                        <div
+                            style={{
+                                display: "grid",
+                                gridTemplateColumns: "1fr 1fr",
+                                gap: 12,
+                                marginBottom: 20,
+                                marginTop: 20,
+                            }}
+                        >
+                            <div
+                                style={{
+                                    padding: "14px 16px",
+                                    background: "#f0fdf4",
+                                    border: "1px solid #bbf7d0",
+                                    borderRadius: 10,
+                                    fontSize: 13,
+                                }}
+                            >
+                                <div
+                                    style={{
+                                        fontWeight: 700,
+                                        color: "#15803d",
+                                        marginBottom: 6,
+                                    }}
+                                >
+                                    👨‍👩‍👧‍👦 Réductions familiales
+                                </div>
+                                <p
+                                    style={{
+                                        margin: 0,
+                                        color: "#374151",
+                                        lineHeight: 1.55,
+                                        fontSize: 12,
+                                    }}
+                                >
+                                    3ème membre : <strong>−50%</strong> sur la
+                                    cotisation
+                                    <br />
+                                    4ème membre et + : <strong>−75%</strong> sur
+                                    la cotisation
+                                </p>
+                            </div>
+                            <div
+                                style={{
+                                    padding: "14px 16px",
+                                    background: "#eff6ff",
+                                    border: "1px solid #bfdbfe",
+                                    borderRadius: 10,
+                                    fontSize: 13,
+                                }}
+                            >
+                                <div
+                                    style={{
+                                        fontWeight: 700,
+                                        color: "#1d4ed8",
+                                        marginBottom: 6,
+                                    }}
+                                >
+                                    🎟️ Paiement
+                                </div>
+                                <p
+                                    style={{
+                                        margin: 0,
+                                        color: "#374151",
+                                        lineHeight: 1.55,
+                                        fontSize: 12,
+                                    }}
+                                >
+                                    En ligne 1× ou 4× sans frais (min. 500 €)
+                                    <br />
+                                    Ou acompte CB + 1 ou 2 chèques à remettre
+                                    rapidement à la SHEVA (datés au jour du
+                                    règlement, à l'ordre de « SHEVA », avec le
+                                    nom du cavalier inscrit au dos ; encaissés
+                                    fin août et fin octobre 2026).
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -2302,7 +2464,7 @@ export default function InfosClient() {
                                         marginBottom: 8,
                                     }}
                                 >
-                                    <strong>Première connexion :</strong> Créez
+                                    <strong>Première connexion : </strong> Créez
                                     votre compte avec vos informations
                                     personnelles. Les notices d&apos;inscription
                                     sont disponibles via le bouton en haut de

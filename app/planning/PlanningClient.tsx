@@ -200,8 +200,9 @@ const TARIFS_ACTIVITES = [
     {
         categorie: "Passage d'examens",
         items: [
-            { nom: "Théorie + pratiques G1-G4", cheval: "40 €", poney: "35 €" },
+            { nom: "Théorie + pratiques G1-G4", cheval: "40 €", poney: "-" },
             { nom: "Théorie + pratiques G5-G7", cheval: "59 €", poney: "—" },
+            { nom: "Théorie + pratiques Poney", cheval: "-", poney: "35€" },
             { nom: "Préparation examens", cheval: "40 €", poney: "30 €" },
         ],
     },
@@ -2438,7 +2439,11 @@ export default function PlanningClient() {
                                     }}
                                 >
                                     {[
-                                        "Nous travaillons actuellement sur une nouvelle offre d\u2019assurance annulation pour la saison 2026-2027. Plus d\u2019infos à venir très prochainement !",
+                                        "Notre partenaire Generali propose une assurance annulation facultative à la souscription (adhésion payante).",
+                                        "L'adhésion est facultative et se fait directement depuis votre espace membre.",
+                                        "En cas d'annulation, le remboursement est géré exclusivement par Generali — la SHEVA ne procède à aucun remboursement.",
+                                        "Les garanties prennent effet le 1ᵉʳ septembre — tout événement survenu entre la date d'inscription et le 1ᵉʳ septembre est exclu.",
+                                        "Consultez attentivement la notice d'information avant de souscrire.",
                                     ].map((txt, i) => (
                                         <div
                                             key={i}
@@ -2471,7 +2476,7 @@ export default function PlanningClient() {
                                         </div>
                                     ))}
                                 </div>
-                                {/*<div
+                                <div
                                     style={{
                                         marginTop: 20,
                                         display: "flex",
@@ -2482,7 +2487,7 @@ export default function PlanningClient() {
                                     {[
                                         {
                                             href: assetPath(
-                                                "/PDF_docs/blabla.pdf",
+                                                "/PDF_docs/Notice_information_ANNULATION_FORFAIT_CLUB_2026-2027.pdf",
                                             ),
                                             label: "📋 Notice assurance",
                                         },
@@ -2506,7 +2511,7 @@ export default function PlanningClient() {
                                             {label}
                                         </a>
                                     ))}
-                                </div> */}
+                                </div>
                             </div>
                         </div>
                     </div>

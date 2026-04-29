@@ -68,7 +68,7 @@ export const PLANNING_HEBDO: JourPlanning[] = [
         { heure: "20h30", duree: 60, lieu: "pm", type: "cheval", label: "Galop 1-2",             simLevels: ["galop1", "galop2"] },
         { heure: "18h30",            lieu: "gm", type: "cheval", label: "Galop 4",               simLevels: ["galop4"] },
         { heure: "19h30",            lieu: "gm", type: "cheval", label: "Galop 5",               simLevels: ["galop5"] },
-        { heure: "20h30", duree: 60, lieu: "gm", type: "perf",   label: "Galop 7 Perf.",        simLevels: ["perf_g7"] },
+        { heure: "20h30", duree: 90, lieu: "gm", type: "perf",   label: "Galop 7 Perf.",        simLevels: ["perf_g7"] },
     ]},
     { jour: "Vendredi", creneaux: [
         { heure: "17h30", duree: 30, lieu: "pm", type: "poney",  label: "Débutant",              simLevels: ["debutant"] },
@@ -130,12 +130,42 @@ export const FORFAITS_PRICING: Record<
     string,
     { name: string; price: number; desc: string; icon: string }
 > = {
-    baby:            { name: "Baby",                price: 537,  desc: "Éveil équestre (4-6 ans)", icon: "🍼" },
-    poney_debutant:  { name: "Poney Débutant",      price: 671,  desc: "Bases avec les poneys",    icon: "🐴" },
-    poney:           { name: "Poney",               price: 895,  desc: "Perfectionnement poney",   icon: "🏇" },
-    cheval_under16:  { name: "Cheval -16 ans",      price: 1042, desc: "Cheval pour les jeunes",   icon: "🐎" },
-    cheval_over16:   { name: "Cheval +16 ans",      price: 1108, desc: "Cheval adultes",           icon: "🏆" },
-    perfectionnement:{ name: "Perfectionnement 1h30", price: 1241, desc: "Cours avancés G6-G7",   icon: "⭐" },
+    baby: {
+        name: "Baby",
+        price: 537,
+        desc: "Éveil équestre (4-6 ans)",
+        icon: "🍼",
+    },
+    poney_debutant: {
+        name: "Poney Débutant",
+        price: 671,
+        desc: "Bases avec les poneys",
+        icon: "🐴",
+    },
+    poney: {
+        name: "Poney",
+        price: 895,
+        desc: "Perfectionnement poney",
+        icon: "🏇",
+    },
+    cheval_under16: {
+        name: "Cheval -16 ans",
+        price: 1042,
+        desc: "Cheval pour les jeunes",
+        icon: "🐎",
+    },
+    cheval_over16: {
+        name: "Cheval +16 ans",
+        price: 1108,
+        desc: "Cheval adultes",
+        icon: "🏆",
+    },
+    perfectionnement: {
+        name: "Perfectionnement 1h30",
+        price: 1241,
+        desc: "Cours avancés G6-G7",
+        icon: "⭐",
+    },
 };
 
 export const COTISATIONS = {
@@ -148,18 +178,18 @@ export const COTISATIONS = {
 // ─── NIVEAUX (filtres et sélecteurs) ─────────────────────────────────────────
 export const PONEY_LEVELS = [
     { val: "debutant", label: "🌟 Débutant" },
-    { val: "bronze",   label: "🥉 Bronze" },
-    { val: "argent",   label: "🥈 Argent" },
-    { val: "or",       label: "🥇 Or" },
+    { val: "bronze", label: "🥉 Bronze" },
+    { val: "argent", label: "🥈 Argent" },
+    { val: "or", label: "🥇 Or" },
 ];
 
 export const CHEVAL_LEVELS = [
     { val: "debutant_cheval", label: "🌟 Débutant" },
-    { val: "galop1",          label: "Galop 1" },
-    { val: "galop2",          label: "Galop 2" },
-    { val: "galop3",          label: "Galop 3" },
-    { val: "galop4",          label: "Galop 4" },
-    { val: "galop5",          label: "Galop 5" },
-    { val: "galop6",          label: "Galop 6" },
-    { val: "galop7",          label: "Galop 7" },
+    { val: "galop1", label: "Galop 1" },
+    { val: "galop2", label: "Galop 2" },
+    { val: "galop3", label: "Galop 3" },
+    { val: "galop4", label: "Galop 4" },
+    { val: "galop5", label: "Galop 5" },
+    { val: "galop6", label: "Galop 6" },
+    { val: "galop7", label: "Galop 7" },
 ];
