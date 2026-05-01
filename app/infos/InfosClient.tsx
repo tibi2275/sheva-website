@@ -704,7 +704,7 @@ function FaqSection({ section }: { section: (typeof FAQ_SECTIONS)[number] }) {
 const NOTICES = [
     {
         label: "📋 Notice nouveaux adhérents",
-        href: "/PDF_docs/notice-nouveaux.pdf",
+        href: "/PDF_docs/SHEVA_Notice_Inscription-nouveau_v1.5.pdf",
     },
     {
         label: "📋 Notice séance d'essai",
@@ -712,16 +712,9 @@ const NOTICES = [
     },
     {
         label: "📋 Notice réinscriptions annuelles",
-        href: "/PDF_docs/SHEVA_Notice_Reinscriptions_Web_v2.1.pdf",
+        href: "/PDF_docs/SHEVA_Notice_Réinscription_v1.0.pdf",
     },
-    {
-        label: "📋 Notice réinscriptions semestrielles",
-        href: "/PDF_docs/notice_inscriptions_trimestrielles.pdf",
-    },
-    {
-        label: "📋 Notice récupérations & activités",
-        href: "/PDF_docs/Notice_inscriptions_recup_activites.pdf",
-    },
+
     {
         label: "📖 Règlement intérieur 2025",
         href: "/PDF_docs/Reglement_interieur_SHEVA_2025_v12.pdf",
@@ -1979,7 +1972,7 @@ export default function InfosClient() {
                                             text: "Réunion d'informations en visio conférence - à 20h30 (environ 1h)",
                                             link: {
                                                 href: "https://meet.google.com/afr-xbej-the",
-                                                label: "Lien de la visio à venir",
+                                                label: "Lien de la visio (cliquer pour rejoindre)",
                                             },
                                         },
                                         {

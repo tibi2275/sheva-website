@@ -472,9 +472,7 @@ function PlanningComponent({ highlightLevel }: { highlightLevel?: string }) {
                             opacity: 0.65,
                             marginTop: 1,
                         }}
-                    >
-                        {c.duree ?? 60}min
-                    </div>
+                    ></div>
                 </td>
             );
         }
@@ -667,7 +665,7 @@ function PlanningComponent({ highlightLevel }: { highlightLevel?: string }) {
                     </thead>
                     <tbody>
                         {visibleSlots.map((slot, ri) => (
-                            <tr key={slot} style={{ height: 26 }}>
+                            <tr key={slot} style={{ height: 5 }}>
                                 <td
                                     style={{
                                         padding: "0 5px",
@@ -719,9 +717,8 @@ function PlanningComponent({ highlightLevel }: { highlightLevel?: string }) {
                     color: "#9ca3af",
                 }}
             >
-                <i>Mis à jour le 10/04/2026</i> &nbsp;·&nbsp;{" "}
-                <strong>PM</strong> = Petit Manège &nbsp;·&nbsp;{" "}
-                <strong>GM</strong> = Grand Manège
+                <i>Mis à jour le 1/05/2026</i> &nbsp;·&nbsp; <strong>PM</strong>{" "}
+                = Petit Manège &nbsp;·&nbsp; <strong>GM</strong> = Grand Manège
             </div>
             <div
                 style={{
@@ -1031,10 +1028,6 @@ export default function PlanningClient() {
                             <span style={{ color: "#9ca3af", margin: "0 8px" }}>
                                 ·
                             </span>
-                            <em style={{ color: "#6b7280" }}>
-                                Planning provisoire susceptible de modifications
-                                avant l'ouverture des inscriptions.
-                            </em>
                         </div>
                         <div
                             style={{
@@ -1066,6 +1059,47 @@ export default function PlanningClient() {
                             }}
                         >
                             <PlanningComponent />
+                        </div>
+
+                        {/* PDF Planning */}
+                        <div style={{ marginBottom: 16, textAlign: "center" }}>
+                            <a
+                                href={assetPath(
+                                    "/PDF_docs/Planning_Hebdo_SHEVA_vdef.pdf",
+                                )}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{
+                                    display: "inline-flex",
+                                    alignItems: "center",
+                                    gap: 10,
+                                    padding: "12px 22px",
+                                    borderRadius: 10,
+                                    border: `1.5px solid ${teal}`,
+                                    textDecoration: "none",
+                                    color: tealDark,
+                                    background: "#f0fafa",
+                                    fontWeight: 700,
+                                    fontSize: 13,
+                                    transition:
+                                        "background 0.2s, transform 0.15s",
+                                }}
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.background =
+                                        "#e0f5f4";
+                                    e.currentTarget.style.transform =
+                                        "translateY(-1px)";
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.background =
+                                        "#f0fafa";
+                                    e.currentTarget.style.transform =
+                                        "translateY(0)";
+                                }}
+                            >
+                                <span style={{ fontSize: 18 }}>📅</span>
+                                Consulter le planning hebdomadaire (PDF)
+                            </a>
                         </div>
 
                         {/* Calendrier vacances + forfaits */}
@@ -2287,6 +2321,47 @@ export default function PlanningClient() {
                                 </div>
                             </div>
                         )}
+
+                        {/* PDF Tarifs */}
+                        <div style={{ marginTop: 32, textAlign: "center" }}>
+                            <a
+                                href={assetPath(
+                                    "/PDF_docs/Tarifs_SHEVA_2026-2027.pdf",
+                                )}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{
+                                    display: "inline-flex",
+                                    alignItems: "center",
+                                    gap: 10,
+                                    padding: "12px 22px",
+                                    borderRadius: 10,
+                                    border: `1.5px solid ${teal}`,
+                                    textDecoration: "none",
+                                    color: tealDark,
+                                    background: "#f0fafa",
+                                    fontWeight: 700,
+                                    fontSize: 13,
+                                    transition:
+                                        "background 0.2s, transform 0.15s",
+                                }}
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.background =
+                                        "#e0f5f4";
+                                    e.currentTarget.style.transform =
+                                        "translateY(-1px)";
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.background =
+                                        "#f0fafa";
+                                    e.currentTarget.style.transform =
+                                        "translateY(0)";
+                                }}
+                            >
+                                <span style={{ fontSize: 18 }}>💶</span>
+                                Consulter les tarifs 2026-2027 (PDF)
+                            </a>
+                        </div>
                     </div>
                 </section>
 
@@ -2438,12 +2513,173 @@ export default function PlanningClient() {
                                         gap: 10,
                                     }}
                                 >
+                                    {/* Intro */}
+                                    <div
+                                        style={{
+                                            display: "flex",
+                                            gap: 10,
+                                            alignItems: "flex-start",
+                                        }}
+                                    >
+                                        <span
+                                            style={{
+                                                color: teal,
+                                                fontWeight: 700,
+                                                flexShrink: 0,
+                                                marginTop: 1,
+                                            }}
+                                        >
+                                            ›
+                                        </span>
+                                        <p
+                                            style={{
+                                                fontSize: 13,
+                                                color: "#4b5563",
+                                                lineHeight: 1.6,
+                                                margin: 0,
+                                            }}
+                                        >
+                                            Notre partenaire Helmett/Generali
+                                            propose une assurance annulation
+                                            facultative à la souscription
+                                            (payante).
+                                        </p>
+                                    </div>
+
+                                    {/* Souscription + 2 étapes */}
+                                    <div
+                                        style={{
+                                            display: "flex",
+                                            gap: 10,
+                                            alignItems: "flex-start",
+                                        }}
+                                    >
+                                        <span
+                                            style={{
+                                                color: teal,
+                                                fontWeight: 700,
+                                                flexShrink: 0,
+                                                marginTop: 1,
+                                            }}
+                                        >
+                                            ›
+                                        </span>
+                                        <div
+                                            style={{
+                                                fontSize: 13,
+                                                color: "#4b5563",
+                                                lineHeight: 1.6,
+                                            }}
+                                        >
+                                            <p style={{ margin: "0 0 8px 0" }}>
+                                                La souscription est facultative
+                                                et se fait directement depuis
+                                                votre espace membre —{" "}
+                                                <strong
+                                                    style={{
+                                                        color: "rgb(15,23,42)",
+                                                    }}
+                                                >
+                                                    2 étapes :
+                                                </strong>
+                                            </p>
+                                            <div
+                                                style={{
+                                                    display: "flex",
+                                                    flexDirection: "column",
+                                                    gap: 6,
+                                                    paddingLeft: 4,
+                                                }}
+                                            >
+                                                <div
+                                                    style={{
+                                                        display: "flex",
+                                                        gap: 10,
+                                                        alignItems:
+                                                            "flex-start",
+                                                    }}
+                                                >
+                                                    <span
+                                                        style={{
+                                                            background: teal,
+                                                            color: "white",
+                                                            borderRadius: "50%",
+                                                            width: 18,
+                                                            height: 18,
+                                                            display: "flex",
+                                                            alignItems:
+                                                                "center",
+                                                            justifyContent:
+                                                                "center",
+                                                            fontSize: 11,
+                                                            fontWeight: 700,
+                                                            flexShrink: 0,
+                                                            marginTop: 1,
+                                                        }}
+                                                    >
+                                                        1
+                                                    </span>
+                                                    <p style={{ margin: 0 }}>
+                                                        Souscrivez à l'assurance
+                                                        en même temps que
+                                                        l'achat de votre
+                                                        forfait. Il n'est pas
+                                                        possible de souscrire
+                                                        après.
+                                                    </p>
+                                                </div>
+                                                <div
+                                                    style={{
+                                                        display: "flex",
+                                                        gap: 10,
+                                                        alignItems:
+                                                            "flex-start",
+                                                    }}
+                                                >
+                                                    <span
+                                                        style={{
+                                                            background: teal,
+                                                            color: "white",
+                                                            borderRadius: "50%",
+                                                            width: 18,
+                                                            height: 18,
+                                                            display: "flex",
+                                                            alignItems:
+                                                                "center",
+                                                            justifyContent:
+                                                                "center",
+                                                            fontSize: 11,
+                                                            fontWeight: 700,
+                                                            flexShrink: 0,
+                                                            marginTop: 1,
+                                                        }}
+                                                    >
+                                                        2
+                                                    </span>
+                                                    <p style={{ margin: 0 }}>
+                                                        Renvoyez par mail,
+                                                        scanné, le bulletin
+                                                        d'adhésion à la SHEVA —{" "}
+                                                        <a
+                                                            href="mailto:sheva@sheva.fr"
+                                                            style={{
+                                                                color: tealDark,
+                                                                fontWeight: 600,
+                                                            }}
+                                                        >
+                                                            sheva@sheva.fr
+                                                        </a>{" "}
+                                                        — au plus tard le 01/09.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Remboursement & garanties */}
                                     {[
-                                        "Notre partenaire Generali propose une assurance annulation facultative à la souscription (adhésion payante).",
-                                        "L'adhésion est facultative et se fait directement depuis votre espace membre.",
-                                        "En cas d'annulation, le remboursement est géré exclusivement par Generali — la SHEVA ne procède à aucun remboursement.",
+                                        "En cas d'annulation, le remboursement est géré exclusivement par Helmett/Generali — la SHEVA ne procède à aucun remboursement.",
                                         "Les garanties prennent effet le 1ᵉʳ septembre — tout événement survenu entre la date d'inscription et le 1ᵉʳ septembre est exclu.",
-                                        "Consultez attentivement la notice d'information avant de souscrire.",
                                     ].map((txt, i) => (
                                         <div
                                             key={i}
@@ -2475,6 +2711,76 @@ export default function PlanningClient() {
                                             </p>
                                         </div>
                                     ))}
+
+                                    {/* Avertissement forfait semestriel */}
+                                    <div
+                                        style={{
+                                            display: "flex",
+                                            gap: 10,
+                                            alignItems: "flex-start",
+                                            background: "#fffbeb",
+                                            border: "1px solid #fcd34d",
+                                            borderRadius: 8,
+                                            padding: "10px 12px",
+                                        }}
+                                    >
+                                        <span
+                                            style={{
+                                                fontSize: 15,
+                                                flexShrink: 0,
+                                            }}
+                                        >
+                                            ⚠️
+                                        </span>
+                                        <p
+                                            style={{
+                                                fontSize: 13,
+                                                color: "#92400e",
+                                                lineHeight: 1.6,
+                                                margin: 0,
+                                            }}
+                                        >
+                                            <strong>
+                                                Forfait semestriel :
+                                            </strong>{" "}
+                                            le tarif de l'assurance reste
+                                            identique à celui d'un forfait
+                                            annuel.
+                                        </p>
+                                    </div>
+
+                                    {/* Notice */}
+                                    <div
+                                        style={{
+                                            display: "flex",
+                                            gap: 10,
+                                            alignItems: "flex-start",
+                                        }}
+                                    >
+                                        <span
+                                            style={{
+                                                color: teal,
+                                                fontWeight: 700,
+                                                flexShrink: 0,
+                                                marginTop: 1,
+                                            }}
+                                        >
+                                            ›
+                                        </span>
+                                        <p
+                                            style={{
+                                                fontSize: 13,
+                                                color: "#4b5563",
+                                                fontWeight: 700,
+                                                lineHeight: 1.6,
+                                                margin: 0,
+                                            }}
+                                        >
+                                            Consultez attentivement la notice
+                                            d'information (garanties &
+                                            exclusions) avant de souscrire.
+                                        </p>
+                                    </div>
                                 </div>
                                 <div
                                     style={{
