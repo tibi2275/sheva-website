@@ -712,7 +712,7 @@ const NOTICES = [
     },
     {
         label: "📋 Notice réinscriptions annuelles",
-        href: "/PDF_docs/SHEVA_Notice_Réinscription_v1.0.pdf",
+        href: "/PDF_docs/SHEVA_Notice_Reinscription_v1.0.pdf",
     },
 
     {
@@ -1899,12 +1899,52 @@ export default function InfosClient() {
                             >
                                 votre espace personnel
                             </a>
-                            . Consultez la{" "}
+                            . Consultez les notices et la{" "}
                             <a href="#faq" style={{ color: tealDark }}>
                                 FAQ
                             </a>{" "}
                             en cas de problèmes.
                         </p>
+
+                        <div
+                            style={{
+                                display: "flex",
+                                justifyContent: "center",
+                                marginBottom: 20,
+                            }}
+                        >
+                            <button
+                                onClick={() => setNoticesOpen(true)}
+                                style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: 8,
+                                    padding: "10px 22px",
+                                    borderRadius: 24,
+                                    border: `2px solid ${tealDark}`,
+                                    background: "rgba(94,180,174,0.08)",
+                                    color: tealDark,
+                                    fontWeight: 700,
+                                    fontSize: 14,
+                                    cursor: "pointer",
+                                    transition: "all 0.15s",
+                                }}
+                                onMouseOver={(e) => {
+                                    (
+                                        e.currentTarget as HTMLButtonElement
+                                    ).style.background =
+                                        "rgba(94,180,174,0.18)";
+                                }}
+                                onMouseOut={(e) => {
+                                    (
+                                        e.currentTarget as HTMLButtonElement
+                                    ).style.background =
+                                        "rgba(94,180,174,0.08)";
+                                }}
+                            >
+                                📄 Consulter les notices d&apos;inscription
+                            </button>
+                        </div>
 
                         {/* Alerte saison */}
                         <div

@@ -642,22 +642,22 @@ function PlanningComponent({ highlightLevel }: { highlightLevel?: string }) {
                                     <th
                                         style={{
                                             ...thBase,
-                                            background: "#d1fae5",
-                                            color: "#065f46",
-                                            fontSize: 9,
-                                        }}
-                                    >
-                                        🐴 PM
-                                    </th>
-                                    <th
-                                        style={{
-                                            ...thBase,
                                             background: "#dbeafe",
                                             color: "#1e3a8a",
                                             fontSize: 9,
                                         }}
                                     >
                                         🐎 GM
+                                    </th>
+                                    <th
+                                        style={{
+                                            ...thBase,
+                                            background: "#d1fae5",
+                                            color: "#065f46",
+                                            fontSize: 9,
+                                        }}
+                                    >
+                                        🐴 PM
                                     </th>
                                 </React.Fragment>
                             ))}
@@ -693,11 +693,11 @@ function PlanningComponent({ highlightLevel }: { highlightLevel?: string }) {
                                         key={`cell-${jour}-${slot}`}
                                     >
                                         {renderCell(
-                                            GRID_DATA[jour].pm.get(slot),
+                                            GRID_DATA[jour].gm.get(slot),
                                             ri,
                                         )}
                                         {renderCell(
-                                            GRID_DATA[jour].gm.get(slot),
+                                            GRID_DATA[jour].pm.get(slot),
                                             ri,
                                         )}
                                     </React.Fragment>
@@ -1432,6 +1432,22 @@ export default function PlanningClient() {
                                         </div>
                                     </div>
                                 ))}
+                                <p
+                                    style={{
+                                        gridColumn: "1 / -1",
+                                        fontSize: 12,
+                                        color: "#9ca3af",
+                                        textAlign: "center",
+                                        marginTop: 12,
+                                    }}
+                                >
+                                    Toutes les informations importantes à
+                                    connaitre avant de vous inscrire sont
+                                    disponibles dans la page{" "}
+                                    <a href="/infos" style={{ color: teal }}>
+                                        Infos Pratiques
+                                    </a>
+                                </p>
                             </div>
                         </div>
                     </div>

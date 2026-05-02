@@ -63,6 +63,7 @@ const navLinks = [
             { label: "Fonctionnement", href: "/infos#fonctionnement" },
             { label: "Matériel", href: "/infos#materiel" },
             { label: "Inscriptions", href: "/infos#inscriptions" },
+            { label: "Espace Personnel", href: "/infos#espace" },
             { label: "FAQ", href: "/infos#faq" },
         ],
     },
