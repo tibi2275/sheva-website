@@ -36,7 +36,7 @@ export type Announcement = {
 
 // ★ MODIFIEZ ICI pour changer l'annonce
 export const currentAnnouncement: Announcement = {
-    id: "news_inscriptions_2026v2", // changez cette valeur pour forcer l'annonce à réapparaître
+    id: "news_inscriptions_2026v2link", // changez cette valeur pour forcer l'annonce à réapparaître
     emoji: "🌸",
     label: "Inscriptions",
     title: "Les inscriptions pour la prochaine saison arrivent à grand pas !",
@@ -50,6 +50,13 @@ export const currentAnnouncement: Announcement = {
             <span>
                 🗓️ <strong>6 mai à 20h30 </strong> — Réunion d&apos;information
                 en visioconférence
+                <br />
+                <a
+                    href="https://meet.google.com/afr-xbej-the"
+                    style={{ color: "rgb(94, 180, 174)" }}
+                >
+                    Lien de la visio (cliquer pour rejoindre)
+                </a>
             </span>
             <br />
             <span>

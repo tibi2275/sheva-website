@@ -16,21 +16,21 @@ export const articles: Article[] = [
             "Les inscriptions pour la prochaine saison arrivent très prochainement ! Réunion d'information, ouverture des essais, nouveaux adhérents… voici toutes les dates clés.",
         body: `Les inscriptions pour la saison 2026-2027 arrivent très prochainement ! Si vous souhaitez nous rejoindre, voici quelques dates à retenir :
 
-📅 6 mai à 20h — Réunion d'information
-Venez découvrir le club, poser vos questions et rencontrer l'équipe. Ouverte à tous, cavaliers débutants comme confirmés.
+        📅 6 mai à 20h — Réunion d'information - https://meet.google.com/afr-xbej-the
+        Venez découvrir le club, poser vos questions et rencontrer l'équipe. Ouverte à tous, cavaliers débutants comme confirmés.
 
-✨ 11 mai 2026 — Ouverture des inscriptions aux séances d'essai
-Vous ne nous connaissez pas encore ? Réservez une séance d'essai pour tester l'équitation dans les meilleures conditions.
+        ✨ 11 mai 2026 — Ouverture des inscriptions aux séances d'essai
+        Vous ne nous connaissez pas encore ? Réservez une séance d'essai pour tester l'équitation dans les meilleures conditions.
 
-📌 26 mai — Ouverture aux nouveaux adhérents
-Les inscriptions officielles pour la saison 2026-2027 ouvrent aux nouveaux membres.
+        📌 26 mai — Ouverture aux nouveaux adhérents
+        Les inscriptions officielles pour la saison 2026-2027 ouvrent aux nouveaux membres.
 
-Si nous avons déjà l'honneur de vous compter parmi nos adhérents, à vos agendas :
+        Si nous avons déjà l'honneur de vous compter parmi nos adhérents, à vos agendas :
 
-🔑 À partir du 11 mai 2026 — début des réinscriptions
-Les adhérents actuels peuvent renouveler leur inscription en priorité dès cette date depuis leur espace en ligne.
+        🔑 À partir du 11 mai 2026 — début des réinscriptions
+        Les adhérents actuels peuvent renouveler leur inscription en priorité dès cette date depuis leur espace en ligne.
 
-Retrouvez toutes les infos sur les pages Planning & Tarifs et Infos pratiques, ou contactez-nous directement à l'accueil.`,
+        Retrouvez toutes les infos sur les pages Planning & Tarifs et Infos pratiques, ou contactez-nous directement à l'accueil.`,
         img: "/images/Images-illustrations/activ-hero.jpeg",
     },
 
