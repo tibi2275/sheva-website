@@ -2677,13 +2677,13 @@ export default function PlanningClient() {
                                                         scanné, le bulletin
                                                         d'adhésion à la SHEVA —{" "}
                                                         <a
-                                                            href="mailto:comptasheva@sheva.fr"
+                                                            href="mailto:comptasheva@gmail.com"
                                                             style={{
                                                                 color: tealDark,
                                                                 fontWeight: 600,
                                                             }}
                                                         >
-                                                            comptasheva@sheva.fr
+                                                            comptasheva@gmail.com
                                                         </a>{" "}
                                                         — au plus tard le 01/09.
                                                     </p>
