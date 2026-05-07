@@ -2009,10 +2009,10 @@ export default function InfosClient() {
                                     {[
                                         {
                                             date: "6 mai",
-                                            text: "Réunion d'informations en visio conférence - à 20h30 (environ 1h)",
+                                            text: "Réunion d'informations en visio conférence - passée",
                                             link: {
-                                                href: "https://meet.google.com/afr-xbej-the",
-                                                label: "Lien de la visio (cliquer pour rejoindre)",
+                                                href: "/PDF_docs/reunion_info_2026.pdf",
+                                                label: "Voir les informations présentées",
                                             },
                                         },
                                         {

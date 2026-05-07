@@ -2813,6 +2813,12 @@ export default function PlanningClient() {
                                             ),
                                             label: "📋 Notice assurance",
                                         },
+                                        {
+                                            href: assetPath(
+                                                "/PDF_docs/bulletin_adhesion_assu.pdf",
+                                            ),
+                                            label: "📋 Bulletin d'adhésion",
+                                        },
                                     ].map(({ href, label }) => (
                                         <a
                                             key={href}
