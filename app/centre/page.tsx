@@ -210,18 +210,19 @@ const bureau = [
         bio: "<strong>Dans la vie de tous les jours</strong> <br/>Je suis chargé de mission au Ministère de l'Enseignement Supérieur, de la Recherche et de l'Espace, dans le département des grandes infrastructures de recherche. <br/><br/>🏇 <strong>Rôle au CA</strong> <br/>Vice-Président de la SHEVA, j'accompagne la Présidente et le bureau dans de nombreuses actions (communication, subventions), et je suis correspondant pour le logiciel qui gère nos activités (à la fois vis-à-vis des adhérents et de l'éditeur). <br/><br/>📅 <strong>Reprises</strong> <br/>Fidèle de la reprise Galop 7 du samedi matin (11h30) … et de ses apéros, depuis plus de 30 ans ! <br/><br/>✌️ <strong>Motivation</strong> <br/>Cavalier à la SHEVA depuis plusieurs décennies, j'ai été séduit comme beaucoup par l'esprit familial et le respect de nos amis équidés qui y règnent. Investi au CA depuis 2011, j'ai à cœur d'accompagner le fonctionnement et le développement du centre équestre, dans les moments agréables comme dans les plus délicats.",
     },
     {
-        img: "/images/CA/benedicte.jpg",
-        name: "Bénédicte Daix",
-        role: "Trésorière",
-        bio: "<strong>Dans la vie de tous les jours</strong> <br/>Je suis vétérinaire, \"vétérinaire un jour, vétérinaire toujours\" telle est la devise de notre profession, mais ça ne m'a pas empêché de prendre ma retraite récemment. <br/><br/>🏇 <strong>Rôle au CA</strong> <br/>Après avoir fait partie du conseil d'administration plusieurs années, je me suis investie dans le bureau en tant que trésorière. Nous partageons actuellement ce poste avec Marie et je suis notamment responsable de tout ce qui concerne les cavaliers. C'est donc moi qui me cache derrière l'adresse mail comptasheva@gmail.com <br/><br/>📅 <strong>Reprises</strong> <br/>Je monte le samedi en galop 7 à 11h30 et le mardi à 12h30. Je suis souvent là le dimanche pour des stages ou des animations. <br/><br/>✌️ <strong>Motivation</strong> <br/>Cavalière depuis mon enfance je suis arrivée à la Sheva en 2003 après avoir testé plusieurs clubs de la région parisienne, je ne voudrais plus en partir. Mon attachement à ce centre équestre est aussi bien lié à l'ambiance conviviale et chaleureuse qu'à la qualité de la cavalerie et de l'enseignement. J'espère par mon engagement, contribuer à le faire vivre dans le même état d'esprit.",
-    },
-    {
         img: "/images/CA/marie.png",
         name: "Marie Normand-Penillault",
-        role: "Vice-Trésorière",
+        role: "Trésorière",
         specs: ["Référente Poney-Club"],
-        bio: "<strong>Dans la vie de tous les jours</strong> <br/>Côté professionnel, je travaille au sein du service comptabilité et finance d'une miraculeuse société d'animation. 🐞 <br/><br/>🏇 <strong>Rôle au CA</strong> <br/>Côté SHEVA, je m'implique dans la comptabilité et la gestion des comptes de notre association. <br/><br/>📅 <strong>Reprises</strong> <br/>Cavalière en G7, je suis à la SHEVA le jeudi soir à cheval (régulièrement jusqu'à pas d'heure), et souvent à pied le samedi matin 🐴 <br/><br/>✌️ <strong>Motivation</strong> <br/>Association + club familial + cavalerie au top + équipe enseignante formidable + ambiance bienveillante = la SHEVA ❤️",
+        bio: "<strong>Dans la vie de tous les jours</strong> <br/>Côté professionnel, je travaille au sein du service comptabilité et finance d'une miraculeuse société d'animation. 🐞 <br/><br/>🏇 <strong>Rôle au CA</strong> <br/>Côté SHEVA, je m'implique principalement dans la comptabilité et la gestion des comptes de notre association, en collaboration avec Bénédicte et Anne.. <br/><br/>📅 <strong>Reprises</strong> <br/>Cavalière en G7, je suis à la SHEVA le jeudi soir à cheval (régulièrement jusqu'à pas d'heure), et souvent à pied le samedi matin 🐴 <br/><br/>✌️ <strong>Motivation</strong> <br/>Association + club familial + cavalerie au top + équipe enseignante formidable + ambiance bienveillante = la SHEVA ❤️",
     },
+    {
+        img: "/images/CA/benedicte.jpg",
+        name: "Bénédicte Daix",
+        role: "Vice-Trésorière",
+        bio: "<strong>Dans la vie de tous les jours</strong> <br/>Je suis vétérinaire, \"vétérinaire un jour, vétérinaire toujours\" telle est la devise de notre profession, mais ça ne m'a pas empêché de prendre ma retraite récemment. <br/><br/>🏇 <strong>Rôle au CA</strong> <br/>Après avoir fait partie du conseil d'administration plusieurs années, je me suis investie dans le bureau en tant que trésorière. Nous partageons actuellement ce poste avec Marie et je suis notamment responsable de tout ce qui concerne les cavaliers. C'est donc moi qui me cache derrière l'adresse mail comptasheva@gmail.com <br/><br/>📅 <strong>Reprises</strong> <br/>Je monte le samedi en galop 7 à 11h30 et le mardi à 12h30. Je suis souvent là le dimanche pour des stages ou des animations. <br/><br/>✌️ <strong>Motivation</strong> <br/>Cavalière depuis mon enfance je suis arrivée à la Sheva en 2003 après avoir testé plusieurs clubs de la région parisienne, je ne voudrais plus en partir. Mon attachement à ce centre équestre est aussi bien lié à l'ambiance conviviale et chaleureuse qu'à la qualité de la cavalerie et de l'enseignement. J'espère par mon engagement, contribuer à le faire vivre dans le même état d'esprit.",
+    },
+
     {
         img: "/images/CA/laurence.jpeg",
         name: "Laurence Miroir",

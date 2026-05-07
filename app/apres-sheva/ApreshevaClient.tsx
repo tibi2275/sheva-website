@@ -21,7 +21,7 @@ const RETRAITES = [
         nom: "Poésie des Joncs",
         surnom: "Popo",
         naissance: "28/05/2003",
-        photo: "/images/chevaux/poesie.jpeg",
+        photo: "/images/chevaux/poesie.jpg",
         bio: "Popo de son petit nom est arrivée toute bébé à la SHEVA et a commencé la compétition en amateur et en club. C'est la jument la plus gentille qu'il soit. Tous les cavaliers se battaient pour la monter. Ces dernières années elle faisait le bonheur des petits galops. Elle a pourtant un point faible : son instinct grégaire et ce besoin incompressible d'être avec les copains… Et des nouveaux copains Poésie s'en est fait plein depuis qu'elle a commencé sa nouvelle vie de retraitée. Camille, sa toute première cavalière de compétition, veille désormais sur elle du côté de Belfort !",
     },
     {
