@@ -6,11 +6,10 @@ import { InstagramEmbed } from "./InstagramEmbed";
 // ─── Mettez ici les URLs de vos posts Instagram ───────────────────────────────
 // Pour ajouter un post : copier l'URL depuis Instagram → Partager → Copier le lien
 export const instagramPosts = [
-    "https://www.instagram.com/p/DW5oMpjDHys/",
-    "https://www.instagram.com/p/DWrIJ4cDNva/",
-    "https://www.instagram.com/p/DW4GtHeDAUs/",
-    "https://www.instagram.com/p/DWkIHm3DEhB/",
-    "https://www.instagram.com/p/DWO2kmiDDxZ/",
+    "https://www.instagram.com/p/DYSC7R6s-B1",
+    "https://www.instagram.com/p/DWkIHm3DEhB",
+
+    "https://www.instagram.com/p/DYxRCCqCD-K",
 ];
 // ─────────────────────────────────────────────────────────────────────────────
 

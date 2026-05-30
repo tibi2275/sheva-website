@@ -36,22 +36,56 @@ export type Announcement = {
 
 // ★ MODIFIEZ ICI pour changer l'annonce
 export const currentAnnouncement: Announcement = {
-    id: "inscr_2026", // changez cette valeur pour forcer l'annonce à réapparaître
+    id: "news_inscriptions_2026v2doc", // changez cette valeur pour forcer l'annonce à réapparaître
     emoji: "🌸",
     label: "Inscriptions",
-    title: "Rejoignez nous pour la saison 2026-2027 !",
+    title: "Les inscriptions pour la prochaine saison arrivent à grand pas !",
     body: (
         <>
             <span>
-                Les inscriptions pour la saison 2026-2027 sont ouvertes et il
-                reste encore quelques places disponibles !{" "}
+                Les inscriptions arrivent très prochaienement ! Si vous
+                souhaitez nous rejoindre, quelques dates à retenir :
             </span>
             <br />
             <span>
-                🗓️ Rendez vous sur la page <strong> infos pratiques </strong>{" "}
-                pour connaitre tous les renseignements nécessaires pour vous
-                inscrire.
+                🗓️ <strong>6 mai à 20h30 </strong> — Réunion d&apos;information
+                en visioconférence - voir slides
                 <br />
+                <a
+                    href="/PDF_docs/reunion_info_2026.pdf"
+                    style={{ color: "rgb(94, 180, 174)" }}
+                >
+                    Informations présentées
+                </a>
+            </span>
+            <br />
+            <span>
+                ✨ <strong>11 mai 2026 </strong> — Ouverture des inscriptions
+                aux séances d&apos;essai
+            </span>
+            <br />
+
+            <span>
+                📌 <strong>26 mai </strong> — Ouverture des inscriptions
+                2026-2027 aux nouveaux adhérents
+            </span>
+            <br />
+            <br />
+            <span>
+                Si nous avons l'honneur de déjà vous compter parmi nos
+                adhérents, à vos agendas :
+            </span>
+
+            <span>
+                <br />
+                🔑 <strong>A partir du 11 mai 2026 </strong> — Début des
+                réinscriptions 2026-2027
+            </span>
+            <br />
+            <br />
+            <span style={{ fontSize: "0.9em", color: "#6b7280" }}>
+                Retrouvez toutes les infos sur les pages{" "}
+                <em>Infos Pratiques</em> et <em>Planning &amp; Tarifs</em>.
             </span>
         </>
     ),
