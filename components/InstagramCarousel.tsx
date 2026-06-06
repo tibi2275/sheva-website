@@ -6,6 +6,7 @@ import { InstagramEmbed } from "./InstagramEmbed";
 // ─── Mettez ici les URLs de vos posts Instagram ───────────────────────────────
 // Pour ajouter un post : copier l'URL depuis Instagram → Partager → Copier le lien
 export const instagramPosts = [
+    "https://www.instagram.com/p/DZM3cXAuY2c/",
     "https://www.instagram.com/p/DYSC7R6s-B1",
     "https://www.instagram.com/p/DWkIHm3DEhB",
 
