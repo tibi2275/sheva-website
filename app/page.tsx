@@ -283,7 +283,10 @@ function NewsSection() {
     return (
         <>
             {/* ── Bloc 1 : Articles ─────────────────────────────────────── */}
-            <section style={{ background: "#fafbfb", padding: "64px 0 52px" }}>
+            <section
+                id="actualites"
+                style={{ background: "#fafbfb", padding: "64px 0 52px" }}
+            >
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <SectionHeader
                         label="Le club en direct"

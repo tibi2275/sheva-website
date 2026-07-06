@@ -10,6 +10,8 @@ export type Article = {
     excerpt: string;
     body: string;
     img: string;
+    /** Position CSS de l'image (object-position), ex: "center bottom" si le sujet est en bas de la photo */
+    imgPosition?: string;
 };
 
 const CARD_W = 320;
@@ -194,7 +196,12 @@ export function NewsCarousel({ articles }: { articles: Article[] }) {
                                         alt={article.title}
                                         fill
                                         sizes={`${CARD_W}px`}
-                                        style={{ objectFit: "cover" }}
+                                        style={{
+                                            objectFit: "cover",
+                                            objectPosition:
+                                                article.imgPosition ??
+                                                "center",
+                                        }}
                                     />
                                     <span
                                         style={{
@@ -393,7 +400,11 @@ export function NewsCarousel({ articles }: { articles: Article[] }) {
                                 src={assetPath(modal.img)}
                                 alt={modal.title}
                                 fill
-                                style={{ objectFit: "cover" }}
+                                style={{
+                                    objectFit: "cover",
+                                    objectPosition:
+                                        modal.imgPosition ?? "center",
+                                }}
                                 sizes="680px"
                             />
                             <div

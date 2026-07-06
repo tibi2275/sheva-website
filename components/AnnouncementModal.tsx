@@ -2,6 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import { assetPath } from "@/lib/assetPath";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // CONTENU DE L'ANNONCE — modifiez uniquement cette section
@@ -28,6 +30,8 @@ export type Announcement = {
     id: string;
     emoji?: string;
     image?: string;
+    /** Position CSS de l'image (object-position), ex: "center bottom" si le sujet est en bas de la photo */
+    imagePosition?: string;
     label?: string;
     title: string;
     body: React.ReactNode;
@@ -36,33 +40,42 @@ export type Announcement = {
 
 // ★ MODIFIEZ ICI pour changer l'annonce
 export const currentAnnouncement: Announcement = {
-    id: "inscr_2026", // changez cette valeur pour forcer l'annonce à réapparaître
-    emoji: "🌸",
-    label: "Inscriptions",
-    title: "Rejoignez nous pour la saison 2026-2027 !",
+    id: "vacances_ete_2026v2", // changez cette valeur pour forcer l'annonce à réapparaître
+    emoji: "☀️",
+    image: "/images/Images-illustrations/vac_news.jpg",
+    imagePosition: "center bottom",
+    label: "Fermeture estivale",
+    title: "Le centre équestre part en vacances ! 🌿",
     body: (
         <>
             <span>
-                Les inscriptions pour la saison 2026-2027 sont ouvertes et il
-                reste encore quelques places disponibles !{" "}
+                C'est la fin de la saison, nos chevaux et poneys sont partis au
+                pré pour se ressourcer, et toute l&apos;équipe en profite aussi
+                pour souffler un peu !{" "}
             </span>
             <br />
+            <br />
             <span>
-                🗓️ Rendez vous sur la page <strong> infos pratiques </strong>{" "}
-                pour connaitre tous les renseignements nécessaires pour vous
-                inscrire.
-                <br />
+                📅 Retour de tout le monde le <strong>24 août</strong>, en
+                pleine forme pour la reprise des cours.
+            </span>
+            <br />
+            <br />
+            <span>
+                D&apos;ici là, privilégiez l&apos;email : le téléphone ne sera
+                pas joignable.
             </span>
         </>
     ),
     ctas: [
         {
-            label: "Plus d'infos",
-            href: "/infos#inscriptions",
+            label: "Nous écrire",
+            href: "mailto:sheva@sheva.fr",
+            external: true,
         },
         {
-            label: "Planning & tarifs",
-            href: "/planning",
+            label: "En savoir plus",
+            href: "/#actualites",
         },
     ],
 };
@@ -257,76 +270,130 @@ export function AnnouncementModal({
                         position: "relative",
                     }}
                 >
-                    {/* ── En-tête coloré ────────────────────────── */}
+                    {/* ── En-tête ──────────────────────────────── */}
                     <div
                         style={{
-                            background:
-                                "linear-gradient(135deg, rgb(94,180,174) 0%, rgb(69,144,150) 60%, rgb(45,120,128) 100%)",
-                            padding: "24px 28px 20px",
-                            textAlign: "center",
                             position: "relative",
                             overflow: "hidden",
+                            ...(announcement.image
+                                ? { height: 190 }
+                                : {
+                                      background:
+                                          "linear-gradient(135deg, rgb(94,180,174) 0%, rgb(69,144,150) 60%, rgb(45,120,128) 100%)",
+                                      padding: "24px 28px 20px",
+                                      textAlign: "center" as const,
+                                  }),
                         }}
                     >
-                        {/* Cercles décoratifs */}
-                        <div
-                            style={{
-                                position: "absolute",
-                                top: -40,
-                                right: -40,
-                                width: 160,
-                                height: 160,
-                                borderRadius: "50%",
-                                background: "rgba(255,255,255,0.07)",
-                                pointerEvents: "none",
-                            }}
-                        />
-                        <div
-                            style={{
-                                position: "absolute",
-                                bottom: -30,
-                                left: -30,
-                                width: 120,
-                                height: 120,
-                                borderRadius: "50%",
-                                background: "rgba(255,255,255,0.06)",
-                                pointerEvents: "none",
-                            }}
-                        />
-
-                        {/* Badge label */}
-                        {announcement.label && (
-                            <span
-                                style={{
-                                    display: "inline-block",
-                                    padding: "4px 12px",
-                                    borderRadius: 20,
-                                    background: "rgba(255,255,255,0.2)",
-                                    border: "1px solid rgba(255,255,255,0.3)",
-                                    color: "white",
-                                    fontSize: 11,
-                                    fontWeight: 700,
-                                    letterSpacing: "0.8px",
-                                    textTransform: "uppercase",
-                                    marginBottom: 14,
-                                }}
-                            >
-                                {announcement.label}
-                            </span>
+                        {/* Photo d'illustration */}
+                        {announcement.image && (
+                            <>
+                                <Image
+                                    src={assetPath(announcement.image)}
+                                    alt={announcement.title}
+                                    fill
+                                    style={{
+                                        objectFit: "cover",
+                                        objectPosition:
+                                            announcement.imagePosition ??
+                                            "center",
+                                    }}
+                                    sizes="420px"
+                                    priority
+                                />
+                                <div
+                                    style={{
+                                        position: "absolute",
+                                        inset: 0,
+                                        background:
+                                            "linear-gradient(to bottom, rgba(45,120,128,0.15) 0%, rgba(20,50,55,0.78) 100%)",
+                                    }}
+                                />
+                            </>
                         )}
 
-                        {/* Emoji */}
-                        {announcement.emoji && (
-                            <div
-                                style={{
-                                    fontSize: 40,
-                                    lineHeight: 1,
-                                    marginBottom: 4,
-                                }}
-                            >
-                                {announcement.emoji}
-                            </div>
+                        {/* Cercles décoratifs (uniquement sans photo) */}
+                        {!announcement.image && (
+                            <>
+                                <div
+                                    style={{
+                                        position: "absolute",
+                                        top: -40,
+                                        right: -40,
+                                        width: 160,
+                                        height: 160,
+                                        borderRadius: "50%",
+                                        background: "rgba(255,255,255,0.07)",
+                                        pointerEvents: "none",
+                                    }}
+                                />
+                                <div
+                                    style={{
+                                        position: "absolute",
+                                        bottom: -30,
+                                        left: -30,
+                                        width: 120,
+                                        height: 120,
+                                        borderRadius: "50%",
+                                        background: "rgba(255,255,255,0.06)",
+                                        pointerEvents: "none",
+                                    }}
+                                />
+                            </>
                         )}
+
+                        <div
+                            style={
+                                announcement.image
+                                    ? {
+                                          position: "absolute",
+                                          inset: 0,
+                                          display: "flex",
+                                          flexDirection: "column",
+                                          alignItems: "center",
+                                          justifyContent: "flex-end",
+                                          padding: "0 28px 18px",
+                                          textAlign: "center",
+                                      }
+                                    : undefined
+                            }
+                        >
+                            {/* Badge label */}
+                            {announcement.label && (
+                                <span
+                                    style={{
+                                        display: "inline-block",
+                                        padding: "4px 12px",
+                                        borderRadius: 20,
+                                        background: "rgba(255,255,255,0.2)",
+                                        border: "1px solid rgba(255,255,255,0.3)",
+                                        color: "white",
+                                        fontSize: 11,
+                                        fontWeight: 700,
+                                        letterSpacing: "0.8px",
+                                        textTransform: "uppercase",
+                                        marginBottom: announcement.image
+                                            ? 10
+                                            : 14,
+                                    }}
+                                >
+                                    {announcement.label}
+                                </span>
+                            )}
+
+                            {/* Emoji */}
+                            {announcement.emoji && (
+                                <div
+                                    style={{
+                                        fontSize: announcement.image ? 34 : 40,
+                                        lineHeight: 1,
+                                        marginBottom: 4,
+                                    }}
+                                >
+                                    {announcement.emoji}
+                                </div>
+                            )}
+                        </div>
                     </div>
 
                     {/* ── Contenu ───────────────────────────────── */}

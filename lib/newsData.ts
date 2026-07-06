@@ -10,6 +10,30 @@ import type { Article } from "@/components/NewsCarousel";
 
 export const articles: Article[] = [
     {
+        date: "Juillet 2026",
+        title: "Le centre équestre ferme ses portes pour l'été ☀️",
+        excerpt:
+            "Nos chevaux sont partis se ressourcer au pré, et toute l'équipe en profite aussi pour souffler ! Rendez-vous le 24 août pour une reprise en pleine forme.",
+        body: `☀️ C'est l'heure des vacances à la SHEVA !
+
+Le centre équestre ferme ses portes : nos chevaux sont partis se dégourdir les jambes au pré, entre copains, avec plein d'herbe à brouter et de grands espaces pour se défouler. Un vrai moment de ressourcement bien mérité pour eux aussi !
+
+🏖️ Certain chanceux ont la chance d'aller resprirer l'air marin pour le stage à Deauville et rejoindront très prochainement leurs camarades au pré.
+
+Tout ce petit monde reviendra quelques jours avant la reprise des cours, fin août, prêt à retrouver tous ses amis en pleine forme.
+
+C'est aussi une période de repos bien méritée pour toute l'équipe de la SHEVA, qui a elle aussi besoin de recharger les batteries avant une nouvelle saison.
+
+📅 On se retrouve tous à partir du 24 août !
+
+📧 D'ici là, privilégiez les contacts par email : le téléphone de la SHEVA ne sera pas joignable pendant cette période. Les emails nous permettent une meilleure traçabilité pour vous répondre au mieux dès notre retour.
+
+Belle fin d'été à tous, cavaliers, familles et amis de la SHEVA 🐴🌿`,
+        img: "/images/Images-illustrations/vac_news.jpg",
+        imgPosition: "center bottom",
+    },
+
+    {
         date: "Avril 2026",
         title: "Inscriptions saison 2026-2027 : les dates à retenir",
         excerpt:
