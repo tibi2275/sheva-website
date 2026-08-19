@@ -65,10 +65,14 @@ function Hero() {
                 muted
                 loop
                 playsInline
-                poster={assetPath("/images/Images-illustrations/activ-hero.jpeg")}
+                poster={assetPath(
+                    "/images/Images-illustrations/activ-hero.jpeg",
+                )}
             >
                 <source
-                    src={assetPath("/images/Images-illustrations/herobanner.mp4")}
+                    src={assetPath(
+                        "/images/Images-illustrations/herobanner2.mp4",
+                    )}
                     type="video/mp4"
                 />
             </video>
@@ -310,7 +314,13 @@ function NewsSection() {
                 <InstagramCarousel />
 
                 {/* CTA */}
-                <div style={{ marginTop: 28, display: "flex", justifyContent: "center" }}>
+                <div
+                    style={{
+                        marginTop: 28,
+                        display: "flex",
+                        justifyContent: "center",
+                    }}
+                >
                     <a
                         href="https://www.instagram.com/centreequestresheva/"
                         target="_blank"
@@ -321,7 +331,8 @@ function NewsSection() {
                             gap: 8,
                             padding: "12px 24px",
                             borderRadius: 12,
-                            background: "linear-gradient(45deg, rgb(94,180,174), rgb(69,144,150))",
+                            background:
+                                "linear-gradient(45deg, rgb(94,180,174), rgb(69,144,150))",
                             color: "white",
                             fontWeight: 700,
                             fontSize: 14,
