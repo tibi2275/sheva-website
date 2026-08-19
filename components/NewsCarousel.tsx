@@ -12,6 +12,8 @@ export type Article = {
     img: string;
     /** Position CSS de l'image (object-position), ex: "center bottom" si le sujet est en bas de la photo */
     imgPosition?: string;
+    /** Badge affiché sur la vignette, ex: "Nouveau". Laisser vide pour ne pas afficher de badge. */
+    tag?: string;
 };
 
 const CARD_W = 320;
@@ -203,23 +205,25 @@ export function NewsCarousel({ articles }: { articles: Article[] }) {
                                                 "center",
                                         }}
                                     />
-                                    <span
-                                        style={{
-                                            position: "absolute",
-                                            top: 12,
-                                            left: 12,
-                                            padding: "4px 10px",
-                                            background:
-                                                "linear-gradient(45deg, #ff6b35, #f7931e)",
-                                            color: "white",
-                                            fontSize: 11,
-                                            fontWeight: 700,
-                                            borderRadius: 8,
-                                            letterSpacing: "0.3px",
-                                        }}
-                                    >
-                                        Actualité
-                                    </span>
+                                    {article.tag && (
+                                        <span
+                                            style={{
+                                                position: "absolute",
+                                                top: 12,
+                                                left: 12,
+                                                padding: "4px 10px",
+                                                background:
+                                                    "linear-gradient(45deg, #ff6b35, #f7931e)",
+                                                color: "white",
+                                                fontSize: 11,
+                                                fontWeight: 700,
+                                                borderRadius: 8,
+                                                letterSpacing: "0.3px",
+                                            }}
+                                        >
+                                            {article.tag}
+                                        </span>
+                                    )}
                                 </div>
 
                                 {/* Texte */}
@@ -415,22 +419,24 @@ export function NewsCarousel({ articles }: { articles: Article[] }) {
                                         "linear-gradient(to bottom, transparent 55%, rgba(0,0,0,0.35))",
                                 }}
                             />
-                            <span
-                                style={{
-                                    position: "absolute",
-                                    top: 16,
-                                    left: 16,
-                                    padding: "4px 10px",
-                                    background:
-                                        "linear-gradient(45deg, #ff6b35, #f7931e)",
-                                    color: "white",
-                                    fontSize: 11,
-                                    fontWeight: 700,
-                                    borderRadius: 8,
-                                }}
-                            >
-                                Actualité
-                            </span>
+                            {modal.tag && (
+                                <span
+                                    style={{
+                                        position: "absolute",
+                                        top: 16,
+                                        left: 16,
+                                        padding: "4px 10px",
+                                        background:
+                                            "linear-gradient(45deg, #ff6b35, #f7931e)",
+                                        color: "white",
+                                        fontSize: 11,
+                                        fontWeight: 700,
+                                        borderRadius: 8,
+                                    }}
+                                >
+                                    {modal.tag}
+                                </span>
+                            )}
                         </div>
 
                         {/* Bouton fermer */}

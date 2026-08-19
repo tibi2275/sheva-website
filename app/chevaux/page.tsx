@@ -161,8 +161,11 @@ const chevaux = [
     {
         name: "Foster d'Orangerie",
         img: "/images/chevaux/Foster.png",
+        nickname: "Fosti ou Le F",
         level: "Galop 6 & 7",
+        year: "2015",
         color: "Bai Brun",
+        breed: "Selle Français",
         bio: "Foster est un grand cheval d'expérience, arrivé à la SHEVA en septembre 2025. Avec un solide parcours en compétition d'obstacle sur de belles épreuves, il met désormais son savoir-faire au service du piquet compétition amateur. Cheval serein et appliqué, il se distingue par sa concentration, son dynamisme et sa puissance. Toujours tonique et volontaire, Foster donne le meilleur de lui-même pour son cavalier.",
     },
     {
@@ -205,6 +208,24 @@ const chevaux = [
         bio: "Igdrazil est le seul cheval pie de notre cavalerie, ce qui le rend immédiatement reconnaissable. Avec son gabarit imposant, il impressionne autant par sa prestance que par sa douceur. Très calme et bien dressé, il convient parfaitement aux cavaliers de niveau intermédiaire. Malgré une certaine appréhension de l'eau, Igdrazil reste un partenaire fiable et agréable, idéal pour progresser en confiance.",
     },
     {
+        name: "Inaya Guilloterie",
+        img: "/images/chevaux/inaya.png",
+        year: "2020",
+        level: "Galop 5 à 7",
+        breed: "Selle Français",
+        color: "Bai",
+        bio: "Une gentille jument avec de l’expérience en compétition, agréable et attachante au quotidien. Rustique et facile à vivre, Inaya est une jument bien en chair, qui n’est pas fâchée avec la cantine.",
+    },
+    {
+        name: "Kiss Mylord de la Hem",
+        img: "/images/chevaux/kiss.png",
+        year: "2020",
+        level: "Galop 6 & 7",
+        breed: "Selle Français",
+        color: "Grise",
+        bio: "Une véritable princesse par son physique, mais surtout une jument avec un super caractère : gentille, attachante et agréable au quotidien. Encore verte dans le travail, avec beaucoup de qualités et un beau potentiel pour la suite.",
+    },
+    {
         name: "Luzi Vera WS",
         img: "/images/chevaux/Luzi.png",
         year: "2016",
@@ -222,15 +243,7 @@ const chevaux = [
         color: "Alezan",
         bio: "Mojito, 4 ans, vient tout juste de rejoindre les écuries et nous avons hâte de vous le faire découvrir ✨ Actuellement au travail avec Kyara, il poursuit sa formation avec sérieux et régularité. Déjà remarqué lors des épreuves de présentation des 3 ans, où il a obtenu de très belles notes, Mojito s'est distingué par son modèle et son attitude. C'est un jeune cheval prometteur, doté d'un excellent potentiel et d'un mental intéressant. Une belle aventure commence avec lui… à suivre de près ! 🐎",
     },
-    {
-        name: "Qavaletti du Brèche",
-        img: "/images/chevaux/qavaleti.avif",
-        nickname: "Petit poney",
-        year: "2004",
-        breed: "Selle Français",
-        color: "Alezan",
-        bio: "Qavaletti rejoint les rangs de la SHEVA au printemps 2008. Après quelques mois de travail avec Cédric, il a intégré l'équipe compétition amateur puis club, il est maintenant moins sollicité et fait les cours intermédiaires et débutants. Très bien dressé et bon sauteur. Surnommé \"Petit poney\" pour sa bouille de bébé qu'il a toujours gardée, c'est un cheval calme et câlin au box.",
-    },
+
     {
         name: "Serafina",
         img: "/images/chevaux/seraphina.avif",
@@ -329,6 +342,15 @@ const poneys = [
         bio: "Il est arrivé avec un petit caractère mais se révèle être un vrai chouchou. Petit par la taille, il peut toutefois se montrer assez rapide.",
     },
     {
+        name: "Ihes d’Etxe",
+        img: "/images/poneys/ihes.jpg",
+        year: "2018",
+        level: "Tous niveaux",
+        height: "",
+        color: "Pie Bai",
+        bio: "Calme, très gentille et déjà bien à l’écoute, cette petite jument semble volontaire et pleine de bonne volonté dans le travail. Son caractère reste encore à découvrir, mais elle nous montre déjà de jolies qualités !",
+    },
+    {
         name: "Iroquois",
         img: "/images/poneys/iroquois.png",
         year: "2018",
@@ -369,6 +391,15 @@ const poneys = [
         height: "1,25m",
         color: "Bai",
         bio: "Jeune et gentil poney, jumeau de Jenna, avec un caractère assez facile.",
+    },
+    {
+        name: "Kairos",
+        img: "/images/poneys/kairos.jpg",
+        year: "2020",
+        level: "Tous niveaux",
+        height: "",
+        color: "Pie Alezan",
+        bio: "Très gentil, mais avec déjà un petit caractère bien à lui ! Encore très vert dans le travail, il a tout à découvrir et nous aussi ! Une petite personnalité qui promet d’être intéressante à suivre.",
     },
     {
         name: "Meen",
@@ -448,13 +479,13 @@ const poneys = [
         bio: "Ponette idéale autant pour les débutants que pour les confirmés (du baby au galop d'or), elle est calme et plutôt tranquille mais elle peut se réveiller avec un(e) cavalier(ère) motivé(e) !",
     },
     {
-        name: "Whisper",
+        name: "Van Het Ravenshof",
         img: "/images/poneys/whisper.png",
         year: "2018",
         level: "Galop Argent et +",
         height: "1,30m",
         color: "Noir",
-        bio: "",
+        bio: "Très gentil et attachant, ce poney peut parfois avoir un peu de mal à gérer ses émotions. Avec son look de petit cheval, il ne passe pas inaperçu et est déjà très apprécié !",
     },
 ];
 
@@ -807,7 +838,6 @@ function SectionHeader({ label, title }: { label: string; title: string }) {
         </div>
     );
 }
-
 
 // ─── PAGE ─────────────────────────────────────────────────────────────────────
 
@@ -1729,7 +1759,9 @@ export default function ChevauxPage() {
                                 }}
                             >
                                 <a
-                                    href={assetPath("/PDF_docs/Bull Adhesion ApresSHEVA 2026.pdf")}
+                                    href={assetPath(
+                                        "/PDF_docs/Bull Adhesion ApresSHEVA 2026.pdf",
+                                    )}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     style={{

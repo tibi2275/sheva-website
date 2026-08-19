@@ -46,6 +46,13 @@ const RETRAITES = [
         bio: "La petite Capu, c'est simple tout le monde l'aime même si on pense qu'elle est croisée sanglier ! Quand elle a un truc en tête, elle y va tête baissée et rien ne peut l'arrêter ! Mais ce caractère bien trempé ne l'empêche pas d'être la plus douce, la plus chouette des ponettes ! Une assurance tout risque, laissez-lui un baby sur le dos, aucun souci elle gère ! Après avoir fait le bonheur des petits cavaliers, elle est maintenant dans le Perche où elle a retrouvé son pote de toujours l'inoubliable Tigroo ! Tous les deux coulent des jours heureux grâce à Anouck qui veille désormais sur eux.",
     },
     {
+        name: "Qavaletti du Brèche",
+        img: "/images/chevaux/qavaleti.avif",
+        surnom: "Petit poney",
+        naissance: "2004",
+        bio: "Qavaletti rejoint les rangs de la SHEVA au printemps 2008. Après quelques mois de travail avec Cédric, il a intégré l'équipe compétition amateur puis club, il est maintenant moins sollicité et fait les cours intermédiaires et débutants. Très bien dressé et bon sauteur. Surnommé \"Petit poney\" pour sa bouille de bébé qu'il a toujours gardée, c'est un cheval calme et câlin au box.",
+    },
+    {
         nom: "Vasco des Chesnais",
         surnom: "Vasquito",
         naissance: "28/03/2009",

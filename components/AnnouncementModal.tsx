@@ -40,42 +40,56 @@ export type Announcement = {
 
 // ★ MODIFIEZ ICI pour changer l'annonce
 export const currentAnnouncement: Announcement = {
-    id: "vacances_ete_2026v2", // changez cette valeur pour forcer l'annonce à réapparaître
-    emoji: "☀️",
-    image: "/images/Images-illustrations/vac_news.jpg",
-    imagePosition: "center bottom",
-    label: "Fermeture estivale",
-    title: "Le centre équestre part en vacances ! 🌿",
+    id: "rentree_2026", // changez cette valeur pour forcer l'annonce à réapparaître
+    emoji: "🐴",
+    image: "/images/Images-illustrations/rentreepopup.jpg",
+    imagePosition: "center 55%",
+    label: "C'est la rentrée",
+    title: "On rouvre nos portes le 24 août ! 🎉",
     body: (
         <>
             <span>
-                C'est la fin de la saison, nos chevaux et poneys sont partis au
-                pré pour se ressourcer, et toute l&apos;équipe en profite aussi
-                pour souffler un peu !{" "}
+                Ça y est, le compte à rebours est lancé : la saison 2026-2027
+                démarre <strong>lundi 24 août</strong>. On a vraiment hâte de
+                vous retrouver !
             </span>
             <br />
             <br />
             <span>
-                📅 Retour de tout le monde le <strong>24 août</strong>, en
-                pleine forme pour la reprise des cours.
+                🌿 Nos chevaux et poneys ont passé un mois au pré à brouter,
+                galoper et se rouler dans l&apos;herbe entre copains. Ils
+                rentrent reposés et en pleine forme, tout comme l&apos;équipe de
+                la SHEVA.
+                <br />
+                La reprise des cours se fera en douceur, avec beaucoup de
+                travail à pied et au pas.
             </span>
             <br />
             <br />
             <span>
-                D&apos;ici là, privilégiez l&apos;email : le téléphone ne sera
-                pas joignable.
+                📧 Pour toute demande, privilégiez l&apos;email : c&apos;est le
+                plus sûr moyen qu&apos;on vous réponde vite et bien.
             </span>
+            <br />
+            <br />
+            <span>
+                ℹ️ Forfaits, inscriptions, matériel, absences… tout est détaillé
+                dans nos <strong>Infos pratiques</strong>. Il reste des places !
+            </span>
+            <br />
+            <br />
+            <span>À très vite au club, on vous attend de pied ferme ! 🥕</span>
         </>
     ),
     ctas: [
         {
+            label: "Infos pratiques",
+            href: "/infos",
+        },
+        {
             label: "Nous écrire",
             href: "mailto:sheva@sheva.fr",
             external: true,
-        },
-        {
-            label: "En savoir plus",
-            href: "/#actualites",
         },
     ],
 };
