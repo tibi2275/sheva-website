@@ -63,7 +63,7 @@ export const PLANNING_HEBDO: JourPlanning[] = [
         { heure: "20h30", duree: 90, lieu: "gm", type: "perf",   label: "Galop 7 Perf.",        simLevels: ["perf_g7"] },
     ]},
     { jour: "Jeudi", creneaux: [
-        { heure: "18h30",            lieu: "pm", type: "cheval", label: "Galop 0+ 1",            simLevels: ["debutant_cheval", "galop1"] },
+        { heure: "18h30",            lieu: "pm", type: "cheval", label: "Galop 0+ 1",            simLevels: ["galop1"] },
         { heure: "19h30",            lieu: "pm", type: "cheval", label: "Galop 3",               simLevels: ["galop3"] },
         { heure: "20h30", duree: 60, lieu: "pm", type: "cheval", label: "Galop 1-2",             simLevels: ["galop1", "galop2"] },
         { heure: "18h30",            lieu: "gm", type: "cheval", label: "Galop 4",               simLevels: ["galop4"] },
@@ -71,7 +71,8 @@ export const PLANNING_HEBDO: JourPlanning[] = [
         { heure: "20h30", duree: 90, lieu: "gm", type: "perf",   label: "Galop 7 Perf.",        simLevels: ["perf_g7"] },
     ]},
     { jour: "Vendredi", creneaux: [
-        { heure: "17h30", duree: 30, lieu: "pm", type: "poney",  label: "Débutant",              simLevels: ["debutant"] },
+        { heure: "12h30",            lieu: "gm", type: "cheval", label: "Galop 5-7",             simLevels: ["galop5", "galop6", "galop7"] },
+        { heure: "17h30", duree: 45, lieu: "pm", type: "poney",  label: "Débutant",              simLevels: ["debutant"] },
         { heure: "18h30",            lieu: "pm", type: "cheval", label: "Galop 1",               simLevels: ["galop1"] },
         { heure: "18h30",            lieu: "gm", type: "cheval", label: "Galop 5",               simLevels: ["galop5"] },
         { heure: "19h30",            lieu: "pm", type: "cheval", label: "Galop 2",               simLevels: ["galop2"] },
@@ -92,9 +93,11 @@ export const PLANNING_HEBDO: JourPlanning[] = [
         { heure: "15h00",            lieu: "pm", type: "poney",  label: "Galop Bronze",                simLevels: ["bronze"] },
         { heure: "15h00",            lieu: "gm", type: "cheval", label: "Galop 3",               simLevels: ["galop3"] },
         { heure: "16h00",            lieu: "gm", type: "cheval", label: "Galop 4",               simLevels: ["galop4"] },
-        { heure: "16h00",            lieu: "pm", type: "poney",  label: "Galop Argent",          simLevels: ["argent"] },
+        { heure: "16h00", duree: 30, lieu: "pm", type: "baby",  label: "Baby",                  simLevels: ["baby_rep"] },
+        { heure: "16h30", duree: 45, lieu: "pm", type: "poney",  label: "Débutant",              simLevels: ["debutant"] },
         
         { heure: "17h00", duree: 90, lieu: "gm", type: "perf",   label: "Galop 6 Perf.",        simLevels: ["perf_g6"] },
+        { heure: "17h15", duree: 45, lieu: "pm", type: "poney",  label: "Débutant",              simLevels: ["debutant"] },
     ]},
     { jour: "Dimanche", creneaux: [
         { heure: "9h00",             lieu: "gm", type: "cheval", label: "Galop 4-5",             simLevels: ["galop4", "galop5"] },

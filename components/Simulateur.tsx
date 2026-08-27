@@ -92,7 +92,7 @@ export function Simulateur({
         if (age >= 13) return "cheval";
         const h = parseInt(m.height),
             w = parseInt(m.weight);
-        if (h && w) return h > 150 || w > 60 ? "cheval" : "poney";
+        if (h && w) return h > 150 || w > 45 ? "cheval" : "poney";
         return null;
     };
 
