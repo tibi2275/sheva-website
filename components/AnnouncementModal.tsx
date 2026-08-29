@@ -38,53 +38,181 @@ export type Announcement = {
     ctas?: CtaItem[];
 };
 
+// ─────────────────────────────────────────────────────────────────────────────
+// Petit compteur animé : le taux de remplissage grimpe de 0 à 100 %
+// (uniquement des <span> pour rester valide à l'intérieur d'un <p>)
+// ─────────────────────────────────────────────────────────────────────────────
+function FillGauge({
+    target = 100,
+    duration = 1900,
+}: {
+    target?: number;
+    duration?: number;
+}) {
+    const [value, setValue] = useState(0);
+
+    useEffect(() => {
+        let raf = 0;
+        const start = performance.now() + 350; // petit délai après l'ouverture
+        const tick = (now: number) => {
+            const t = Math.min(Math.max(now - start, 0) / duration, 1);
+            const eased = 1 - Math.pow(1 - t, 3); // easeOutCubic
+            setValue(Math.round(eased * target));
+            if (t < 1) raf = requestAnimationFrame(tick);
+        };
+        raf = requestAnimationFrame(tick);
+        return () => cancelAnimationFrame(raf);
+    }, [target, duration]);
+
+    const done = value >= target;
+
+    return (
+        <span
+            style={{
+                display: "block",
+                margin: "0 0 22px",
+                padding: "16px 18px 14px",
+                borderRadius: 16,
+                background: "linear-gradient(135deg, #f0fdfa 0%, #fff7ed 100%)",
+                border: "1px solid #e2e8f0",
+            }}
+        >
+            <span
+                style={{
+                    display: "flex",
+                    alignItems: "baseline",
+                    justifyContent: "space-between",
+                    gap: 12,
+                    marginBottom: 10,
+                }}
+            >
+                <span
+                    style={{
+                        fontSize: 11,
+                        fontWeight: 700,
+                        letterSpacing: "0.9px",
+                        textTransform: "uppercase",
+                        color: "rgb(45,120,128)",
+                    }}
+                >
+                    Taux de remplissage
+                </span>
+                <span
+                    style={{
+                        fontSize: 28,
+                        fontWeight: 800,
+                        lineHeight: 1,
+                        color: "#ff6b35",
+                        fontVariantNumeric: "tabular-nums",
+                        animation: done
+                            ? "gaugePop 0.5s cubic-bezier(0.16,1,0.3,1)"
+                            : undefined,
+                    }}
+                >
+                    {value}
+                    <span style={{ fontSize: 16, fontWeight: 700 }}>%</span>
+                </span>
+            </span>
+
+            <span
+                style={{
+                    display: "block",
+                    height: 10,
+                    borderRadius: 999,
+                    background: "rgba(15,23,42,0.07)",
+                    overflow: "hidden",
+                }}
+            >
+                <span
+                    style={{
+                        display: "block",
+                        height: "100%",
+                        width: `${value}%`,
+                        borderRadius: 999,
+                        background:
+                            "linear-gradient(90deg, rgb(94,180,174), #f7931e 70%, #ff6b35)",
+                        boxShadow: "0 0 14px rgba(255,107,53,0.45)",
+                    }}
+                />
+            </span>
+
+            <span
+                style={{
+                    display: "block",
+                    marginTop: 10,
+                    textAlign: "center",
+                    fontSize: 12,
+                    fontWeight: 800,
+                    letterSpacing: "0.6px",
+                    color: "#ff6b35",
+                    opacity: done ? 1 : 0,
+                    transform: done ? "translateY(0)" : "translateY(5px)",
+                    transition: "opacity 0.45s ease, transform 0.45s ease",
+                }}
+            >
+                🎉 COMPLET — merci à vous !
+            </span>
+        </span>
+    );
+}
+
 // ★ MODIFIEZ ICI pour changer l'annonce
 export const currentAnnouncement: Announcement = {
-    id: "rentree_2026", // changez cette valeur pour forcer l'annonce à réapparaître
-    emoji: "🐴",
-    image: "/images/Images-illustrations/rentreepopup.jpg",
+    id: "club_complet_2026", // changez cette valeur pour forcer l'annonce à réapparaître
+    emoji: "🙏",
+    image: "/images/Images-illustrations/newssept.jpg", // ← remplacez par la nouvelle photo
     imagePosition: "center 55%",
-    label: "C'est la rentrée",
-    title: "On rouvre nos portes le 24 août ! 🎉",
+    label: "Merci à vous",
+    title: "Le club fait carton plein ! 😍",
     body: (
         <>
+            <FillGauge />
             <span>
-                Ça y est, le compte à rebours est lancé : la saison 2026-2027
-                démarre <strong>lundi 24 août</strong>. On a vraiment hâte de
-                vous retrouver !
+                Grâce à votre confiance, toutes nos places sont prises pour
+                cette saison. Un immense <strong>merci</strong> 😊
             </span>
             <br />
             <br />
             <span>
-                🌿 Nos chevaux et poneys ont passé un mois au pré à brouter,
-                galoper et se rouler dans l&apos;herbe entre copains. Ils
-                rentrent reposés et en pleine forme, tout comme l&apos;équipe de
-                la SHEVA.
-                <br />
-                La reprise des cours se fera en douceur, avec beaucoup de
-                travail à pied et au pas.
+                Envie de nous rejoindre ? N&apos;hésitez pas à nous contacter
+                pour vérifier qu&apos;une place ne s&apos;est pas libérée !
             </span>
             <br />
             <br />
             <span>
-                📧 Pour toute demande, privilégiez l&apos;email : c&apos;est le
-                plus sûr moyen qu&apos;on vous réponde vite et bien.
+                🐴 D&apos;ici là, passez donc nous voir : visite des
+                installations, rencontre avec nos chevaux et nos moniteurs,
+                c&apos;est avec grand plaisir.
             </span>
             <br />
             <br />
             <span>
-                ℹ️ Forfaits, inscriptions, matériel, absences… tout est détaillé
-                dans nos <strong>Infos pratiques</strong>. Il reste des places !
+                📸 Suivez-nous sur Instagram pour vivre les activités du club au
+                quotidien.
             </span>
             <br />
             <br />
-            <span>À très vite au club, on vous attend de pied ferme ! 🥕</span>
+            <span>
+                ☎️ On reste joignables par téléphone au{" "}
+                <a
+                    href="tel:+33143768676"
+                    style={{
+                        color: "rgb(45,120,128)",
+                        fontWeight: 700,
+                        textDecoration: "none",
+                    }}
+                >
+                    01 43 76 86 76
+                </a>{" "}
+                et par mail — et toujours ravis de vous accueillir !
+            </span>
         </>
     ),
     ctas: [
         {
-            label: "Infos pratiques",
-            href: "/infos",
+            label: "Suivre sur Instagram",
+            href: "https://www.instagram.com/centreequestresheva/",
+            external: true,
         },
         {
             label: "Nous écrire",
@@ -239,6 +367,11 @@ export function AnnouncementModal({
                 @keyframes backdropOut {
                     from { opacity: 1; }
                     to   { opacity: 0; }
+                }
+                @keyframes gaugePop {
+                    0%   { transform: scale(1); }
+                    45%  { transform: scale(1.18); }
+                    100% { transform: scale(1); }
                 }
                 @keyframes cardOut {
                     from { opacity: 1; transform: scale(1) translateY(0); }

@@ -7,6 +7,7 @@ import { assetPath } from "@/lib/assetPath";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { AnnouncementModal } from "@/components/AnnouncementModal";
+import { HeroSimulateurButton } from "@/components/HeroSimulateurButton";
 import { HomeScrollLayout } from "@/components/HomeScrollLayout"; // layout alternatif (non actif)
 import { NewsCarousel } from "@/components/NewsCarousel";
 import { InstagramCarousel } from "@/components/InstagramCarousel";
@@ -134,6 +135,7 @@ function Hero() {
                                 />
                             </svg>
                         </Link>
+                        <HeroSimulateurButton />
                     </div>
                 </div>
             </div>

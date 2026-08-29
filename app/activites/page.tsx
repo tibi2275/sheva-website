@@ -545,7 +545,7 @@ export default function ActivitesPage() {
                                             letterSpacing: "0.06em",
                                         }}
                                     >
-                                        📆 Séances 2025-2026
+                                        📆 Séances 2026-2027
                                     </h5>
                                     <div
                                         style={{
@@ -556,13 +556,13 @@ export default function ActivitesPage() {
                                         }}
                                     >
                                         {[
-                                            "Dimanche 21 septembre 2025",
-                                            "Dimanche 12 octobre 2025",
-                                            "Dimanche 9 novembre 2025",
-                                            "Dimanche 7 décembre 2025",
-                                            "Dimanche 25 janvier 2026",
-                                            "Dimanche 8 février 2026",
-                                            "Dimanche 15 mars 2026",
+                                            "Dimanche 20 septembre 2026",
+                                            "Dimanche 11 octobre 2026",
+                                            "Dimanche 8 novembre 2026",
+                                            "Dimanche 6 décembre 2026",
+                                            "Dimanche 10 janvier 2027",
+                                            "Dimanche 7 mars 2027",
+                                            "Dimanche 25 avril 2027",
                                         ].map((d) => (
                                             <div
                                                 key={d}
