@@ -489,7 +489,7 @@ function QuickAccess() {
 export default function HomePage() {
     return (
         <>
-            <AnnouncementModal />
+            {/* <AnnouncementModal /> */}
             <Nav transparent />
             <main>
                 <Hero />

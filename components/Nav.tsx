@@ -41,7 +41,7 @@ const navLinks = [
             { label: "Chevaux", href: "/chevaux#chevaux" },
             { label: "Poneys", href: "/chevaux#poneys" },
             { label: "Bien-être", href: "/chevaux#bien-etre" },
-            { label: "Après SHEVA", href: "/chevaux#apres-sheva" },
+            { label: "L'Après SHEVA", href: "/chevaux#apres-sheva" },
         ],
     },
     {
