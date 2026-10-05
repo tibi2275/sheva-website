@@ -47,7 +47,7 @@ export type Announcement = {
 // Petit compteur animé : le taux de remplissage grimpe de 0 à 100 %
 // (uniquement des <span> pour rester valide à l'intérieur d'un <p>)
 // ─────────────────────────────────────────────────────────────────────────────
-function FillGauge({
+export function FillGauge({
     target = 100,
     duration = 1500,
     doneLabel = "🎉 COMPLET — merci à vous !",
@@ -192,77 +192,133 @@ function FillGauge({
     );
 }
 
+// Étapes du challenge (affichées sous forme de mini-calendrier dans l'annonce)
+const challengeDates: { day: string; month: string; discipline: string }[] = [
+    { day: "15", month: "nov.", discipline: "Dressage" },
+    { day: "13", month: "déc.", discipline: "Dressage" },
+    { day: "17", month: "janv.", discipline: "Hunter" },
+    { day: "28", month: "févr.", discipline: "CSO" },
+    { day: "28", month: "mars", discipline: "CSO" },
+];
+
+// Reprises de dressage à apprendre (fichiers dans public/PDF_docs)
+const challengeReprises = ["G4", "G5", "G6", "G7"];
+
+const linkStyle: React.CSSProperties = {
+    color: "rgb(45,120,128)",
+    fontWeight: 700,
+    textDecoration: "none",
+};
+
 // ★ MODIFIEZ ICI pour changer l'annonce
 export const currentAnnouncement: Announcement = {
-    id: "places_restantes_2026", // changez cette valeur pour forcer l'annonce à réapparaître
-    emoji: "🙏",
-    image: "/images/Images-illustrations/newssept.jpg", // ← remplacez par la nouvelle photo
-    imagePosition: "center 55%",
-    label: "Merci à vous",
-    title: "Le club fait (presque) carton plein ! 😍",
+    id: "challenge_2026_2027", // changez cette valeur pour forcer l'annonce à réapparaître
+    emoji: "🏆",
+    image: "/images/Images-illustrations/challenge.JPG",
+    imagePosition: "center",
+    label: "Challenge 2026-2027",
+    title: "Le Challenge SHEVA est de retour ! 🎉",
     body: (
         <>
-            <FillGauge target={95} doneLabel="🐴 Il reste quelques places !" />
             <span>
-                Grâce à votre confiance, le club est presque complet pour cette
-                saison. Un immense <strong>merci</strong> 😊
+                5 étapes, 3 disciplines et surtout… plein de bons moments entre
+                copains ! C&apos;est l&apos;occasion parfaite de mettre en
+                pratique tout ce qu&apos;on apprend en reprise, dans une
+                ambiance 100 % bienveillante 🤗
+            </span>
+
+            {/* Mini-calendrier des 5 étapes */}
+            <span
+                style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(5, 1fr)",
+                    gap: 6,
+                    margin: "18px 0",
+                }}
+            >
+                {challengeDates.map((d) => (
+                    <span
+                        key={d.day + d.month}
+                        style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            padding: "8px 2px",
+                            borderRadius: 12,
+                            background:
+                                "linear-gradient(135deg, #f0fdfa 0%, #fff7ed 100%)",
+                            border: "1px solid #e2e8f0",
+                            lineHeight: 1.15,
+                        }}
+                    >
+                        <span
+                            style={{
+                                fontSize: 20,
+                                fontWeight: 800,
+                                color: "#ff6b35",
+                            }}
+                        >
+                            {d.day}
+                        </span>
+                        <span
+                            style={{
+                                fontSize: 11,
+                                fontWeight: 700,
+                                color: "rgb(15,23,42)",
+                            }}
+                        >
+                            {d.month}
+                        </span>
+                        <span
+                            style={{
+                                marginTop: 4,
+                                fontSize: 10,
+                                fontWeight: 700,
+                                letterSpacing: "0.3px",
+                                textTransform: "uppercase",
+                                color: "rgb(45,120,128)",
+                            }}
+                        >
+                            {d.discipline}
+                        </span>
+                    </span>
+                ))}
+            </span>
+
+            <span>
+                🎯 <strong>Dressage :</strong> pensez à apprendre votre reprise
+                ! Téléchargez celle de votre niveau :{" "}
+                {challengeReprises.map((g, i) => (
+                    <React.Fragment key={g}>
+                        <a
+                            href={assetPath(`/PDF_docs/chall_dress_${g}.pdf`)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={linkStyle}
+                        >
+                            Galop {g.slice(1)}
+                            {g === "G4" && " & Poneys"}
+                        </a>
+                        {i < challengeReprises.length - 2
+                            ? ", "
+                            : i === challengeReprises.length - 2
+                              ? " et "
+                              : "."}
+                    </React.Fragment>
+                ))}
             </span>
             <br />
             <br />
             <span>
-                Bonne nouvelle : il reste encore{" "}
-                <strong>quelques places, à poney comme à cheval</strong>.
-                Simulez votre inscription en deux minutes sur le site, et
-                n&apos;hésitez pas à nous contacter pour toute question.
-            </span>
-            <br />
-            <br />
-            <span>
-                Si jamais il n&apos;y a plus de place à votre niveau, nous
-                serions ravis de vous compter parmi nous par la suite 🤗 En
-                attendant, passez visiter nos installations et rencontrer nos
-                chevaux et nos moniteurs, et suivez-nous sur le site et sur{" "}
-                <a
-                    href="https://www.instagram.com/centreequestresheva/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                        color: "rgb(45,120,128)",
-                        fontWeight: 700,
-                        textDecoration: "none",
-                    }}
-                >
-                    Instagram
-                </a>{" "}
-                pour ne rien rater des activités du club.
-            </span>
-            <br />
-            <br />
-            <span>
-                ☎️ On reste joignables par téléphone au{" "}
-                <a
-                    href="tel:+33143768676"
-                    style={{
-                        color: "rgb(45,120,128)",
-                        fontWeight: 700,
-                        textDecoration: "none",
-                    }}
-                >
-                    01 43 76 86 76
-                </a>{" "}
-                et par mail — et toujours ravis de vous accueillir !
+                On compte sur vous pour venir encourager les copains, et on
+                termine comme toujours autour d&apos;un bon repas partagé 🍽️
             </span>
         </>
     ),
     ctas: [
         {
-            label: "🧮 Simuler mon inscription",
-            simulateur: true,
-        },
-        {
-            label: "Nous écrire",
-            href: "mailto:sheva@sheva.fr",
-            external: true,
+            label: "📅 Tout savoir sur le challenge",
+            href: "/activites#challenge",
         },
     ],
 };

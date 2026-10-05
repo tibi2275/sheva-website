@@ -1301,7 +1301,9 @@ export default function ActivitesPage() {
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                             {/* Challenge interne */}
                             <div
+                                id="challenge"
                                 style={{
+                                    scrollMarginTop: 90,
                                     background: "#fafbfb",
                                     borderRadius: 16,
                                     border: "1px solid #f0f0f0",
@@ -1352,7 +1354,8 @@ export default function ActivitesPage() {
                                                 gap: 6,
                                             }}
                                         >
-                                            <Tag>⏰ 5 épreuves</Tag>
+                                            <Tag>🏆 Saison 2026-2027</Tag>
+                                            <Tag>⏰ 5 étapes</Tag>
                                             <Tag>🎯 Tous niveaux</Tag>
                                         </div>
                                     </div>
@@ -1364,11 +1367,13 @@ export default function ActivitesPage() {
                                             margin: 0,
                                         }}
                                     >
-                                        Le challenge est la rencontre interne où
-                                        nos cavaliers se confrontent (dans la
-                                        bonne ambiance et le fair-play) sur 5
-                                        épreuves (2 Dressage, 1 Hunter, 2
-                                        Obstacle).
+                                        Le challenge, c&apos;est notre rendez-vous
+                                        entre copains : 5 étapes, 3 disciplines
+                                        (2 Dressage, 1 Hunter, 2 CSO) pour mettre
+                                        en pratique tout ce qu&apos;on apprend en
+                                        reprise, dans la bonne humeur et le
+                                        fair-play. On s&apos;encourage, on
+                                        progresse, et on fait la fête ensemble !
                                     </p>
                                     <ul
                                         style={{
@@ -1381,9 +1386,10 @@ export default function ActivitesPage() {
                                         }}
                                     >
                                         {[
-                                            "Pour mettre un pied dans la compétition",
-                                            "Convivialité garantie",
-                                            "Repas entre les adhérents",
+                                            "Pour découvrir la compétition en douceur",
+                                            "Pour montrer ses progrès de l'année",
+                                            "Convivialité et encouragements garantis",
+                                            "Repas partagé entre adhérents",
                                         ].map((o) => (
                                             <li
                                                 key={o}
@@ -1419,14 +1425,103 @@ export default function ActivitesPage() {
                                         }}
                                     >
                                         <strong>
-                                            Du grand sport garanti !
+                                            📅 Dates édition 2026-2027 (le dimanche)
                                         </strong>
-                                        <br />
-                                        <strong>Dates édition 2025 :</strong>
-                                        <br />
-                                        <u>Dressage</u> : 16/11 et 14/12 —{" "}
-                                        <u>Hunter</u> : 18/01 — <u>Obstacle</u>{" "}
-                                        : 15/02 et 22/03
+                                        <ul
+                                            style={{
+                                                listStyle: "none",
+                                                padding: 0,
+                                                margin: "6px 0 0",
+                                            }}
+                                        >
+                                            {[
+                                                ["15 nov.", "Dressage"],
+                                                ["13 déc.", "Dressage"],
+                                                ["17 janv.", "Hunter"],
+                                                ["28 févr.", "CSO"],
+                                                ["28 mars", "CSO"],
+                                            ].map(([date, disc]) => (
+                                                <li
+                                                    key={date}
+                                                    style={{
+                                                        display: "flex",
+                                                        justifyContent:
+                                                            "space-between",
+                                                        gap: 8,
+                                                    }}
+                                                >
+                                                    <span
+                                                        style={{
+                                                            fontWeight: 700,
+                                                            color: orange,
+                                                        }}
+                                                    >
+                                                        {date}
+                                                    </span>
+                                                    <span>{disc}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <p
+                                            style={{
+                                                fontSize: 13,
+                                                fontWeight: 700,
+                                                color: "rgb(15,23,42)",
+                                                margin: "0 0 4px",
+                                            }}
+                                        >
+                                            🎯 Reprises de dressage à apprendre
+                                        </p>
+                                        <p
+                                            style={{
+                                                fontSize: 12,
+                                                color: "#6b7280",
+                                                lineHeight: 1.6,
+                                                margin: "0 0 8px",
+                                            }}
+                                        >
+                                            Apprenez la reprise de votre niveau
+                                            (et révisez-la à pied, ça marche !)
+                                        </p>
+                                        <div
+                                            style={{
+                                                display: "grid",
+                                                gridTemplateColumns:
+                                                    "repeat(2, 1fr)",
+                                                gap: 6,
+                                            }}
+                                        >
+                                            {["G4", "G5", "G6", "G7"].map(
+                                                (g) => (
+                                                    <a
+                                                        key={g}
+                                                        href={assetPath(
+                                                            `/PDF_docs/chall_dress_${g}.pdf`,
+                                                        )}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        style={{
+                                                            display: "block",
+                                                            padding: "8px 10px",
+                                                            borderRadius: 10,
+                                                            border: `1.5px solid ${teal}`,
+                                                            color: tealDark,
+                                                            fontSize: 13,
+                                                            fontWeight: 700,
+                                                            textAlign: "center",
+                                                            textDecoration:
+                                                                "none",
+                                                        }}
+                                                    >
+                                                        📄 Galop {g.slice(1)}
+                                                        {g === "G4" &&
+                                                            " & Poneys"}
+                                                    </a>
+                                                ),
+                                            )}
+                                        </div>
                                     </div>
                                 </div>
                             </div>

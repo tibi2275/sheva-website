@@ -12,6 +12,41 @@ import type { Article } from "@/components/NewsCarousel";
 
 export const articles: Article[] = [
     {
+        date: "Octobre 2026",
+        title: "Le Challenge SHEVA 2026-2027 est lancé ! 🏆",
+        excerpt:
+            "5 étapes, 3 disciplines et surtout plein de bons moments entre copains ! Première étape le dimanche 15 novembre en dressage : à vos reprises 😉",
+        body: `🏆 Le Challenge interne de la SHEVA revient pour la saison 2026-2027 !
+
+C'est LE rendez-vous convivial de l'année : on se retrouve entre cavaliers, on s'encourage, on rigole… et on met en pratique tout ce qu'on travaille en reprise depuis la rentrée. Pas besoin d'être un champion : l'idée, c'est de se faire plaisir, de découvrir la compétition en douceur et de partager un bon moment au club.
+
+📅 Les 5 étapes (le dimanche) :
+- 15 novembre — Dressage
+- 13 décembre — Dressage
+- 17 janvier — Hunter
+- 28 février — CSO
+- 28 mars — CSO
+
+🎯 Dressage : les reprises à apprendre
+Pour les deux premières étapes, chaque cavalier présente la reprise de son niveau. Les reprises sont à télécharger juste en dessous 👇 (la reprise Galop 4 est aussi celle des Poneys). Un conseil : apprenez-la tôt, révisez-la à pied (oui, oui, ça marche !) et demandez à votre moniteur de vous la faire travailler en reprise.
+
+🤝 L'esprit du Challenge
+Fair-play, bienveillance et encouragements : on applaudit tout le monde, du premier au dernier passage. Et comme d'habitude, on prolonge le plaisir autour d'un repas partagé entre adhérents !
+
+🐴 Infos et inscriptions auprès de l'accueil et de vos moniteurs : n'hésitez pas à leur poser toutes vos questions !
+
+À très vite sur la carrière, et que le meilleur gagne… dans la bonne humeur ! 💪`,
+        img: "/images/Images-illustrations/challenge.JPG",
+        tag: "Nouveau",
+        links: [
+            { label: "📄 Galop 4 & Poneys", href: "/PDF_docs/chall_dress_G4.pdf" },
+            { label: "📄 Galop 5", href: "/PDF_docs/chall_dress_G5.pdf" },
+            { label: "📄 Galop 6", href: "/PDF_docs/chall_dress_G6.pdf" },
+            { label: "📄 Galop 7", href: "/PDF_docs/chall_dress_G7.pdf" },
+        ],
+    },
+
+    {
         date: "19 août 2026",
         title: "C'est la rentrée à la SHEVA 🐴",
         excerpt:
@@ -39,7 +74,6 @@ Vous souhaitez nous rejoindre pour cette nouvelle saison ? N'hésitez pas à nou
 
 📅 Rendez-vous le lundi 24 août, et retrouvez toutes les informations utiles sur www.sheva.fr → Infos pratiques.`,
         img: "/images/Images-illustrations/rentreenews.jpg",
-        tag: "Nouveau",
     },
 
     {

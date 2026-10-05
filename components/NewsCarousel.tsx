@@ -14,6 +14,8 @@ export type Article = {
     imgPosition?: string;
     /** Badge affiché sur la vignette, ex: "Nouveau". Laisser vide pour ne pas afficher de badge. */
     tag?: string;
+    /** Documents à télécharger, affichés en boutons sous le texte de l'article */
+    links?: { label: string; href: string }[];
 };
 
 const CARD_W = 320;
@@ -495,6 +497,39 @@ export function NewsCarousel({ articles }: { articles: Article[] }) {
                             >
                                 {modal.body}
                             </div>
+                            {modal.links && modal.links.length > 0 && (
+                                <div
+                                    style={{
+                                        display: "grid",
+                                        gridTemplateColumns:
+                                            "repeat(auto-fit, minmax(170px, 1fr))",
+                                        gap: 8,
+                                        marginTop: 20,
+                                    }}
+                                >
+                                    {modal.links.map((l) => (
+                                        <a
+                                            key={l.href}
+                                            href={assetPath(l.href)}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            style={{
+                                                display: "block",
+                                                padding: "10px 12px",
+                                                borderRadius: 10,
+                                                border: "1.5px solid rgb(94,180,174)",
+                                                color: "rgb(45,120,128)",
+                                                fontSize: 14,
+                                                fontWeight: 700,
+                                                textAlign: "center",
+                                                textDecoration: "none",
+                                            }}
+                                        >
+                                            {l.label}
+                                        </a>
+                                    ))}
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>
