@@ -7,6 +7,7 @@ import Image from "next/image";
 import { assetPath } from "@/lib/assetPath";
 
 import { teal, tealDark, tealLight, orange } from "@/lib/theme";
+import { PageHero } from "@/components/PageHero";
 
 // ─── CONTENT ──────────────────────────────────────────────────────────────────
 
@@ -131,115 +132,17 @@ function SectionTitle({ text }: { text: string }) {
 export function EquicoachingClient() {
     return (
         <>
-            <Nav />
-            <main style={{ paddingTop: 64 }}>
+            <Nav transparent />
+            <main>
                 {/* ── HERO ──────────────────────────────────────────────────── */}
-                <section
-                    style={{
-                        background: `linear-gradient(135deg, ${teal} 0%, ${tealDark} 100%)`,
-                        padding: "72px 24px 56px",
-                        textAlign: "center",
-                        position: "relative",
-                        overflow: "hidden",
-                    }}
-                >
-                    {/* Motif décoratif */}
-                    <div
-                        aria-hidden
-                        style={{
-                            position: "absolute",
-                            inset: 0,
-                            backgroundImage:
-                                "radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08) 0%, transparent 50%), radial-gradient(circle at 20% 80%, rgba(255,255,255,0.05) 0%, transparent 50%)",
-                            pointerEvents: "none",
-                        }}
-                    />
-
-                    {/* Breadcrumb */}
-                    <div
-                        style={{
-                            fontSize: 12,
-                            color: "rgba(255,255,255,0.7)",
-                            marginBottom: 20,
-                            letterSpacing: "0.03em",
-                        }}
-                    >
-                        <Link
-                            href="/"
-                            style={{
-                                color: "rgba(255,255,255,0.7)",
-                                textDecoration: "none",
-                            }}
-                        >
-                            Accueil
-                        </Link>
-                        {" › "}
-                        <Link
-                            href="/activites"
-                            style={{
-                                color: "rgba(255,255,255,0.7)",
-                                textDecoration: "none",
-                            }}
-                        >
-                            Activités
-                        </Link>
-                        {" › "}
-                        <span style={{ color: "white" }}>Équicoaching</span>
-                    </div>
-
-                    <h1
-                        style={{
-                            fontSize: "clamp(32px, 5vw, 56px)",
-                            fontWeight: 800,
-                            color: "white",
-                            margin: "0 0 16px",
-                            letterSpacing: "-0.02em",
-                        }}
-                    >
-                        Équicoaching
-                    </h1>
-                    <p
-                        style={{
-                            fontSize: "clamp(15px, 2vw, 18px)",
-                            color: "rgba(255,255,255,0.88)",
-                            maxWidth: 560,
-                            margin: "0 auto 36px",
-                            lineHeight: 1.6,
-                        }}
-                    >
-                        Une approche unique de développement personnel
-                        accompagné par le cheval
-                    </p>
-
-                    {/* Quicklinks */}
-                    <div
-                        style={{
-                            display: "flex",
-                            flexWrap: "wrap",
-                            gap: 10,
-                            justifyContent: "center",
-                        }}
-                    >
-                        {QUICKLINKS.map((l) => (
-                            <a
-                                key={l.href}
-                                href={l.href}
-                                style={{
-                                    padding: "8px 18px",
-                                    borderRadius: 8,
-                                    background: "rgba(255,255,255,0.15)",
-                                    border: "1px solid rgba(255,255,255,0.3)",
-                                    color: "white",
-                                    fontSize: 13,
-                                    fontWeight: 600,
-                                    textDecoration: "none",
-                                }}
-                            >
-                                {l.label}
-                            </a>
-                        ))}
-                    </div>
-                </section>
+                <PageHero
+                    crumbs={[{ label: "Activités", href: "/activites" }, { label: "Équicoaching" }]}
+                    title="Équicoaching"
+                    subtitle="Une approche unique de développement personnel accompagné par le cheval"
+                    image="/images/equicoaching/IMG_5225.JPEG"
+                    imagePosition="70% 30%"
+                    links={QUICKLINKS}
+                />
 
                 {/* ── INTRO ─────────────────────────────────────────────────── */}
                 <section id="approche" style={sectionPad}>

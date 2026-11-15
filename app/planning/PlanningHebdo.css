@@ -1,0 +1,116 @@
+/* Styles du planning hebdo — app/planning/PlanningHebdo.tsx */
+.ph-mobile { display: none; }
+@media (max-width: 767px) {
+    .ph-desktop, .ph-desktop-inline { display: none; }
+    .ph-mobile { display: block; }
+}
+.ph-btn { -webkit-tap-highlight-color: transparent; }
+.ph-btn:focus-visible {
+    outline: 2px solid rgb(69,144,150);
+    outline-offset: 2px;
+}
+.ph-levels {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+.ph-daynav {
+    display: grid;
+    grid-template-columns: 44px 1fr 44px;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+.ph-arrow {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    background: white;
+    color: rgb(69,144,150);
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
+.ph-arrow:active { background: rgba(94,180,174,0.12); }
+.ph-daytabs {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    margin-bottom: 14px;
+}
+.ph-daytab {
+    padding: 7px 0 4px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+.ph-gap {
+    height: 10px;
+    padding: 0;
+    border: 1px solid #e5e7eb;
+    background: repeating-linear-gradient(-45deg, #f8fafc 0 6px, #eef2f6 6px 7px);
+}
+.ph-empty {
+    text-align: center;
+    padding: 36px 16px;
+    border: 1px dashed #d1d5db;
+    border-radius: 12px;
+    font-size: 14px;
+}
+.ph-list {
+    margin-top: 28px;
+    padding-top: 22px;
+    border-top: 1px solid #eef0f2;
+}
+.ph-list-day + .ph-list-day { margin-top: 18px; }
+.ph-list-dayname {
+    margin: 0 0 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: rgb(69,144,150);
+}
+.ph-list-cards {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+}
+@media (min-width: 640px) {
+    .ph-list-cards { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+    .ph-list-cards { grid-template-columns: repeat(3, 1fr); }
+}
+.ph-card {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 12px;
+    align-items: center;
+    padding: 10px 12px;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-left: 3px solid;
+    border-radius: 10px;
+}
+.ph-card-time {
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    font-weight: 800;
+    color: rgb(15,23,42);
+    line-height: 1.15;
+    font-variant-numeric: tabular-nums;
+}
+.ph-card-end {
+    font-size: 11px;
+    font-weight: 500;
+    color: #9ca3af;
+}

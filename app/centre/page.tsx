@@ -14,6 +14,7 @@ export const metadata: Metadata = {
 };
 
 import { teal, tealDark, orange } from "@/lib/theme";
+import { PageHero } from "@/components/PageHero";
 
 // ─── DATA ─────────────────────────────────────────────────────────────────────
 
@@ -445,101 +446,22 @@ export default function CentrePage() {
 
     return (
         <>
-            <Nav />
+            <Nav transparent />
 
-            <main style={{ paddingTop: 64 }}>
+            <main>
                 {/* ── HERO ──────────────────────────────────────────────── */}
-                <section
-                    style={{
-                        background: `linear-gradient(135deg, ${teal} 0%, ${tealDark} 100%)`,
-                        padding: "72px 24px 56px",
-                        textAlign: "center",
-                    }}
-                >
-                    {/* Breadcrumb */}
-                    <div
-                        style={{
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            gap: 8,
-                            marginBottom: 20,
-                            fontSize: 13,
-                            color: "rgba(255,255,255,0.7)",
-                        }}
-                    >
-                        <Link
-                            href="/"
-                            style={{
-                                color: "rgba(255,255,255,0.7)",
-                                textDecoration: "none",
-                            }}
-                        >
-                            Accueil
-                        </Link>
-                        <span>›</span>
-                        <span style={{ color: "white" }}>
-                            Le centre équestre
-                        </span>
-                    </div>
-                    <h1
-                        style={{
-                            fontSize: 40,
-                            fontWeight: 700,
-                            color: "white",
-                            marginBottom: 16,
-                            lineHeight: 1.2,
-                        }}
-                    >
-                        Le Centre Équestre SHEVA
-                    </h1>
-                    <p
-                        style={{
-                            fontSize: 17,
-                            color: "rgba(255,255,255,0.85)",
-                            maxWidth: 600,
-                            margin: "0 auto 32px",
-                            lineHeight: 1.6,
-                        }}
-                    >
-                        Découvrez notre histoire, nos installations et l'équipe
-                        qui fait vivre la passion équestre depuis plus de 75
-                        ans.
-                    </p>
-                    {/* Quick nav */}
-                    <div
-                        style={{
-                            display: "flex",
-                            flexWrap: "wrap",
-                            gap: 10,
-                            justifyContent: "center",
-                        }}
-                    >
-                        {[
-                            { label: "Notre histoire", href: "#histoire" },
-                            { label: "L'association", href: "#association" },
-                            { label: "Installations", href: "#installations" },
-                            { label: "L'équipe", href: "#equipe" },
-                        ].map((l) => (
-                            <a
-                                key={l.href}
-                                href={l.href}
-                                style={{
-                                    padding: "8px 18px",
-                                    borderRadius: 8,
-                                    background: "rgba(255,255,255,0.15)",
-                                    border: "1px solid rgba(255,255,255,0.3)",
-                                    color: "white",
-                                    fontSize: 13,
-                                    fontWeight: 600,
-                                    textDecoration: "none",
-                                }}
-                            >
-                                {l.label}
-                            </a>
-                        ))}
-                    </div>
-                </section>
+                <PageHero
+                    crumbs={[{ label: "Le centre équestre" }]}
+                    title="Le Centre Équestre SHEVA"
+                    subtitle="Découvrez notre histoire, nos installations et l'équipe qui fait vivre la passion équestre depuis plus de 75 ans."
+                    image="/images/Images-illustrations/carriere-illustration.avif"
+                    links={[
+                        { label: "Notre histoire", href: "#histoire" },
+                        { label: "L'association", href: "#association" },
+                        { label: "Installations", href: "#installations" },
+                        { label: "L'équipe", href: "#equipe" },
+                    ]}
+                />
 
                 {/* ── STATS ─────────────────────────────────────────────── */}
                 <section

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Poppins, Archivo } from "next/font/google";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import "./globals.css";
 
@@ -8,6 +8,14 @@ const poppins = Poppins({
     subsets: ["latin"],
     weight: ["400", "500", "600", "700"],
     variable: "--font-poppins",
+    display: "swap",
+});
+
+// Archivo (version large) — titres et chiffres
+const archivo = Archivo({
+    subsets: ["latin"],
+    axes: ["wdth"],
+    variable: "--font-archivo",
     display: "swap",
 });
 
@@ -46,7 +54,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="fr" className={poppins.variable}>
+        <html lang="fr" className={`${poppins.variable} ${archivo.variable}`}>
             <body
                 className="bg-[#fafbfb] text-gray-800 antialiased"
                 style={{ fontFamily: "var(--font-poppins), sans-serif" }}

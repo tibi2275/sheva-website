@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 };
 
 import { teal, tealDark, orange } from "@/lib/theme";
+import { PageHero } from "@/components/PageHero";
 
 // ─── GALLERY ──────────────────────────────────────────────────────────────────
 
@@ -211,99 +212,23 @@ export default function ActivitesPage() {
 
     return (
         <>
-            <Nav />
+            <Nav transparent />
 
-            <main style={{ paddingTop: 64 }}>
+            <main>
                 {/* ── HERO ──────────────────────────────────────────────── */}
-                <section
-                    style={{
-                        background: `linear-gradient(135deg, ${teal} 0%, ${tealDark} 100%)`,
-                        padding: "72px 24px 56px",
-                        textAlign: "center",
-                    }}
-                >
-                    <div
-                        style={{
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            gap: 8,
-                            marginBottom: 20,
-                            fontSize: 13,
-                            color: "rgba(255,255,255,0.7)",
-                        }}
-                    >
-                        <Link
-                            href="/"
-                            style={{
-                                color: "rgba(255,255,255,0.7)",
-                                textDecoration: "none",
-                            }}
-                        >
-                            Accueil
-                        </Link>
-                        <span>›</span>
-                        <span style={{ color: "white" }}>Activités</span>
-                    </div>
-                    <h1
-                        style={{
-                            fontSize: 40,
-                            fontWeight: 700,
-                            color: "white",
-                            marginBottom: 16,
-                            lineHeight: 1.2,
-                        }}
-                    >
-                        Nos Activités Équestres
-                    </h1>
-                    <p
-                        style={{
-                            fontSize: 17,
-                            color: "rgba(255,255,255,0.85)",
-                            maxWidth: 600,
-                            margin: "0 auto 32px",
-                            lineHeight: 1.7,
-                            textAlign: "center",
-                        }}
-                    >
-                        De l'initiation au perfectionnement, découvrez toutes
-                        nos activités adaptées à chaque cavalier, quel que soit
-                        son niveau.
-                    </p>
-                    {/* Quick nav */}
-                    <div
-                        style={{
-                            display: "flex",
-                            flexWrap: "wrap",
-                            gap: 10,
-                            justifyContent: "center",
-                        }}
-                    >
-                        {[
-                            { label: "Cours", href: "#cours" },
-                            { label: "Compétition", href: "#competition" },
-                            { label: "Galops", href: "#galops" },
-                            { label: "Stages & sorties", href: "#activites" },
-                        ].map((l) => (
-                            <a
-                                key={l.href}
-                                href={l.href}
-                                style={{
-                                    padding: "8px 18px",
-                                    borderRadius: 8,
-                                    background: "rgba(255,255,255,0.15)",
-                                    border: "1px solid rgba(255,255,255,0.3)",
-                                    color: "white",
-                                    fontSize: 13,
-                                    fontWeight: 600,
-                                    textDecoration: "none",
-                                }}
-                            >
-                                {l.label}
-                            </a>
-                        ))}
-                    </div>
-                </section>
+                <PageHero
+                    crumbs={[{ label: "Activités" }]}
+                    title="Nos Activités Équestres"
+                    subtitle="De l'initiation au perfectionnement, découvrez toutes nos activités adaptées à chaque cavalier, quel que soit son niveau."
+                    image="/images/Images-illustrations/activites-illustration.avif"
+                    imagePosition="center 30%"
+                    links={[
+                        { label: "Cours", href: "#cours" },
+                        { label: "Compétition", href: "#competition" },
+                        { label: "Galops", href: "#galops" },
+                        { label: "Stages & sorties", href: "#activites" },
+                    ]}
+                />
 
                 {/* ── COURS ─────────────────────────────────────────────── */}
                 <section

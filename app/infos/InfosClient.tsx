@@ -10,6 +10,7 @@ import { TrouverReprise } from "@/components/TrouverReprise";
 import { Simulateur } from "@/components/Simulateur";
 
 import { teal, tealDark } from "@/lib/theme";
+import { PageHero } from "@/components/PageHero";
 
 // ─── NIVEAU TOOLS (boutons FAQ) ───────────────────────────────────────────────
 function NiveauTools() {
@@ -765,119 +766,29 @@ export default function InfosClient() {
 
     return (
         <>
-            <Nav />
+            <Nav transparent />
 
             {/* ── HERO ── */}
-            <section
-                style={{
-                    background: `linear-gradient(135deg, ${teal} 0%, ${tealDark} 100%)`,
-                    padding: "72px 24px 56px",
-                    paddingTop: "calc(64px + 72px)",
-                    textAlign: "center",
-                }}
-            >
-                {/* Breadcrumb */}
-                <div
-                    style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        gap: 8,
-                        marginBottom: 20,
-                        fontSize: 13,
-                        color: "rgba(255,255,255,0.7)",
-                    }}
-                >
-                    <Link
-                        href="/"
-                        style={{
-                            color: "rgba(255,255,255,0.7)",
-                            textDecoration: "none",
-                        }}
-                    >
-                        Accueil
-                    </Link>
-                    <span>›</span>
-                    <span style={{ color: "white", fontWeight: 600 }}>
-                        Informations Pratiques
-                    </span>
-                </div>
-
-                <h1
-                    style={{
-                        fontSize: "clamp(28px, 5vw, 40px)",
-                        fontWeight: 700,
-                        color: "white",
-                        marginBottom: 16,
-                        lineHeight: 1.2,
-                    }}
-                >
-                    Informations Pratiques
-                </h1>
-                <p
-                    style={{
-                        fontSize: 17,
-                        color: "rgba(255,255,255,0.85)",
-                        maxWidth: 600,
-                        margin: "0 auto 32px",
-                        lineHeight: 1.6,
-                    }}
-                >
-                    Tout ce que vous devez savoir : contact, accès,
-                    fonctionnement et modalités d&apos;inscription.
-                </p>
-
-                {/* Quick nav */}
-                <div
-                    style={{
-                        display: "flex",
-                        flexWrap: "wrap",
-                        gap: 10,
-                        justifyContent: "center",
-                    }}
-                >
-                    {[
+                <PageHero
+                    crumbs={[{ label: "Informations Pratiques" }]}
+                    title="Informations Pratiques"
+                    subtitle="Tout ce que vous devez savoir : contact, accès, fonctionnement et modalités d'inscription."
+                    image="/images/Images-illustrations/centre-illustration.avif"
+                    imagePosition="center 60%"
+                    links={[
                         { label: "Contact & Accès", href: "#contact" },
                         { label: "Fonctionnement", href: "#fonctionnement" },
                         { label: "Matériel", href: "#materiel" },
                         { label: "Inscriptions", href: "#inscriptions" },
                         { label: "Espace personnel", href: "#espace" },
                         { label: "FAQ", href: "#faq" },
-                    ].map((l) => (
-                        <a
-                            key={l.href}
-                            href={l.href}
-                            style={{
-                                padding: "8px 18px",
-                                borderRadius: 8,
-                                background: "rgba(255,255,255,0.15)",
-                                border: "1px solid rgba(255,255,255,0.3)",
-                                color: "white",
-                                fontSize: 13,
-                                fontWeight: 600,
-                                textDecoration: "none",
-                            }}
-                        >
-                            {l.label}
-                        </a>
-                    ))}
-                    <button
-                        onClick={() => setNoticesOpen(true)}
-                        style={{
-                            padding: "8px 18px",
-                            borderRadius: 8,
-                            background: "white",
-                            border: "1px solid white",
-                            color: tealDark,
-                            fontSize: 13,
-                            fontWeight: 700,
-                            cursor: "pointer",
-                        }}
-                    >
-                        📄 Notices
-                    </button>
-                </div>
-            </section>
+                    ]}
+                    extraLinks={
+                        <button type="button" className="pg-chip" onClick={() => setNoticesOpen(true)}>
+                            Notices
+                        </button>
+                    }
+                />
 
             <main style={{ background: "#f8fafc", minHeight: "60vh" }}>
                 {/* ══════════════════════════════════════

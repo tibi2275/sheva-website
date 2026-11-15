@@ -6,7 +6,8 @@ import { assetPath } from "@/lib/assetPath";
 
 const SWIPE_THRESHOLD = 50; // px minimum pour déclencher un swipe
 
-const photos = [
+// ★ Liste des photos (dossier public/images/Images-illustrations) — aussi utilisée sur l'accueil
+export const galleryPhotos = [
     "0d33c4f9-64e2-4e20-96c0-fcbc419a827d.jpg",
     "0FAA4EB7-F51A-4DBD-9A11-1603A9478F75.jpeg",
     "13EE2E49-67C3-48EA-B1A0-4E5477A94C2B.jpeg",
@@ -40,6 +41,7 @@ const photos = [
     "paddocks.jpeg",
     "sorties-act.jpeg",
 ];
+const photos = galleryPhotos;
 
 const ITEM_W = 340; // px per photo + gap
 const GAP = 12;

@@ -8,6 +8,7 @@ import Image from "next/image";
 import { assetPath } from "@/lib/assetPath";
 
 import { teal, tealDark } from "@/lib/theme";
+import { PageHero } from "@/components/PageHero";
 
 // ─── DONNÉES — RETRAITÉS ───────────────────────────────────────────────────────
 const RETRAITES = [
@@ -308,90 +309,38 @@ export default function ApreshevaClient() {
 
     return (
         <>
-            <Nav />
+            <Nav transparent />
 
-            <main style={{ paddingTop: 64 }}>
+            <main>
                 {/* ── HERO ── */}
-                <section
-                    style={{
-                        background: `linear-gradient(135deg, ${teal} 0%, ${tealDark} 100%)`,
-                        padding: "72px 24px 56px",
-                        textAlign: "center",
-                        position: "relative",
-                        overflow: "hidden",
-                    }}
-                >
-                    <div className="as-hero-glow" aria-hidden />
-
-                    {/* Breadcrumb */}
-                    <div className="as-breadcrumb">
-                        <Link href="/">Accueil</Link>
-                        <span>›</span>
-                        <Link href="/chevaux">Chevaux &amp; Poneys</Link>
-                        <span>›</span>
-                        <span style={{ color: "white", fontWeight: 600 }}>
-                            L&apos;Après SHEVA
-                        </span>
-                    </div>
-
-                    {/* Logo */}
-                    <div className="as-hero-logo">
+                <PageHero
+                    crumbs={[{ label: "Chevaux & Poneys", href: "/chevaux" }, { label: "L'Après SHEVA" }]}
+                    title="Nos Chevaux & Poneys à la Retraite"
+                    subtitle="Ils ont fait la SHEVA. Découvrez les retraités qui coulent désormais de belles journées bien méritées."
+                    image="/images/Images-illustrations/chevaux-illustration22.avif"
+                    top={
                         <Image
                             src={assetPath("/images/logos/apressheva.jpeg")}
                             alt="Logo L'Après SHEVA"
-                            width={100}
-                            height={100}
-                            style={{
-                                objectFit: "cover",
-                                width: "100%",
-                                height: "100%",
-                            }}
+                            width={84}
+                            height={84}
+                            style={{ borderRadius: 20, boxShadow: "0 8px 24px rgba(0,0,0,.25)" }}
                         />
-                    </div>
-
-                    <h1
-                        style={{
-                            fontSize: "clamp(28px, 5vw, 40px)",
-                            fontWeight: 700,
-                            color: "white",
-                            marginBottom: 16,
-                            lineHeight: 1.2,
-                            position: "relative",
-                        }}
-                    >
-                        Nos Chevaux &amp; Poneys à la Retraite
-                    </h1>
-                    <p
-                        style={{
-                            fontSize: 17,
-                            color: "rgba(255,255,255,0.85)",
-                            maxWidth: 600,
-                            margin: "0 auto 32px",
-                            lineHeight: 1.6,
-                            position: "relative",
-                        }}
-                    >
-                        Ils ont fait la SHEVA. Découvrez les retraités qui
-                        coulent désormais de belles journées bien méritées.
-                    </p>
-
-                    {/* Quick nav */}
-                    <div className="as-chips">
-                        {RETRAITES.map((r, i) => (
-                            <a
-                                key={r.nom}
-                                href={`#${slugOf(r)}`}
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    goTo(i);
-                                }}
-                                className="as-chip"
-                            >
-                                {r.surnom ?? r.nom.split(" ")[0]}
-                            </a>
-                        ))}
-                    </div>
-                </section>
+                    }
+                    extraLinks={RETRAITES.map((r, i) => (
+                        <a
+                            key={r.nom}
+                            href={`#${slugOf(r)}`}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                goTo(i);
+                            }}
+                            className="pg-chip"
+                        >
+                            {r.surnom ?? r.nom.split(" ")[0]}
+                        </a>
+                    ))}
+                />
 
                 {/* ── INTRO L'APRÈS SHEVA ── */}
                 <section style={{ background: "white", padding: "48px 24px" }}>

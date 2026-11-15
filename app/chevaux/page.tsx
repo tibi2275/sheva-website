@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 };
 
 import { teal, tealDark } from "@/lib/theme";
+import { PageHero } from "@/components/PageHero";
 
 // ─── DATA ─────────────────────────────────────────────────────────────────────
 
@@ -858,115 +859,16 @@ export default function ChevauxPage() {
 
     return (
         <>
-            <Nav />
-            <main
-                style={{
-                    paddingTop: 64,
-                }}
-            >
+            <Nav transparent />
+            <main>
                 {/* ── HERO ──────────────────────────────────────────────── */}
-                <section
-                    style={{
-                        background: `linear-gradient(135deg, ${teal} 0%, ${tealDark} 100%)`,
-                        padding: "72px 24px 56px",
-                        textAlign: "center",
-                    }}
-                >
-                    {/* background texture */}
-                    <div
-                        style={{
-                            position: "absolute",
-                            inset: 0,
-                            opacity: 0.06,
-                            backgroundImage:
-                                "radial-gradient(circle at 20% 50%, white 1px, transparent 1px), radial-gradient(circle at 80% 20%, white 1px, transparent 1px)",
-                            backgroundSize: "60px 60px",
-                        }}
-                    />
-
-                    <div style={{ ...containerStyle, position: "relative" }}>
-                        {/* Breadcrumb */}
-                        <div
-                            style={{
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                                gap: 8,
-                                marginBottom: 20,
-                                fontSize: 13,
-                                color: "rgba(255,255,255,0.75)",
-                            }}
-                        >
-                            <Link
-                                href="/"
-                                style={{
-                                    color: "rgba(255,255,255,0.75)",
-                                    textDecoration: "none",
-                                }}
-                            >
-                                Accueil
-                            </Link>
-                            <span>›</span>
-                            <span style={{ color: "white", fontWeight: 600 }}>
-                                Chevaux & Poneys
-                            </span>
-                        </div>
-
-                        <h1
-                            style={{
-                                fontSize: "clamp(28px, 5vw, 44px)",
-                                fontWeight: 800,
-                                color: "white",
-                                marginBottom: 16,
-                                lineHeight: 1.15,
-                            }}
-                        >
-                            Nos Chevaux & Poneys
-                        </h1>
-                        <p
-                            style={{
-                                fontSize: 17,
-                                color: "rgba(255,255,255,0.85)",
-                                maxWidth: 600,
-                                margin: "0 auto 32px",
-                                lineHeight: 1.6,
-                            }}
-                        >
-                            Découvrez notre cavalerie d'exception, sélectionnée
-                            avec soin pour leur caractère, leurs qualités
-                            pédagogiques et leur bien-être.
-                        </p>
-
-                        {/* Quick nav */}
-                        <div
-                            style={{
-                                display: "flex",
-                                flexWrap: "wrap",
-                                gap: 10,
-                                justifyContent: "center",
-                            }}
-                        >
-                            {quickLinks.map((l) => (
-                                <a
-                                    key={l.href}
-                                    href={l.href}
-                                    style={{
-                                        padding: "8px 18px",
-                                        borderRadius: 8,
-                                        background: "rgba(255,255,255,0.15)",
-                                        border: "1px solid rgba(255,255,255,0.3)",
-                                        color: "white",
-                                        fontSize: 13,
-                                        fontWeight: 600,
-                                        textDecoration: "none",
-                                    }}
-                                >
-                                    {l.label}
-                                </a>
-                            ))}
-                        </div>
-                    </div>
-                </section>
+                <PageHero
+                    crumbs={[{ label: "Chevaux & Poneys" }]}
+                    title="Nos Chevaux & Poneys"
+                    subtitle="Découvrez notre cavalerie d'exception, sélectionnée avec soin pour leur caractère, leurs qualités pédagogiques et leur bien-être."
+                    image="/images/Images-illustrations/chevaux-hero.jpeg"
+                    links={quickLinks}
+                />
 
                 {/* ── STATS OVERVIEW ─────────────────────────────────────── */}
                 <section

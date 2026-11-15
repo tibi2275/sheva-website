@@ -37,9 +37,11 @@ Fair-play, bienveillance et encouragements : on applaudit tout le monde, du prem
 
 À très vite sur la carrière, et que le meilleur gagne… dans la bonne humeur ! 💪`,
         img: "/images/Images-illustrations/challenge.JPG",
-        tag: "Nouveau",
         links: [
-            { label: "📄 Galop 4 & Poneys", href: "/PDF_docs/chall_dress_G4.pdf" },
+            {
+                label: "📄 Galop 4 & Poneys",
+                href: "/PDF_docs/chall_dress_G4.pdf",
+            },
             { label: "📄 Galop 5", href: "/PDF_docs/chall_dress_G5.pdf" },
             { label: "📄 Galop 6", href: "/PDF_docs/chall_dress_G6.pdf" },
             { label: "📄 Galop 7", href: "/PDF_docs/chall_dress_G7.pdf" },
@@ -74,55 +76,6 @@ Vous souhaitez nous rejoindre pour cette nouvelle saison ? N'hésitez pas à nou
 
 📅 Rendez-vous le lundi 24 août, et retrouvez toutes les informations utiles sur www.sheva.fr → Infos pratiques.`,
         img: "/images/Images-illustrations/rentreenews.jpg",
-    },
-
-    {
-        date: "Juillet 2026",
-        title: "Le centre équestre ferme ses portes pour l'été ☀️",
-        excerpt:
-            "Nos chevaux sont partis se ressourcer au pré, et toute l'équipe en profite aussi pour souffler ! Rendez-vous le 24 août pour une reprise en pleine forme.",
-        body: `☀️ C'est l'heure des vacances à la SHEVA !
-
-Le centre équestre ferme ses portes : nos chevaux sont partis se dégourdir les jambes au pré, entre copains, avec plein d'herbe à brouter et de grands espaces pour se défouler. Un vrai moment de ressourcement bien mérité pour eux aussi !
-
-🏖️ Certain chanceux ont la chance d'aller resprirer l'air marin pour le stage à Deauville et rejoindront très prochainement leurs camarades au pré.
-
-Tout ce petit monde reviendra quelques jours avant la reprise des cours, fin août, prêt à retrouver tous ses amis en pleine forme.
-
-C'est aussi une période de repos bien méritée pour toute l'équipe de la SHEVA, qui a elle aussi besoin de recharger les batteries avant une nouvelle saison.
-
-📅 On se retrouve tous à partir du 24 août !
-
-📧 D'ici là, privilégiez les contacts par email : le téléphone de la SHEVA ne sera pas joignable pendant cette période. Les emails nous permettent une meilleure traçabilité pour vous répondre au mieux dès notre retour.
-
-Belle fin d'été à tous, cavaliers, familles et amis de la SHEVA 🐴🌿`,
-        img: "/images/Images-illustrations/vac_news.jpg",
-        imgPosition: "center bottom",
-    },
-
-    {
-        date: "Avril 2026",
-        title: "Inscriptions saison 2026-2027 : les dates à retenir",
-        excerpt:
-            "Les inscriptions pour la prochaine saison sont ouvertes ! Réunion d'information, ouverture des essais, nouveaux adhérents… voici toutes les dates clés.",
-        body: `Les inscriptions pour la saison 2026-2027 sont ouvertes ! Si vous souhaitez nous rejoindre, voici quelques dates à retenir :
-
-        📅 6 mai à 20h — Réunion d'information - https://meet.google.com/afr-xbej-the
-        Venez découvrir le club, poser vos questions et rencontrer l'équipe. Ouverte à tous, cavaliers débutants comme confirmés.
-
-        ✨ 11 mai 2026 — Ouverture des inscriptions aux séances d'essai
-        Vous ne nous connaissez pas encore ? Réservez une séance d'essai pour tester l'équitation dans les meilleures conditions.
-
-        📌 26 mai — Ouverture aux nouveaux adhérents
-        Les inscriptions officielles pour la saison 2026-2027 ouvrent aux nouveaux membres.
-
-        Si nous avons déjà l'honneur de vous compter parmi nos adhérents, à vos agendas :
-
-        🔑 À partir du 11 mai 2026 — début des réinscriptions
-        Les adhérents actuels peuvent renouveler leur inscription en priorité dès cette date depuis leur espace en ligne.
-
-        Retrouvez toutes les infos sur les pages Planning & Tarifs et Infos pratiques, ou contactez-nous directement à l'accueil.`,
-        img: "/images/Images-illustrations/activ-hero.jpeg",
     },
 
     {
