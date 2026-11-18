@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useSyncExternalStore, useRef } from "react";
+import React, { useState, useSyncExternalStore } from "react";
 import {
     PLANNING_HEBDO,
     PONEY_LEVELS,
@@ -176,8 +176,6 @@ export default function PlanningHebdo({
     const dayIndex = pickedDay ?? todayIndex;
     const nbDays = PLANNING_HEBDO.length;
     const goDay = (i: number) => setPickedDay((i + nbDays) % nbDays);
-
-    const touchStart = useRef<{ x: number; y: number } | null>(null);
 
     const handleMountFilter = (val: MountFilter) => {
         setFilterType(val);
@@ -497,22 +495,6 @@ export default function PlanningHebdo({
         return null;
     })();
 
-    const onTouchStart = (e: React.TouchEvent) => {
-        const t = e.touches[0];
-        touchStart.current = { x: t.clientX, y: t.clientY };
-    };
-    const onTouchEnd = (e: React.TouchEvent) => {
-        const s = touchStart.current;
-        touchStart.current = null;
-        if (!s) return;
-        const t = e.changedTouches[0];
-        const dx = t.clientX - s.x;
-        const dy = t.clientY - s.y;
-        if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) {
-            goDay(dayIndex + (dx < 0 ? 1 : -1));
-        }
-    };
-
     const dayView = (
         <div>
             {/* Navigation jour */}
@@ -621,7 +603,7 @@ export default function PlanningHebdo({
             </div>
 
             {/* Grille du jour */}
-            <div onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
+            <div>
                 {filterActive && dayMatches === 0 ? (
                     <div className="ph-empty">
                         <p style={{ margin: 0, fontWeight: 600, color: "#374151" }}>
