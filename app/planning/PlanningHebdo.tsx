@@ -319,10 +319,8 @@ export default function PlanningHebdo({
     const tableMinWidth = 48 + nbDays * 2 * 65;
     const weekView = (
         <div
+            className="ph-week-scroll"
             style={{
-                overflowX: "auto",
-                overflowY: "auto",
-                maxHeight: 540,
                 borderRadius: 10,
                 border: "1px solid #e5e7eb",
             }}

@@ -81,7 +81,7 @@ body {
 /* Padding bottom on mobile to avoid content hidden behind bottom nav */
 @media (max-width: 1023px) {
     main {
-        padding-bottom: 4rem;
+        padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
     }
 }
 
@@ -420,4 +420,72 @@ body {
 .horse-card-wrap:hover .horse-bio-overlay {
     opacity: 1;
     pointer-events: auto;
+}
+
+/* ─── Barre de navigation mobile : pilule flottante façon Insta ─── */
+.mnav {
+    position: fixed;
+    left: 16px;
+    right: 16px;
+    bottom: calc(12px + env(safe-area-inset-bottom));
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+    transition:
+        transform 0.32s cubic-bezier(0.32, 0.72, 0, 1),
+        opacity 0.25s ease;
+}
+.mnav--hidden {
+    transform: translateY(calc(100% + 28px + env(safe-area-inset-bottom)));
+    opacity: 0;
+}
+.mnav-pill {
+    pointer-events: auto;
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+    padding: 6px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow:
+        0 8px 28px rgba(15, 23, 42, 0.16),
+        0 1px 2px rgba(15, 23, 42, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+.mnav-item {
+    flex: 1;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    border-radius: 999px;
+    border: none;
+    background: transparent;
+    color: rgb(15, 23, 42);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+.mnav-item:active {
+    transform: scale(0.92);
+}
+.mnav-item.is-active {
+    background: rgba(69, 144, 150, 0.16);
+    color: rgb(45, 120, 128);
+}
+.mnav-item:focus-visible {
+    outline: 2px solid rgb(69, 144, 150);
+    outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+    .mnav,
+    .mnav-item {
+        transition: none;
+    }
 }

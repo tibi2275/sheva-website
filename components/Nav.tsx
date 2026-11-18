@@ -69,6 +69,80 @@ const navLinks = [
     },
 ];
 
+const iconProps = (active: boolean) => ({
+    width: 26,
+    height: 26,
+    viewBox: "0 0 24 24",
+    fill: active ? "currentColor" : "none",
+    stroke: "currentColor",
+    strokeWidth: 2.2,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+    "aria-hidden": true,
+});
+
+const bottomItems = [
+    {
+        label: "Accueil",
+        href: "/",
+        icon: (active: boolean) => (
+            <svg {...iconProps(active)}>
+                <path d="M4 10.5 12 4l8 6.5V19a1.5 1.5 0 0 1-1.5 1.5H15v-5.5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5.5H5.5A1.5 1.5 0 0 1 4 19z" />
+            </svg>
+        ),
+    },
+    {
+        label: "Planning & tarifs",
+        href: "/planning",
+        icon: (active: boolean) => (
+            <svg {...iconProps(false)}>
+                <rect
+                    x="3.5"
+                    y="5"
+                    width="17"
+                    height="15.5"
+                    rx="3.5"
+                    fill={active ? "currentColor" : "none"}
+                />
+                <path d="M8 3v4M16 3v4" />
+                <path
+                    d="M3.5 10h17"
+                    stroke={active ? "white" : "currentColor"}
+                />
+            </svg>
+        ),
+    },
+    {
+        label: "Activités",
+        href: "/activites",
+        icon: (active: boolean) => (
+            <svg {...iconProps(false)}>
+                <circle
+                    cx="12"
+                    cy="12"
+                    r="8.5"
+                    fill={active ? "currentColor" : "none"}
+                />
+                <path
+                    d="m15.5 8.5-2 5-5 2 2-5z"
+                    stroke={active ? "white" : "currentColor"}
+                    fill={active ? "white" : "none"}
+                />
+            </svg>
+        ),
+    },
+    {
+        label: "Mon compte",
+        href: "https://cloud6.kavalog.fr/SHEVA/",
+        icon: (active: boolean) => (
+            <svg {...iconProps(active)}>
+                <circle cx="12" cy="8" r="4" />
+                <path d="M4.5 20.5a7.5 7.5 0 0 1 15 0z" />
+            </svg>
+        ),
+    },
+];
+
 // ─── COMPONENT ────────────────────────────────────────────────────────────────
 
 export function Nav({ transparent = false }: { transparent?: boolean }) {
@@ -77,6 +151,34 @@ export function Nav({ transparent = false }: { transparent?: boolean }) {
     const [menuOpen, setMenuOpen] = useState(false);
     const [openSection, setOpenSection] = useState<string | null>(null);
     const [hovered, setHovered] = useState<string | null>(null);
+    const [navHidden, setNavHidden] = useState(false);
+
+    // Barre du bas (mobile) : se cache au scroll ↓, réapparaît au scroll ↑
+    useEffect(() => {
+        let lastY = window.scrollY;
+        let ticking = false;
+        const update = () => {
+            ticking = false;
+            const y = window.scrollY;
+            const dy = y - lastY;
+            const nearBottom =
+                window.innerHeight + y >=
+                document.documentElement.scrollHeight - 24;
+            if (y < 80 || nearBottom) setNavHidden(false);
+            else if (dy > 6) setNavHidden(true);
+            else if (dy < -6) setNavHidden(false);
+            else return; // petit mouvement : on garde la référence
+            lastY = y;
+        };
+        const onScroll = () => {
+            if (!ticking) {
+                ticking = true;
+                requestAnimationFrame(update);
+            }
+        };
+        window.addEventListener("scroll", onScroll, { passive: true });
+        return () => window.removeEventListener("scroll", onScroll);
+    }, []);
 
     // Scroll → opaque header
     useEffect(() => {
@@ -419,7 +521,7 @@ export function Nav({ transparent = false }: { transparent?: boolean }) {
                 <div style={{ height: 64, flexShrink: 0 }} />
 
                 {/* Nav items */}
-                <div style={{ flex: 1, padding: "8px 24px 24px" }}>
+                <div style={{ flex: 1, padding: "8px 24px 120px" }}>
                     {navLinks.map((link, i) => {
                         const isOpen = openSection === link.label;
                         return (
@@ -644,146 +746,65 @@ export function Nav({ transparent = false }: { transparent?: boolean }) {
             </div>
 
             {/* ════════════════════════════════════════
-          BOTTOM NAV — mobile only
+          BOTTOM NAV — mobile only, pilule flottante
+          Se cache au scroll vers le bas, réapparaît au scroll vers le haut
       ════════════════════════════════════════ */}
             <nav
-                className="lg:hidden"
-                style={{
-                    position: "fixed",
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    zIndex: 50,
-                    background: "white",
-                    borderTop: "1px solid #e5e7eb",
-                    paddingBottom: "env(safe-area-inset-bottom)",
-                }}
+                aria-label="Navigation principale"
+                className={`lg:hidden mnav${navHidden && !menuOpen ? " mnav--hidden" : ""}`}
             >
-                <div style={{ display: "flex", height: 60 }}>
-                    {[
-                        {
-                            label: "Accueil",
-                            href: "/",
-                            icon: (
-                                <svg
-                                    width="22"
-                                    height="22"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={1.8}
-                                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                                    />
-                                </svg>
-                            ),
-                        },
-                        {
-                            label: "Planning",
-                            href: "/planning",
-                            icon: (
-                                <svg
-                                    width="22"
-                                    height="22"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={1.8}
-                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                                    />
-                                </svg>
-                            ),
-                        },
-                        {
-                            label: "Mon compte",
-                            href: "https://cloud6.kavalog.fr/SHEVA/",
-                            icon: (
-                                <svg
-                                    width="22"
-                                    height="22"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={1.8}
-                                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                                    />
-                                </svg>
-                            ),
-                        },
-                    ].map((item) => {
-                        const active = !menuOpen && pathname === item.href;
+                <div className="mnav-pill">
+                    {bottomItems.map((item) => {
+                        const active =
+                            !menuOpen &&
+                            (item.href === "/"
+                                ? pathname === "/"
+                                : pathname.startsWith(item.href));
+                        const external = item.href.startsWith("http");
                         return (
                             <Link
                                 key={item.href}
                                 href={item.href}
                                 onClick={close}
-                                style={{
-                                    flex: 1,
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                    gap: 3,
-                                    color: active ? teal : "#9ca3af",
-                                    textDecoration: "none",
-                                }}
+                                aria-label={item.label}
+                                aria-current={active ? "page" : undefined}
+                                className={`mnav-item${active ? " is-active" : ""}`}
+                                {...(external
+                                    ? { target: "_blank", rel: "noopener noreferrer" }
+                                    : {})}
                             >
-                                {item.icon}
-                                <span style={{ fontSize: 10, fontWeight: 600 }}>
-                                    {item.label}
-                                </span>
+                                {item.icon(active)}
                             </Link>
                         );
                     })}
 
                     {/* Menu / Fermer */}
                     <button
+                        type="button"
                         onClick={() => setMenuOpen(!menuOpen)}
-                        style={{
-                            flex: 1,
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            gap: 3,
-                            color: menuOpen ? teal : "#9ca3af",
-                            background: "none",
-                            border: "none",
-                            cursor: "pointer",
-                        }}
+                        aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+                        aria-expanded={menuOpen}
+                        className={`mnav-item${menuOpen ? " is-active" : ""}`}
                     >
                         <svg
-                            width="22"
-                            height="22"
+                            width="26"
+                            height="26"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
+                            aria-hidden
                         >
                             <path
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
-                                strokeWidth={1.8}
+                                strokeWidth={2.2}
                                 d={
                                     menuOpen
                                         ? "M6 18L18 6M6 6l12 12"
-                                        : "M4 6h16M4 12h16M4 18h10"
+                                        : "M4 7h16M4 12h16M4 17h10"
                                 }
                             />
                         </svg>
-                        <span style={{ fontSize: 10, fontWeight: 600 }}>
-                            {menuOpen ? "Fermer" : "Menu"}
-                        </span>
                     </button>
                 </div>
             </nav>

@@ -114,3 +114,21 @@
     font-weight: 500;
     color: #9ca3af;
 }
+
+/* Vue semaine : scroll interne seulement à la souris.
+   Sur écran tactile (tablette, téléphone en paysage), une boîte scrollable
+   imbriquée piège le doigt : on laisse la page défiler verticalement et on
+   ne garde que le défilement horizontal. */
+.ph-week-scroll {
+    overflow: auto;
+    max-height: min(540px, calc(100vh - 120px));
+    overscroll-behavior: contain;
+}
+@media (pointer: coarse) {
+    .ph-week-scroll {
+        overflow-x: auto;
+        overflow-y: visible;
+        max-height: none;
+        overscroll-behavior: auto;
+    }
+}
