@@ -305,9 +305,13 @@ export default function PlanningHebdo({
                 textAlign: "right",
                 whiteSpace: "nowrap",
                 background: "#f8fafc",
-                position: "sticky",
-                left: 0,
-                zIndex: 5,
+                // Colonne collante utile seulement en vue semaine (scroll
+                // horizontal). En vue jour, ~40 cellules sticky dans un
+                // conteneur overflow:hidden bloquent le scroll tactile sur
+                // Safari iOS.
+                ...(large
+                    ? {}
+                    : { position: "sticky" as const, left: 0, zIndex: 5 }),
                 fontVariantNumeric: "tabular-nums",
             }}
         >
@@ -649,7 +653,7 @@ export default function PlanningHebdo({
                         style={{
                             borderRadius: 10,
                             border: "1px solid #e5e7eb",
-                            overflow: "hidden",
+                            overflow: "clip",
                         }}
                     >
                         <table
