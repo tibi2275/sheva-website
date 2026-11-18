@@ -146,6 +146,28 @@ const noopSubscribe = () => () => {};
 const getTodayIndex = () => (new Date().getDay() + 6) % 7;
 const getServerTodayIndex = () => 0;
 
+// Hauteur de la fenêtre (vue jour mobile : la journée doit tenir à l'écran)
+const subscribeResize = (cb: () => void) => {
+    window.addEventListener("resize", cb);
+    window.addEventListener("orientationchange", cb);
+    return () => {
+        window.removeEventListener("resize", cb);
+        window.removeEventListener("orientationchange", cb);
+    };
+};
+const getViewportH = () => window.innerHeight;
+const getServerViewportH = () => 700;
+
+// Hauteurs fixes autour de la grille du jour, en px
+const DAY_CHROME =
+    64 + // bandeau SHEVA en haut
+    88 + // barre de navigation du bas
+    34 + // en-tête Grand manège / Petit manège
+    12; // marge
+const DAY_GAP_H = 6; // ligne hachurée entre deux plages horaires
+const DAY_ROW_MIN = 8;
+const DAY_ROW_MAX = 17;
+
 type MountFilter = "tous" | "poney" | "cheval";
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -173,6 +195,11 @@ export default function PlanningHebdo({
         getServerTodayIndex,
     );
     const [pickedDay, setPickedDay] = useState<number | null>(null);
+    const viewportH = useSyncExternalStore(
+        subscribeResize,
+        getViewportH,
+        getServerViewportH,
+    );
     const dayIndex = pickedDay ?? todayIndex;
     const nbDays = PLANNING_HEBDO.length;
     const goDay = (i: number) => setPickedDay((i + nbDays) % nbDays);
@@ -288,6 +315,40 @@ export default function PlanningHebdo({
                 <div style={{ fontSize: 10, fontWeight: 700, color: col.text }}>
                     {c.label}
                 </div>
+            </td>
+        );
+    };
+
+    // Colonne des heures de la vue jour : seulement les heures pleines
+    // (et le début de chaque plage) quand les lignes sont serrées
+    const dayTimeCell = (slot: number, forceLabel: boolean) => {
+        const full = slot % 60 === 0;
+        const show = full || forceLabel || (rowH >= 14 && slot % 30 === 0);
+        return (
+            <td
+                style={{
+                    padding: "0 6px",
+                    height: rowH,
+                    border: "1px solid #eef0f2",
+                    borderTop: full ? "1px solid #d9dee3" : "1px solid #eef0f2",
+                    fontWeight: full ? 700 : 500,
+                    fontSize: full ? 11 : 9.5,
+                    lineHeight: "11px",
+                    color: full ? "#374151" : "#9ca3af",
+                    textAlign: "right",
+                    verticalAlign: "top",
+                    whiteSpace: "nowrap",
+                    background: "#f8fafc",
+                    fontVariantNumeric: "tabular-nums",
+                    overflow: "visible",
+                }}
+            >
+                {/* hauteur 0 : le libellé déborde sans agrandir la ligne */}
+                {show && (
+                    <div style={{ height: 0, paddingTop: 2 }}>
+                        {minToHeure(slot)}
+                    </div>
+                )}
             </td>
         );
     };
@@ -428,6 +489,22 @@ export default function PlanningHebdo({
           )
         : DAY_SLOTS[day.jour];
 
+    // Hauteur d'une ligne de 15 min : toute la journée (du premier au dernier
+    // créneau) tient dans l'écran, sans scroll.
+    const dayGaps = daySlots.filter(
+        (s, i) => i > 0 && s - daySlots[i - 1] > SLOT_STEP,
+    ).length;
+    const rowH = Math.max(
+        DAY_ROW_MIN,
+        Math.min(
+            DAY_ROW_MAX,
+            Math.floor(
+                (viewportH - DAY_CHROME - dayGaps * DAY_GAP_H) /
+                    Math.max(daySlots.length, 1),
+            ),
+        ),
+    );
+
     // Cellules d'une colonne (GM ou PM) pour la vue jour, calculées sur
     // les slots réellement affichés (rowSpan cohérent même filtré)
     const dayColumn = (lieu: "pm" | "gm") => {
@@ -449,35 +526,61 @@ export default function PlanningHebdo({
             busyUntil = end;
             const rowSpan = daySlots.filter((s) => s >= slot && s < end).length;
             const col = CRENEAU_COLORS[c.type];
+            const h = rowSpan * rowH - 1;
+            const twoLines = h >= 34;
             cells.set(
                 slot,
                 <td
                     key={`${lieu}-${slot}`}
                     rowSpan={rowSpan}
                     style={{
-                        padding: "6px 8px",
+                        padding: 0,
                         borderTop: "1px solid #e5e7eb",
                         borderRight: "1px solid #e5e7eb",
                         borderBottom: "1px solid #e5e7eb",
                         borderLeft: `3px solid ${col.text}`,
                         background: col.bg,
                         verticalAlign: "middle",
-                        lineHeight: 1.25,
                     }}
                 >
-                    <div style={{ fontSize: 13, fontWeight: 700, color: col.text }}>
-                        {c.label}
-                    </div>
                     <div
                         style={{
-                            fontSize: 11,
+                            height: h,
+                            overflow: "hidden",
+                            display: "flex",
+                            flexDirection: twoLines ? "column" : "row",
+                            alignItems: twoLines ? "flex-start" : "center",
+                            justifyContent: twoLines ? "center" : "flex-start",
+                            gap: twoLines ? 1 : 6,
+                            padding: "0 7px",
+                            lineHeight: 1.15,
+                            whiteSpace: "nowrap",
                             color: col.text,
-                            opacity: 0.75,
-                            marginTop: 2,
-                            fontVariantNumeric: "tabular-nums",
                         }}
                     >
-                        {c.heure} – {finCreneau(c)}
+                        <span
+                            style={{
+                                fontSize: h >= 18 ? 12.5 : 11,
+                                fontWeight: 700,
+                                overflow: "hidden",
+                                textOverflow: "ellipsis",
+                                minWidth: 0,
+                            }}
+                        >
+                            {c.label}
+                        </span>
+                        <span
+                            style={{
+                                fontSize: h >= 18 ? 10.5 : 9.5,
+                                opacity: 0.75,
+                                fontVariantNumeric: "tabular-nums",
+                                flexShrink: 0,
+                            }}
+                        >
+                            {twoLines
+                                ? `${c.heure} – ${finCreneau(c)}`
+                                : c.heure}
+                        </span>
                     </div>
                 </td>,
             );
@@ -697,11 +800,12 @@ export default function PlanningHebdo({
                                                     <td
                                                         colSpan={3}
                                                         className="ph-gap"
+                                                        style={{ height: DAY_GAP_H }}
                                                     />
                                                 </tr>
                                             )}
-                                            <tr style={{ height: 17 }}>
-                                                {timeCell(slot, true, ri === 0 || gap)}
+                                            <tr style={{ height: rowH }}>
+                                                {dayTimeCell(slot, ri === 0 || gap)}
                                                 {gmCells.get(slot)}
                                                 {pmCells.get(slot)}
                                             </tr>
